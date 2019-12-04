@@ -19,10 +19,10 @@ public class AgenteController {
 		return "cadastro-agente";
 	}
 	
-	@RequestMapping(value = "cadastroagente", method = RequestMethod.POST)
+	@RequestMapping(value = "/cadastroagente", method = RequestMethod.POST)
 	public String cadastrarAgente(Agente agente) {
 		agenteDAO.save(agente);
-		return "cadastroagente";
+		return "cadastro-agente";
 	}
 	
 
