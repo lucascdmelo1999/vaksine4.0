@@ -107,7 +107,7 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
             
                 <!---Formbuilder Form--->
-                <form action="/salvarposto" th:object="${posto}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="nomWrruewyvVMXFc6QAPdqEyc/aPOzgwEZbYJGJfPka23kaheBJewwjlRKVEuLY4l7e6VO32iAWbIopSFoD3nqzsllcN5VwuGiSOPiDD5mCs8cLQ6MIE8to28aOgbiWx">
+                <form th:action="@/salvarposto" th:object="${posto}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="nomWrruewyvVMXFc6QAPdqEyc/aPOzgwEZbYJGJfPka23kaheBJewwjlRKVEuLY4l7e6VO32iAWbIopSFoD3nqzsllcN5VwuGiSOPiDD5mCs8cLQ6MIE8to28aOgbiWx">
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -124,7 +124,7 @@
                         </div>
                         <div data-for="telefone" class="form-group">
                             <label for="telefone" class="form-control-label mbr-fonts-style display-7">Telefone</label>
-                            <input type="tel" name="telefone" class="form-control display-7" id="telefone">
+                            <input type="tel" name="telefone" class="form-control display-7" id="telefone" th:field="*{telefone}">
                         </div>
                         
                         <div class="form-group" data-for="name">
@@ -134,7 +134,7 @@
                         
                         <div class="form-group" data-for="senha">
                             <label for="senha" class="form-control-label mbr-fonts-style display-7">Senha</label>
-                            <input type="password" name="senha" required="required" class="form-control display-7" id="senha" th:field="*{senha}">
+                            <input type="password" name="senha" required="required" class="form-control display-7" id="senha" >
                         </div>
                         <div class="form-group" data-for="senha">
                             <label for="confirmarsenha" class="form-control-label mbr-fonts-style display-7">Confirmar Senha</label>
