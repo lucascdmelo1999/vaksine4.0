@@ -23,19 +23,15 @@ public class PostoController {
 	}
 	
 	@GetMapping("/cadastroposto")
-	public String cadastroposto() {
+	public String cadastroposto(Posto posto) {
 		return "cadastro-posto";
 	}
 	
 	@PostMapping("/salvarposto")
-	public String salvarposto(@Valid Posto posto, BindingResult result) {
-		if(result.hasErrors()) {
-			System.out.println(result.getAllErrors());
-			return "cadastro-posto";
-			
-		};
+	public String salvarposto(Posto posto) {
+		
 		this.postoDAO.save(posto);
-		return "redirect:/#";
+		return "redirect:/paginainicial";
 	}
 
 

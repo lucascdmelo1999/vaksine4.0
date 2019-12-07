@@ -10,10 +10,15 @@ public class Usuario {
 	@GeneratedValue
 	private Integer id;
 	private String nome;
+	private String nomeMae;
+	private String nomePai;
+	private String dataNas;
+	private String cpf;
+	private String tipoSanguineo;
 	private String email;
 	private String telefone;
 	private String endereco;
-	
+	private String senha;
 	public Integer getId() {
 		return id;
 	}
@@ -25,6 +30,36 @@ public class Usuario {
 	}
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	public String getNomeMae() {
+		return nomeMae;
+	}
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
+	}
+	public String getNomePai() {
+		return nomePai;
+	}
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
+	}
+	public String getDataNas() {
+		return dataNas;
+	}
+	public void setDataNas(String dataNas) {
+		this.dataNas = dataNas;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getTipoSanguineo() {
+		return tipoSanguineo;
+	}
+	public void setTipoSanguineo(String tipoSanguineo) {
+		this.tipoSanguineo = tipoSanguineo;
 	}
 	public String getEmail() {
 		return email;
@@ -44,6 +79,13 @@ public class Usuario {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	
 	
+
 }

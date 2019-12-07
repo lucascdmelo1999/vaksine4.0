@@ -10,24 +10,24 @@ import javax.validation.constraints.NotBlank;
 public class Posto {
 	
 	@Id @GeneratedValue 
-	@NotBlank
 	private Integer id;
-	@NotBlank (message = "Campo vazio")
-	@Column(length = 50)
+
 	private String nomedoposto;
-	@NotBlank (message = "Campo vazio")
-	@Column(length = 35)
 	private String email;
-	@NotBlank (message = "Campo vazio")
-	@Column(length = 14)
-	private String telefone;
-	@NotBlank (message = "Campo vazio")
-	@Column(length = 255)
-	private String endereco;
-	@NotBlank (message = "Campo vazio")
-	@Column(length = 6)
-	private String senha;
 	
+	private String telefone;
+
+	private String endereco;
+	private String codigo;
+	private String senha;
+	private String confirmarsenha;
+	
+	public String getCodigo() {
+		return codigo;
+	}
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
 	public Integer getId() {
 		return id;
 	}
@@ -64,6 +64,13 @@ public class Posto {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+	public String getConfirmarsenha() {
+		return confirmarsenha;
+	}
+	public void setConfirmarsenha(String confirmarsenha) {
+		this.confirmarsenha = confirmarsenha;
+	}
+	
 	
 	
 	

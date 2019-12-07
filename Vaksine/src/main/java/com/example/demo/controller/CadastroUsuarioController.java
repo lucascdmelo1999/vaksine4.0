@@ -29,13 +29,5 @@ public class CadastroUsuarioController {
 		
 	}
 	
-	@PostMapping("/addCadastro")
-	public ModelAndView addUser( Usuario user) {
-		ModelAndView mv = new ModelAndView("cadastro-posto");
-		mv.addObject("usuario", user);
-		return mv;
-		
-	
-    }
 	
 }
