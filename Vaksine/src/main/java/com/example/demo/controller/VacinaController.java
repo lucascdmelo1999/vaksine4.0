@@ -42,4 +42,10 @@ public class VacinaController {
 		vacinaDAO.deleteById(id);
 		return "redirect:/listarVacina";
 	}
+	
+	@GetMapping("/listarvacinas")
+	public String listarVacinas(Model model) {
+		model.addAttribute("listaVacinas", vacinaDAO.findAll());
+		return "lista-vacinas";
+	}
 }
