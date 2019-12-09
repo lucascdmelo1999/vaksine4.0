@@ -1,11 +1,12 @@
 package com.example.demo.model;
-
-import java.util.Calendar;
+import java.util.Date;
 
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Embeddable
 public class LoteVacina {
@@ -16,10 +17,9 @@ public class LoteVacina {
 	@GeneratedValue
 	private int numeroLote;
 	
-	@NotNull(message = "Informe a data de validade")
-	private Calendar validade;
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date validade;
 	
-	@NotBlank(message="")
 	private String detalhe;
 	
 	public int getQuantidade() {
@@ -34,10 +34,10 @@ public class LoteVacina {
 	public void setNumeroLote(int numeroLote) {
 		this.numeroLote = numeroLote;
 	}
-	public Calendar getValidade() {
+	public Date getValidade() {
 		return validade;
 	}
-	public void setValidade(Calendar validade) {
+	public void setValidade(Date validade) {
 		this.validade = validade;
 	}
 	public String getDetalhe() {

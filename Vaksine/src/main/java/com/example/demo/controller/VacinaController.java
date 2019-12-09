@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.dao.VacinaDAO;
+import com.example.demo.model.Usuario;
 import com.example.demo.model.Vacina;
 
 @Controller
@@ -18,24 +19,25 @@ public class VacinaController {
 	@Autowired
 	private VacinaDAO vacinaDAO;
 	
-	@GetMapping("/vacinaForm")
-	public String exibirForm() {
+	@GetMapping("/vacinaform")
+	public String exibirForm(Vacina vacina) {
 		return "cadastro-vacina";
 	}
 	
-	@PostMapping("/cadastrarVacina")
-	public String cadastrarVacina(Vacina vacina) {
+	@PostMapping("/cadastrarvacina")
+	public String cadastrarVacina(Vacina vacina, Model model) {
+		model.addAttribute("vacina", vacina);
 		vacinaDAO.save(vacina);
 		return "cadastro-vacina";
 	}
 	
-	@GetMapping("/editarVacina")
+	@GetMapping("/editarvacina")
 	public String atualizarVacina(@ Valid BindingResult atributes, Model model, Integer id) {
 		model.addAttribute("listaDados", vacinaDAO.findById(id));
 		return "vacina-form";
 	}
 	
-	@GetMapping("/deletarVacina")
+	@GetMapping("/deletarvacina")
 	public String deletarVacina(Integer id) {
 		vacinaDAO.deleteById(id);
 		return "redirect:/listarVacina";
