@@ -24,11 +24,16 @@ public class VacinaController {
 		return "cadastro-vacina";
 	}
 	
+	@GetMapping("/vacinalist")
+	public String listarVacina(Vacina vacina) {
+		
+		return "lista-vacina";
+	}
 	@PostMapping("/cadastrarvacina")
 	public String cadastrarVacina(Vacina vacina, Model model) {
 		model.addAttribute("vacina", vacina);
 		vacinaDAO.save(vacina);
-		return "cadastro-vacina";
+		return "redirect:/vacinalist";
 	}
 	
 	@GetMapping("/editarvacina")
@@ -40,6 +45,7 @@ public class VacinaController {
 	@GetMapping("/deletarvacina")
 	public String deletarVacina(Integer id) {
 		vacinaDAO.deleteById(id);
-		return "redirect:/listarVacina";
+		return "redirect:/listavacina";
+	
 	}
 }
