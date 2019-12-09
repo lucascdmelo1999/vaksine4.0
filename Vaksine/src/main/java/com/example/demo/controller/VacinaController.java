@@ -48,4 +48,10 @@ public class VacinaController {
 		return "redirect:/listavacina";
 	
 	}
+	
+	@GetMapping("/listarvacinas")
+	public String listarVacinas(Model model) {
+		model.addAttribute("listaVacinas", vacinaDAO.findAll());
+		return "lista-vacinas";
+	}
 }
