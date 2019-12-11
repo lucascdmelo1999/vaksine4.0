@@ -8,13 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
-import com.example.demo.model.Posto;
 
 @Controller
 public class AgenteController {
 	
 	@Autowired
 	private AgenteDAO agenteDAO;
+	
+	@GetMapping("/ind-agente")
+	public String agente (Agente agente) {
+		return "/agente";
+	}
+	
 	
 	
 	@RequestMapping(value = "/formagente", method = RequestMethod.GET)
