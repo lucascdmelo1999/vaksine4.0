@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
   <meta name="description" content="Web Page Builder Description">
   
-  <title>Cadastrar Posto</title>
+  <title>Cadastro Usuario</title>
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -20,61 +20,11 @@
   <link rel="stylesheet" href="assets/animatecss/animate.min.css">
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="preload" as="style" href="assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
-  
-	  <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>		
-  <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.3.2.js" ></script> 
-  <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.js"></script>
+  <link rel="stylesheet" href="./css/login.css">
+  	
+   	
+    
 
-  
-  
-  <script>
-  		$(document).ready(function(){
-  			$('form').validate({
-  				rules:{
-  					nome:{
-  						required:true,
-  						minlength:5
-  					},
-  					nomeMae:{
-  						required:true,
-  						minlength:5
-  					},
-  					nomePai:{
-  						required:true,
-  						minlength:5
-  					},
-  					dataNas:{
-  						required:true,
-  						minlength:5
-  						
-  					},
-  					cpf:{
-  						required:true
-  					},
-  					tipoSanguineo:{
-  						
-  					},
-  					email:{
-  						required:true,
-  						email:true
-  					},
-  					telefone:{
-  						
-  					},
-  					endereco:{
-  						
-  					},
-  					senha:{
-  						rangelength:[5,15]
-  					}
-  					
-  				},
-  				messages:{
-  					
-  				}
-  			});
-  		});
-  </script>
   
 </head>
 <body>
@@ -85,7 +35,7 @@
     <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <div class="hamburger">
-                <span></span>
+                <spModel model,an></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -95,7 +45,6 @@
             <div class="navbar-brand">
                 <span class="navbar-logo">
                     <a href="index.html">
-                         <img src="assets/images/beijo.gif" alt="zegotinha" title="" style="height: 4rem;">
                     </a>
                 </span>
                 <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" href="index.html">
@@ -123,22 +72,7 @@
         </div>
     </nav>
 </section>
-<section class="engine"><a href="https://mobirise.info/s">free bootstrap themes</a></section><section once="footers" class="cid-rHL0kRHyt3" id="footer6-14">
 
-    
-
-    
-
-    <div class="container">
-        <div class="media-container-row align-center mbr-white">
-            <div class="col-12">
-                <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                    © Copyright 2019 Mobirise - All Rights Reserved
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="mbr-section form1 cid-rHL2XxBCLu" id="form1-15">
 
@@ -149,9 +83,9 @@
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
                 <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-                    Cadastrar Posto</h2>
+                    Cadastrar Usuario</h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                    Preencha as informações sobre o posto corretamente.
+                    Preencha suas informações.
                 </h3>
             </div>
         </div>
@@ -172,7 +106,7 @@
                             <label for="nomeMae" class="form-control-label mbr-fonts-style display-7">Nome da Mãe</label>
                             <input type="text"  name="nomeMae" id="nomeMae" class="form-control display-7"  th:field="*{nomeMae}">
                         </div>
-                        <div  class="form-group">
+                        <div  class="form-enderecogroup">
                             <label for="nomePai" class="form-control-label mbr-fonts-style display-7">Nome do Pai</label>
                             <input type="text" name="nomePai" id="nomePai" class="form-control display-7"  th:field="*{nomePai}">
                         </div>
@@ -184,7 +118,7 @@
                         
                         <div class="form-group">
                             <label for="cpf" class="form-control-label mbr-fonts-style display-7">CPF</label>
-                            <input type="number" name="cpf" id="cpf" class="form-control cpf-mask"  th:field="*{cpf}">
+                            <input type="text" name="cpf" id="cpf" class="form-control cpf-mask"  th:field="*{cpf}">
                         </div>
                         
                         <div class="form-group">
@@ -200,7 +134,8 @@
                         <div class="form-group">
                             <label for="telefone" class="form-control-label mbr-fonts-style display-7">Telefone</label>
                             <input type="tel" name="telefone" id="telefone"  class="form-control display-7" th:field="*{telefone}">
-                        </div>
+                        </div>￼
+
                         
                          <div class="form-group">
                             <label for="endereco" class="form-control-label mbr-fonts-style display-7">Endereço</label>
@@ -254,15 +189,18 @@
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
-  <script src="assets/theme/js/script.js"></script>
+  
 
+   <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script type="text/javascript" src="./js/validate.js"></script>
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
   </body>
   
-  	
 
-  
 </html>

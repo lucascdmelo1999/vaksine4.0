@@ -17,7 +17,7 @@ public class CadastroUsuarioController {
 	private UsuarioDAO usuarioDAO;
 	
 	@GetMapping("/cadUsuario")
-	public String cadastro(Model model,Usuario usuario) {
+	public String cadastro(Usuario usuario) {
 		
 		return "cadastro-usuario";
 		

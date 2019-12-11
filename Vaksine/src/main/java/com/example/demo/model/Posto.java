@@ -9,16 +9,14 @@ public class Posto {
 	
 	@Id @GeneratedValue 
 	private Integer id;
-
 	private String nomedoposto;
 	private String email;
-	
 	private String telefone;
-
 	private String endereco;
 	private String codigo;
 	private String senha;
 	private String confirmarsenha;
+	
 	
 	public String getCodigo() {
 		return codigo;

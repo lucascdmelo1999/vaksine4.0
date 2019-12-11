@@ -19,6 +19,7 @@ public class Usuario {
 	private String telefone;
 	private String endereco;
 	private String senha;
+	
 	public Integer getId() {
 		return id;
 	}

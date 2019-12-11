@@ -1,6 +1,5 @@
 package com.example.demo.model;
 
-import java.util.Calendar;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +7,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Agente {
@@ -30,8 +28,10 @@ public class Agente {
 	private String email;
 	
 	@NotNull(message="O campo Data de nascimento precisa ser preenchido")
-	@DateTimeFormat(pattern="dd/MM/yyyy")
-	private Calendar dataNascimento;
+	private String dataNascimento;
+	
+	@NotNull(message="O campo Data de nascimento precisa ser preenchido")
+	private String senha;
 	
 	public Integer getMatricula() {
 		return matricula;
@@ -63,10 +63,16 @@ public class Agente {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Calendar getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 }
