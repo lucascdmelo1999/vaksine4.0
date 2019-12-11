@@ -91,6 +91,7 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
                 <form action="/cadastrarvacina" method="POST" class="mbr-form form-with-styler" th:object="${vacina}">
+              
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
                         <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12"></div>
@@ -112,6 +113,10 @@
                      	<div data-for="message" class="col-md-12 form-group">
                             <label for="message-form1-p" class="form-control-label mbr-fonts-style display-7">Especificação</label>
                             <textarea type="text" class="form-control display-7" id="message-form1-p" th:field="*{loteVacina.detalhe}"></textarea>
+                        </div>
+                        <div  class="col-md-12 form-group">
+                            <label for="message-form1-p" class="form-control-label mbr-fonts-style display-7">Especificação</label>
+                            <input type="hidden" class="form-control display-7" th:field="*{id}" th:value="${id}">
                         </div>
                         <div class="col-md-12 input-group-btn align-center">
                             <button type="submit" class="btn btn-primary btn-form display-4">Enviar</button>
