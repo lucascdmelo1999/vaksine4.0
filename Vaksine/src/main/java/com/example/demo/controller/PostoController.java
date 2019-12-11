@@ -16,14 +16,9 @@ public class PostoController {
 	public PostoDAO postoDAO;
 
 
-	@GetMapping("/paginainicial")
-	public String paginainicial() {
-		return "index";
-	}
-
+	
 
 	@GetMapping("/cadastroposto")
-
 	public String cadastroposto(Posto posto) {
 		return "cadastro-posto";
 	}

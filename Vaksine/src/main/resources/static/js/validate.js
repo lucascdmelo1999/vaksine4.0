@@ -15,54 +15,52 @@ $(document).ready(function(){
 
                    nomeMae: {
                    	   required: true,
-                       maxlength: 20,
-                       minlength: 5
+                       maxlength: 40,
+                       minlength: 6
                    },
 
                    nomePai: {
                    	   required: true,
-                   	   maxlength:40
+                   	   maxlength:40,
+                   	   minlength: 6
                    },
 
                    dataNas: {
-	                   	required: true,
-	                   	maxlength: 15,
-	                   	minlength: 5
+	                   	required: true
 
                    },
                    cpf: {
-	                   	required: true,
-	                   	maxlength: 14
+	                   	required: true
 
                    },
                    tipoSanguineo: {
 	                   	required: true,
-	                   	maxlength: 15,
-	                   	minlength: 5
+	                   	maxlength: 5,
+	                   	minlength: 2
 
 	                },
 	                email: {
 		                   	required: true,
-		                   	maxlength: 40,
+		                   	maxlength: 50,
 		                   	minlength: 5,
 		                   	email:true
 	
 	                },
 	                telefone: {
 		                   	required: true,
-		                   	maxlength: 15,
+		                   	maxlength: 25,
 		                   	minlength: 5
 	
 	                },
 	                endereco: {
 	                   	required: true,
-	                   	maxlength: 15,
+	                   	maxlength: 25,
 	                   	minlength: 5
 
 	                },
                 	senha: {
                    	required: true,
-                   	maxlength: 15,
+                   	maxlength: 35,
                    	minlength: 5
 
                 	}
@@ -86,41 +84,38 @@ $(document).ready(function(){
 
                    email: {
                    	   required: true,
-                       maxlength: 20,
+                       maxlength: 50,
                        email:true,
                        minlength: 5
                    },
 
                   telefone: {
                    	   required: true,
-                   	rangelength:[8,11],
                    	   number:true
                    	   
                    },
 
                    endereco: {
 	                   	required: true,
-	                   	maxlength: 15,
 	                   	minlength: 5
 
                    },
 
                    codigo: {
 	                   	required: true,
-	                   	maxlength: 15,
 	                   	minlength: 5
 
                    },
                    senha: {
 	                   	required: true,
-	                   	maxlength: 15,
-	                   	minlength: 5
+	                   	maxlength: 25,
+	                   	minlength: 6
 
                    },
                    confirmarsenha: {
 	                   	required: true,
-	                   	maxlength: 15,
-	                   	minlength: 5,
+	                   	maxlength: 25,
+	                   	minlength: 6,
 	                   	equalTo: "#senha"
 
 	                }
@@ -141,8 +136,7 @@ $(document).ready(function(){
                    },
 
                    cpf: {
-                   	   required: true,
-                       maxlength: 20,
+                   	   required: true,                   
                        minlength: 5
                    },
 
@@ -153,15 +147,39 @@ $(document).ready(function(){
 
                    dataNascimento: {
 	                   	required: true,
-	                   	maxlength: 15,
 	                   	minlength: 5
 
                    },
                    senha: {
 	                   	required: true,
-	                   	maxlength: 15,
+	                   	maxlength: 25,
 	                   	minlength: 5
 
+                   },
+                   confirmarSenha:{
+                	   required: true,
+                	   maxlength: 25,
+	                   minlength: 5,
+                	   equalTo: "#senha"
+                   }
+      		   }
+      	   })
+      })
+      
+      //--------------------------------------------------------------------------------------------
+      
+          $(document).ready(function(){
+      	  $("#formVacina").validate({
+      		   rules: {
+                   nome: {
+                   	   required: true,
+                       maxlength: 40,
+                       minlength: 6
+                   },
+
+                   cpf: {
+                   	   required: true,                   
+                       minlength: 5
                    }
       		   }
       	   })

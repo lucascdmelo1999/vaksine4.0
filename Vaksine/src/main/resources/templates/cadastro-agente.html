@@ -124,6 +124,11 @@
                             <label for="cpf" class="form-control-label mbr-fonts-style display-7">Senha</label>
                             <input type="password" name="senha" id="senha" class="form-control cpf-mask"  th:field="*{senha}">
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="cpf" class="form-control-label mbr-fonts-style display-7">Confirmar senha</label>
+                            <input type="password" name="confirmarSenha" id="confirmarSenha" class="form-control cpf-mask"  th:field="*{confirmarSenha}">
+                        </div>
                                                                
                         
                         <div class="col-md-12 input-group-btn align-center">
@@ -169,10 +174,12 @@
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
   
     
-  <script type="text/javascript" src="./js/validate.js"></script>
+  
    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script type="text/javascript" src="./js/validate.js"></script>
 
   
 

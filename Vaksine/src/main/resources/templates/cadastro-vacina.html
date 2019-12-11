@@ -42,7 +42,7 @@
         <div class="menu-logo">
             <div class="navbar-brand">
                 <span class="navbar-logo">
-                    <a href="/paginainicial">
+                    <a th:href="@{/paginainicial}">
                          <img src="assets/images/logo.png"  title="" style="height: 4rem;">
                     </a>
                 </span>
@@ -77,7 +77,7 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="/cadastrarvacina" method="POST" class="mbr-form form-with-styler" th:object="${vacina}">
+                <form id="formVacina" action="/cadastrarvacina" method="POST" class="mbr-form form-with-styler" th:object="${vacina}">
               
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
@@ -91,7 +91,7 @@
                         	
                         <div class="col-md-12  form-group" data-for="email" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Quantidade</label>
-                            <input type="number" name="quantidade" data-form-field="" placeholder="Quantidade" required="required" class="form-control display-7" id="email-form1-p" th:field="*{loteVacina.quantidade}">
+                            <input type="number" name="quantidade" data-form-field="" placeholder="Quantidade" required="required" class="form-control display-7" id="quantidade" th:field="*{loteVacina.quantidade}">
                         </div>
                         <div class="col-md-12  form-group" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Data validade</label>
@@ -116,33 +116,7 @@
     <br><br>
 </section>
 
-<section class="cid-rHCSFfglJM" id="social-buttons1-q">
-    
-    
 
-    
-
-    <div class="container">
-        <div class="media-container-row">
-            <div class="col-md-8 align-center">
-                <h2 class="pb-3 mbr-section-title mbr-fonts-style display-2">
-                    Redes sociais.</h2>
-                <div>
-                    <div class="mbr-social-likes" data-counters="false">
-                        <span class="btn btn-social facebook mx-2" title="Share link on Facebook">
-                            <i class="socicon socicon-facebook"></i>
-                        </span>
-                        <span class="btn btn-social twitter mx-2" title="Share link on Twitter">
-                            <i class="socicon socicon-twitter"></i>
-                        </span>
-                        
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section once="footers" class="cid-rHL0kRHyt3" id="footer6-12">
 
@@ -173,6 +147,12 @@
   <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>
   <script src="assets/tether/tether.min.js"></script>
   <script src="assets/theme/js/script.js"></script>
+  
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script type="text/javascript" src="./js/validate.js"></script>
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
