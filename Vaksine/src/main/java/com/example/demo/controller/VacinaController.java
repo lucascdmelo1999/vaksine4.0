@@ -1,11 +1,9 @@
 package com.example.demo.controller;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -20,13 +18,13 @@ public class VacinaController {
 
 	@GetMapping("/vacinaform")
 	public String exibirForm(Vacina vacina) {
-		return "cadastro-vacina";
+		return "/cadastro-vacina";
 	}
 
 	@GetMapping("/vacinalist")
-	public String listarVacina(Vacina vacina) {
-
-		return "lista-vacina";
+	public String listarVacina(Vacina vacina, Model model) {
+		model.addAttribute("listaVacinas",this.vacinaDAO.findAll(Sort.by("id")));
+		return "/lista-vacina";
 	}
 
 	@GetMapping("/vacinabuscar")
@@ -36,28 +34,33 @@ public class VacinaController {
 	}
 
 	@PostMapping("/cadastrarvacina")
-	public String cadastrarVacina(Vacina vacina, Model model) {
-		model.addAttribute("vacina", vacina);
-		vacinaDAO.save(vacina);
+	public String cadastrarVacina(Vacina vacina) {
+		this.vacinaDAO.save(vacina); 
 		return "redirect:/vacinalist";
 	}
 
 	@GetMapping("/editarvacina")
-	public String atualizarVacina(@Valid BindingResult atributes, Model model, Integer id) {
-		model.addAttribute("listaDados", vacinaDAO.findById(id));
-		return "vacina-form";
+	public String atualizarVacina(Model model, Integer id) {
+		model.addAttribute("vacina", vacinaDAO.findById(id));
+		return "/cadastro-vacina";
 	}
 
 	@GetMapping("/deletarvacina")
 	public String deletarVacina(Integer id) {
 		vacinaDAO.deleteById(id);
-		return "redirect:/listavacina";
+		return "redirect:/vacinalist";
 
 	}
-
+	
+	
+	
+	
+	
+	
+/*
 	@GetMapping("/listarvacinas")
 	public String listarVacinas(Model model) {
-		model.addAttribute("listaVacinas", vacinaDAO.findAll());
-		return "lista-vacinas";
-	}
+		model.addAttribute("listaVacinas",this.vacinaDAO.findAll(Sort.by("id")));
+		return "redirect:/vacinalist";
+	}*/
 }

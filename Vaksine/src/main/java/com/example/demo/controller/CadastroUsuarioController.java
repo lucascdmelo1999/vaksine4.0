@@ -12,22 +12,22 @@ import com.example.demo.model.Usuario;
 
 @Controller
 public class CadastroUsuarioController {
-	
+
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
 	@GetMapping("/cadUsuario")
-	public String cadastro(Usuario usuario) {
-		
+	public String cadastro(Model model, Usuario usuario) {
+
 		return "cadastro-usuario";
-		
+
 	}
+
 	@PostMapping("/cad")
 	public String cadastrar(Usuario usuario) {
 		usuarioDAO.save(usuario);
 		return "redirect:/cadUsuario";
-		
+
 	}
-	
-	
+
 }

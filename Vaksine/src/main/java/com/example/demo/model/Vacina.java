@@ -17,7 +17,7 @@ public class Vacina {
 	private String nome;
 	
 	@Embedded
-	private LoteVacina loteVacina;
+	private LoteVacina loteVacina;	
 	
 	public Integer getId() {
 		return id;

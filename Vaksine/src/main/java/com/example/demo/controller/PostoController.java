@@ -15,18 +15,22 @@ public class PostoController {
 	@Autowired
 	public PostoDAO postoDAO;
 
+
 	@GetMapping("/paginainicial")
 	public String paginainicial() {
 		return "index";
 	}
 
-	@GetMapping("/cadPosto")
+
+	@GetMapping("/cadastroposto")
+
 	public String cadastroposto(Posto posto) {
 		return "cadastro-posto";
 	}
 
 	@PostMapping("/salvarposto")
 	public String salvarposto(Posto posto) {
+
 		this.postoDAO.save(posto);
 		return "redirect:/paginainicial";
 	}

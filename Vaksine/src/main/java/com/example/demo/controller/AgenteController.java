@@ -14,6 +14,12 @@ public class AgenteController {
 	@Autowired
 	private AgenteDAO agenteDAO;
 	
+	@GetMapping("/ind-agente")
+	public String agente (Agente agente) {
+		return "/agente";
+	}
+	
+	
 	
 	@GetMapping("/cadAgente")
 	public String exibirCadastroAgente(Agente agente) {

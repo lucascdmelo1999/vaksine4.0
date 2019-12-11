@@ -4,7 +4,6 @@ import java.util.Date;
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
