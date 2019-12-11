@@ -32,8 +32,6 @@ public class Agente {
 	
 	@NotNull(message="O campo Data de nascimento precisa ser preenchido")
 	private String senha;
-	
-	private String confirmaSenha;
 
 	private String confirmarSenha;
 
@@ -93,13 +91,6 @@ public class Agente {
 		this.senha = senha;
 	}
 
-	public String getConfirmaSenha() {
-		return confirmaSenha;
-	}
-
-	public void setConfirmaSenha(String confirmaSenha) {
-		this.confirmaSenha = confirmaSenha;
-	}
 
 	public String getConfirmarSenha() {
 		return confirmarSenha;
