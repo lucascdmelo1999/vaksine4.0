@@ -77,7 +77,7 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form id="formVacina" action="/cadastrarvacina" method="POST" class="mbr-form form-with-styler" th:object="${vacina}">
+                <form id="formCadastroVacina" action="/cadastrarvacina" method="POST" class="mbr-form form-with-styler" th:object="${vacina}">
               
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
@@ -86,7 +86,7 @@
                     <div>
                         <div class="col-md-12  form-group" data-for="nome">
                             <label for="name-form1-p" class="form-control-label mbr-fonts-style display-7">Nome Vacina</label>
-                            <input type="text" name="nome" data-form-field="Nome" placeholder="Nome" required="required" class="form-control" id="formGroupExampleInput" th:field="*{nome}">
+                            <input type="text" name="nome" data-form-field="Nome" placeholder="Nome"  class="form-control" id="nome" th:field="*{nome}">
                         </div>
                         	
                         <div class="col-md-12  form-group" data-for="email" >
@@ -95,16 +95,13 @@
                         </div>
                         <div class="col-md-12  form-group" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Data validade</label>
-                            <input type="date" name="data" placeholder="Data de validade" required="required" class="form-control display-7" id="email-form1-p" th:field="*{loteVacina.validade}">
+                            <input type="date" name="validade" placeholder="Data de validade"  class="form-control display-7" id="validade" th:field="*{loteVacina.validade}">
                         </div>
                      	<div data-for="message" class="col-md-12 form-group">
                             <label for="message-form1-p" class="form-control-label mbr-fonts-style display-7">Especificação</label>
-                            <textarea type="text" class="form-control display-7" id="message-form1-p" th:field="*{loteVacina.detalhe}"></textarea>
+                            <textarea type="text" name="detalhe" class="form-control display-7" id="detalhe" th:field="*{loteVacina.detalhe}"></textarea>
                         </div>
-                        <div  class="col-md-12 form-group">
-                            <label for="message-form1-p" class="form-control-label mbr-fonts-style display-7">Especificação</label>
-                            <input type="hidden" class="form-control display-7" th:field="*{id}" th:value="${id}">
-                        </div>
+                        
                         <div class="col-md-12 input-group-btn align-center">
                             <button type="submit" class="btn btn-primary btn-form display-4">Enviar</button>
                         </div>

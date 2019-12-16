@@ -1,6 +1,6 @@
 jQuery(function($){
        $("#cpf").mask("000.000.000-00");
-       $("#telefone").mask("(00) 0000-00009");
+       $("#telefone").mask("(00) 00000-0000");
 });
    
 
@@ -169,7 +169,7 @@ $(document).ready(function(){
       //--------------------------------------------------------------------------------------------
       
           $(document).ready(function(){
-      	  $("#formVacina").validate({
+      	  $("#formCadastroVacina").validate({
       		   rules: {
                    nome: {
                    	   required: true,
@@ -177,9 +177,17 @@ $(document).ready(function(){
                        minlength: 6
                    },
 
-                   cpf: {
+                   quantidade: {
                    	   required: true,                   
-                       minlength: 5
+                       minlength: 2
+                   },
+                   dataValidade:{
+                	   required: true,
+                	   date:true
+                   },
+                   especificacoes:{
+                	   required:true,
+                	   minlength:10
                    }
       		   }
       	   })
