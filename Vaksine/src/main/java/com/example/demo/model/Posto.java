@@ -3,20 +3,36 @@ package com.example.demo.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Posto {
 	
-	@Id @GeneratedValue 
+	@Id 
+	@GeneratedValue 
 	private Integer id;
-	private String nomedoposto;
-	private String email;
-	private String telefone;
-	private String endereco;
-	private String codigo;
-	private String senha;
-	private String confirmarsenha;
 	
+	@NotBlank(message = "")
+	private String nomePosto;
+	
+	@NotBlank(message = "")
+	private String email;
+	
+	@NotBlank(message = "")
+	private String telefone;
+	
+	@NotBlank(message = "")
+	private String endereco;
+	
+	@NotNull
+	private String codigo;
+	
+	@NotBlank(message = "")
+	private String senha;
+	
+	@NotBlank(message = "")
+	private String confirmarSenha;
 	
 	public String getCodigo() {
 		return codigo;
@@ -30,11 +46,11 @@ public class Posto {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getNomedoposto() {
-		return nomedoposto;
+	public String getNomePosto() {
+		return nomePosto;
 	}
-	public void setNomedoposto(String nomedoposto) {
-		this.nomedoposto = nomedoposto;
+	public void setNomePosto(String nomedoposto) {
+		this.nomePosto = nomedoposto;
 	}
 	public String getEmail() {
 		return email;
@@ -60,11 +76,11 @@ public class Posto {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	public String getConfirmarsenha() {
-		return confirmarsenha;
+	public String getConfirmarSenha() {
+		return confirmarSenha;
 	}
-	public void setConfirmarsenha(String confirmarsenha) {
-		this.confirmarsenha = confirmarsenha;
+	public void setConfirmarSenha(String confirmarsenha) {
+		this.confirmarSenha = confirmarsenha;
 	}
 	
 	

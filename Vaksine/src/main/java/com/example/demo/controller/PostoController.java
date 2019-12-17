@@ -1,22 +1,19 @@
 package com.example.demo.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import javax.inject.Inject;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.dao.PostoDAO;
 import com.example.demo.model.Posto;
+import com.example.demo.service.PostoService;
 
 @Controller
 public class PostoController {
-
-	@Autowired
-	public PostoDAO postoDAO;
-
-
 	
+	@Inject
+	PostoService postoService;
 
 	@GetMapping("/cadastroposto")
 	public String cadastroposto(Posto posto) {
@@ -26,7 +23,7 @@ public class PostoController {
 	@PostMapping("/salvarposto")
 	public String salvarposto(Posto posto) {
 
-		this.postoDAO.save(posto);
+		this.postoService.save(posto);
 		return "redirect:/paginainicial";
 	}
 

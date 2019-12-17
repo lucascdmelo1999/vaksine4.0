@@ -57,7 +57,12 @@
 			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-websocket</artifactId>
-			</dependency>
+		</dependency>
+		<dependency>
+    		<groupId>javax.inject</groupId>
+    		<artifactId>javax.inject</artifactId>
+    		<version>1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
