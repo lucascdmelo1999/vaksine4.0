@@ -42,7 +42,7 @@ public class PostoServiceImpl implements PostoService{
 	
 	//métodos de vaidações
 	
-	//verifica se as senhas conferem
+	//verifica se as senhas não conferem
 	public void checkPassword(Posto posto) throws Exception {
 		if(!(posto.getSenha().equals(posto.getConfirmarSenha()))) {
 			throw new Exception("Senhas não conferem, favor, inserir senhas iguais");

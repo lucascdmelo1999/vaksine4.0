@@ -21,12 +21,12 @@ public class PostoController {
 	}
 
 	@GetMapping("/cadastroposto")
-	public String cadastroposto(Posto posto) {
+	public String formCadastro(Posto posto) {
 		return "cadastro-posto";
 	}
 
 	@PostMapping("/salvarposto")
-	public String salvarposto(Posto posto) {
+	public String cadastrarPosto(Posto posto) {
 
 		this.postoService.cadastrarPosto(posto);
 		return "redirect:/paginainicial";
