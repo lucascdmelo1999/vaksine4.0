@@ -28,7 +28,7 @@ public class PostoController {
 	@PostMapping("/salvarposto")
 	public String salvarposto(Posto posto) {
 
-		this.postoService.save(posto);
+		this.postoService.cadastrarPosto(posto);
 		return "redirect:/paginainicial";
 	}
 

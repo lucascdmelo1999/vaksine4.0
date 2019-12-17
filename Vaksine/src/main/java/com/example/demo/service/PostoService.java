@@ -3,6 +3,10 @@ import com.example.demo.model.Posto;
 
 public interface PostoService {
 	
-	public Posto save(Posto posto);
+	public Posto cadastrarPosto(Posto posto);
+	
+	public Posto atualizarPosto(Posto posto, Integer id);
+	
+	public Posto deletarPosto(Integer id);
 
 }

@@ -1,7 +1,7 @@
 package com.example.demo.serviceImpl;
 
+import java.util.Optional;
 import javax.inject.Named;
-
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.dao.PostoDAO;
@@ -15,7 +15,7 @@ public class PostoServiceImpl implements PostoService{
 	PostoDAO postoDAO;
 	
 	@Override
-	public Posto save(Posto posto){
+	public Posto cadastrarPosto(Posto posto){
 		//verifica se existe alguma excessão
 		try {
 			this.checkPassword(posto);
@@ -25,11 +25,42 @@ public class PostoServiceImpl implements PostoService{
 		return postoDAO.save(posto);
 	}
 	
+	@Override
+	public Posto atualizarPosto(Posto posto, Integer id) {
+		try {
+			this.checkValidation(id, posto);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return postoDAO.save(posto);
+	}
+
+	@Override
+	public Posto deletarPosto(Integer id) {
+		return null;
+	}
+	
+	//métodos de vaidações
+	
+	//verifica se as senhas conferem
 	public void checkPassword(Posto posto) throws Exception {
 		if(!(posto.getSenha().equals(posto.getConfirmarSenha()))) {
 			throw new Exception("Senhas não conferem, favor, inserir senhas iguais");
 		}
 	}
 	
-	
+	public void checkValidation(Integer id, Posto posto) throws Exception {
+		
+		//verifica se não existe um posto com esse id. caso não exista, da erro
+		Optional<Posto> postoOptional = postoDAO.findById(id);
+		if(!postoOptional.isPresent()) {
+			throw new Exception("Não é possível atualizar posto inexistente");
+		}
+		
+		//verifica se o usuario esta tentando atualizar o codigo(primary key)
+		if(posto.getCodigo() != null) {
+			throw new Exception("Não é possível atualizar código do posto");
+		}
+		
+	}
 }
