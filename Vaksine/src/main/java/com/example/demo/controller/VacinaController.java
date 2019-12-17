@@ -15,16 +15,21 @@ public class VacinaController {
 
 	@Autowired
 	private VacinaDAO vacinaDAO;
-
+	
 	@GetMapping("/vacinaform")
 	public String exibirForm(Vacina vacina) {
 		return "/cadastro-vacina";
+	}
+	
+	@GetMapping("/vacinacaoDeletar")
+	public String vacinacaoDeletar(Vacina vacina) {
+		return "/vacinacao-deletar";
 	}
 
 	@GetMapping("/vacinalist")
 	public String listarVacina(Vacina vacina, Model model) {
 		model.addAttribute("listaVacinas",this.vacinaDAO.findAll(Sort.by("id")));
-		return "/lista-vacina";
+		return "/lista-vacina2";
 	}
 
 	@GetMapping("/vacinabuscar")
@@ -33,7 +38,7 @@ public class VacinaController {
 		return "redirect:/vacinalist";
 	}
 
-	@PostMapping("/cadastrarvacina")
+	@PostMapping("/vacinaCadastro")
 	public String cadastrarVacina(Vacina vacina) {
 		this.vacinaDAO.save(vacina); 
 		return "redirect:/vacinalist";

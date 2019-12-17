@@ -19,7 +19,10 @@ public class AgenteController {
 		return "/agente";
 	}
 	
-	
+	@GetMapping("/buscarAgente")
+	public String buscarAgente(Agente agente) {
+		return "pesquisa-agente";
+	}
 	
 	@GetMapping("/cadAgente")
 	public String exibirCadastroAgente(Agente agente) {

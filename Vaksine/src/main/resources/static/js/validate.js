@@ -193,4 +193,65 @@ $(document).ready(function(){
       	   })
       })
       
+      //-------------------------------------------------------------------------------------------------------
+      
+      $(document).ready(function(){
+      	  $("#formPesquisaAgente").validate({
+      		   rules: {
+      			   email: {
+                   	   required: true,
+                       email:true
+                   }
+      		   }
+      	   })
+      })
+      
+      //-------------------------------------------------------------------------------------------------------
+      
+         $(document).ready(function(){
+      	  $("#formDeletarVacina").validate({
+      		   rules: {
+      			   nome: {
+                   	   required: true,
+                   	   minlength:6
+                   }
+      		   }
+      	   })
+         })
+      	   
+      //-------------------------------------------------------------------------------------------------------
+      	   
+      	   $(document).ready(function(){
+      	  $("#formLoginUsuario").validate({
+      		   rules: {
+      			   cpf: {
+                   	   	required: true,
+                   	   	minlength:6
+                   },
+                   senha:{
+                	   	required:true,
+                   		cpf:true
+                   }
+      		   }
+      	   })
+      })
+      
+      //-------------------------------------------------------------------------------------------------------
+      
+      $(document).ready(function(){
+      	  $("#formPostoLogin").validate({
+      		   rules: {
+      			   matricula: {
+                   	   	required: true,
+                   	   	minlength:6
+                   },
+                   senha:{
+                	   	required:true,
+                   		cpf:true
+                   }
+      		   }
+      	   })
+      })
+      
+      
       
