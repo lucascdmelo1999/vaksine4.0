@@ -67,8 +67,8 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
-                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Buscar Vacina</h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">Buscar Vacina.</h3>
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">Buscar Vacinação</h2>
+                <!-- <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">Buscar Vacina.</h3>-->
             </div>
         </div>
     </div>
@@ -76,17 +76,13 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="OtA1IZJOpp+nVkj7wE6V6W6m9azJPfXWmtlxGqv0gHQeDaDLpF/Uf/FtsejSBPMo1ASyaTRFkVltjZbOrsykxrz/tdwDv2ZV046mivgM8vY1ELpgEkk+PWKcS9C+N90Z">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Vacina encontrado!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                        </div>
-                    </div>
+                <form id="formDeletarVacina" action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="OtA1IZJOpp+nVkj7wE6V6W6m9azJPfXWmtlxGqv0gHQeDaDLpF/Uf/FtsejSBPMo1ASyaTRFkVltjZbOrsykxrz/tdwDv2ZV046mivgM8vY1ELpgEkk+PWKcS9C+N90Z">
+                  
                     <div class="dragArea row">
                     
                     	<div class="col-md-12  form-group" data-for="email">
                             <label for="text-form1-1j" class="form-control-label mbr-fonts-style display-7">Nome</label>
-                            <input type="text" name="cpf" data-form-field="text" required="required" class="form-control display-7" id="text-form1-1j">
+                            <input type="text" name="nome" id="nome" data-form-field="text" class="form-control display-7" >
                         </div>
                         
 
@@ -128,6 +124,12 @@
   <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
+  
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script type="text/javascript" src="./js/validate.js"></script>
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>

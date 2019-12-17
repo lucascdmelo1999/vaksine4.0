@@ -15,8 +15,11 @@ public class PostoController {
 	@Autowired
 	public PostoDAO postoDAO;
 
-
 	
+	@GetMapping("/loginPostoAgente")
+	public String loginPostoAgente(Posto posto) {
+		return "posto-agente-login";
+	}
 
 	@GetMapping("/cadastroposto")
 	public String cadastroposto(Posto posto) {

@@ -77,20 +77,16 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="CY+yKvHjZDbYIdU+X5VW4N+UYgUN2bNw3xwMBDLx/+Tn2lbskYxa2wBzn6JiI+oPby+HvnTsx2FFyX+iF6rUEzp8mFHwFiDPaZUANv6eu67TXMONQAEzDuggTyLqhWkK">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                        </div>
-                    </div>
+                <form id="formPostoLogin" action="https://mobirise.com/" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="CY+yKvHjZDbYIdU+X5VW4N+UYgUN2bNw3xwMBDLx/+Tn2lbskYxa2wBzn6JiI+oPby+HvnTsx2FFyX+iF6rUEzp8mFHwFiDPaZUANv6eu67TXMONQAEzDuggTyLqhWkK">
+                   
                     <div class="dragArea row">
                         <div class="col-md-12  form-group" data-for="name">
-                            <label for="name-form1-1c" class="form-control-label mbr-fonts-style display-7">Nome</label>
-                            <input type="text" name="matricula" data-form-field="Matricula" required="required" class="form-control display-7" id="name-form1-1c">
+                            <label for="name-form1-1c" class="form-control-label mbr-fonts-style display-7">Matricula</label>
+                            <input type="text" name="matricula" id="matricula" data-form-field="Matricula"  class="form-control display-7" >
                         </div>
                         <div class="col-md-12 form-group" data-for="email">
                             <label for="email-form1-1c" class="form-control-label mbr-fonts-style display-7">Email</label>
-                            <input type="password" name="senha" data-form-field="Senha" required="required" class="form-control display-7" id="email-form1-1c">
+                            <input type="password" name="senha" id="senha" data-form-field="Senha"  class="form-control display-7" >
                         </div>
                    
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4">Entrar</button></div>
@@ -131,7 +127,12 @@
   <script src="assets/theme/js/script.js"></script>
   <script src="assets/formoid/formoid.min.js"></script>
   
-  
+  <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script type="text/javascript" src="./js/validate.js"></script>
+    
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
   </body>

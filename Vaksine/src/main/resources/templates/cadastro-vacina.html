@@ -86,12 +86,12 @@
                     <div>
                         <div class="col-md-12  form-group" data-for="nome">
                             <label for="name-form1-p" class="form-control-label mbr-fonts-style display-7">Nome Vacina</label>
-                            <input type="text" name="nome" data-form-field="Nome" placeholder="Nome"  class="form-control" id="nome" th:field="*{nome}">
+                            <input type="text" th:name="nome" data-form-field="Nome" placeholder="Nome"  class="form-control" id="nome" th:field="*{nome}">
                         </div>
                         	
                         <div class="col-md-12  form-group" data-for="email" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Quantidade</label>
-                            <input type="number" name="quantidade" data-form-field="" placeholder="Quantidade" required="required" class="form-control display-7" id="quantidade" th:field="*{loteVacina.quantidade}">
+                            <input type="number" th:name="quantidade" data-form-field="" placeholder="Quantidade" class="form-control display-7" id="quantidade" th:field="*{loteVacina.quantidade}">
                         </div>
                         <div class="col-md-12  form-group" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Data validade</label>
