@@ -35,7 +35,7 @@ public class VacinaController {
 	@GetMapping("/vacinabuscar")
 	public String buscarvacina(Vacina vacina, Model model) {
 		model.addAttribute("vacina", vacinaDAO.findAll());
-		return "redirect:/vacinalist";
+		return "buscarvacina";
 	}
 
 	@PostMapping("/vacinaCadastro")
