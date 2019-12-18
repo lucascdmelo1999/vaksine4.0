@@ -103,22 +103,18 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
             
                 <!---Formbuilder Form--->
-                <form th:action="@{/vacinabuscar}" th:object="${vacina}"method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="nomWrruewyvVMXFc6QAPdqEyc/aPOzgwEZbYJGJfPka23kaheBJewwjlRKVEuLY4l7e6VO32iAWbIopSFoD3nqzsllcN5VwuGiSOPiDD5mCs8cLQ6MIE8to28aOgbiWx">
-                    <div class="row">
-                        <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
-                        <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
-                        </div>
-                    </div>
+                <form id="listarVacina" action="#" th:object="${vacina}" method="POST" class="mbr-form form-with-styler" >
+                    
                    
                         <div class="form-group">
                             <label for="nome" class="form-control-label mbr-fonts-style display-7">Buscar Vacina</label>
-                            <input type="text" th:field="*{nome}" name="buscarvacina" required="required" class="form-control display-7" id="buscarvacina" >
+                            <input type="text" th:field="*{nome}" name="nome"  class="form-control display-7" id="nome" >
                         </div>
                                       
                         
                         <div class="col-md-12 input-group-btn align-center"><button type="submit" class="btn btn-primary btn-form display-4">Buscar</button></div>
                   
-                </form><!---Formbuilder Form--->
+                </form>
             </div>
         </div>
     </div>

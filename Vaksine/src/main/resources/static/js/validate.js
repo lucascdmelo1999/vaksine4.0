@@ -174,18 +174,18 @@ $(document).ready(function(){
                    nome: {
                    	   required: true,
                        maxlength: 40,
-                       minlength: 6
+                       minlength: 3
                    },
 
-                   quantidade: {
+                   "loteVacina.quantidade": {
                    	   required: true,                   
                        minlength: 2
                    },
-                   dataValidade:{
+                   "loteVacina.validade":{
                 	   required: true,
                 	   date:true
                    },
-                   especificacoes:{
+                   "loteVacina.detalhe":{
                 	   required:true,
                 	   minlength:10
                    }
@@ -213,7 +213,7 @@ $(document).ready(function(){
       		   rules: {
       			   nome: {
                    	   required: true,
-                   	   minlength:6
+                   	   minlength:3
                    }
       		   }
       	   })
@@ -248,6 +248,18 @@ $(document).ready(function(){
                    senha:{
                 	   	required:true,
                    		cpf:true
+                   }
+      		   }
+      	   })
+      })
+      
+      //-------------------------------------------------------------------------------------------------------
+      
+      $(document).ready(function(){
+      	  $("#listarVacina").validate({
+      		   rules: {
+      			   nome: {
+                   	   	required: true
                    }
       		   }
       	   })
