@@ -57,32 +57,34 @@
         </div>
     </nav>
 </section>
-
+<br> <br> <br> <br> <br>
+<br> <br> <br> <br> <br>
 <div class="container">
 			<div class="row justify-content-center">
 				<div class="media-container-column col-lg-8"
 					data-form-type="formoid">
-
+			
 					<!---Formbuilder Form--->
-					<form th:action="@{/vacinabuscar}" th:object="${vacina}"
-						method="POST" class="mbr-form form-with-styler"
-						data-form-title="Mobirise Form">
-						<input type="hidden" name="email" data-form-email="true"
-							value="nomWrruewyvVMXFc6QAPdqEyc/aPOzgwEZbYJGJfPka23kaheBJewwjlRKVEuLY4l7e6VO32iAWbIopSFoD3nqzsllcN5VwuGiSOPiDD5mCs8cLQ6MIE8to28aOgbiWx">
+					<form action="/pesquisarvacina"
+						method="post" class="mbr-form form-with-styler"
+						data-form-title="Mobirise Form" th:object="${vacina}">
 						<div class="row">
+						
 							<div hidden="hidden" data-form-alert=""
 								class="alert alert-success col-12">Thanks for filling out
-								the form!</div>
+								the form!
+							</div>
 							<div hidden="hidden" data-form-alert-danger=""
-								class="alert alert-danger col-12"></div>
+								class="alert alert-danger col-12">
+							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="nome"
 								class="form-control-label mbr-fonts-style display-7">Buscar
-								Vacina</label> <input type="text" th:field="*{nome}" name="buscarvacina"
-								required="required" class="form-control display-7"
-								id="buscarvacina">
+								Vacina</label> <input type="text" th:field="*{nome}"
+								 class="form-control display-7"
+								id="nome">
 						</div>
 
 
@@ -96,6 +98,97 @@
 			</div>
 		</div>
 		<br> <br> <br> <br> <br>
+		
+			
+			<!-- listar buscar vacina-->
+			
+			<div class="container">
+			<div class="row">
+
+
+				<div class="col-md-12">
+					<h4>Lista de Vacinas</h4>
+					<div class="table-responsive">
+
+
+						<table id="mytable" class="table table-bordred table-striped">
+
+							<thead>
+
+						
+								<th>Nome da Vacina</th>
+								<th>Quantidade</th>
+								<th>Data de Validae</th>
+								<th>Edit</th>
+
+								<th>Delete</th>
+							</thead>
+							<tbody>
+
+								<tr>
+								<tr th:each="vacina : ${listaVacinas}">
+
+									<td th:text="${vacina.nome}"></td>
+									<td th:text="${vacina.LoteVacina.quantidade}"></td>
+									<td th:text="${vacina.LoteVacina.validade}"></td>
+
+									<td><p data-placement="top" data-toggle="tooltip"
+											title="Edit">
+											
+											<a th:href="@{/editarvacina(id=${vacina.id})}" class="btn btn-primary btn-xs" >
+												<span class="glyphicon glyphicon-pencil"></span></a>
+											</a>
+										</p></td>
+									<td><p data-placement="top" data-toggle="tooltip" title="Delete">
+											<a th:href="@{/deletarvacina(id=${vacina.id})}" class="btn btn-danger btn-xs">
+
+													<span class="glyphicon glyphicon-trash"></span>
+											</a>
+
+										</p></td>
+								</tr>
+							</tbody>
+
+						</table>
+
+
+
+
+
+
+
+						<div class="clearfix">
+						<ul class="pagination pull-right">
+							<li class="disabled"><a href="#"><span
+									class="glyphicon glyphicon-chevron-left"></span></a></li>
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#"><span
+									class="glyphicon glyphicon-chevron-right"></span></a></li>
+						</ul>
+						</div>
+
+					</div>
+
+ 
+		</div>
+
+		</div>
+
+		</div>
+		
+		<!--fim do listar-->
+			
+			
+			
+			
+			
+			
+
+		</div>
 
 <section once="footers" class="cid-rHL0kRHyt3" id="footer6-12">
 
