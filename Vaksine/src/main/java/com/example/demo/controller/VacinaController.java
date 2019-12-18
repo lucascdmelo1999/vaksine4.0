@@ -29,7 +29,7 @@ public class VacinaController {
 	@GetMapping("/vacinalist")
 	public String listarVacina(Vacina vacina, Model model) {
 		model.addAttribute("listaVacinas",this.vacinaDAO.findAll(Sort.by("id")));
-		return "/lista-vacina2";
+		return "/lista-vacina3";
 	}
 
 	@GetMapping("/vacinabuscar")
