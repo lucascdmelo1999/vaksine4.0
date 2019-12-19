@@ -96,7 +96,7 @@
             
                 <!---Formbuilder Form--->
                 <form id="formAgente"  th:action="@{/cadastroAgente}" th:object="${agente}" class="mbr-form form-with-styler" method="POST" >
-                    
+                    <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
                      
                         <div class="form-group">
                             <label for="nome" class="form-control-label mbr-fonts-style display-7">Nome</label>

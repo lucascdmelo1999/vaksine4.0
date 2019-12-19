@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.VacinaDAO;
 import com.example.demo.model.Vacina;
@@ -48,9 +50,17 @@ public class VacinaController {
 	}
 
 	@PostMapping("/vacinaCadastro")
-	public String cadastrarVacina(Vacina vacina) {
+	public String cadastrarVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes) {
 		this.vacinaDAO.save(vacina);
-		return "redirect:/vacinalist";
+		redirectAttributes.addFlashAttribute("message", "Failed");
+		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+		if (result.hasErrors()) {
+			return "redirect:/cadUsuario";
+		}
+		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
+		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		
+		return "redirect:/vacinaform";
 	}
 
 	@GetMapping("/editarvacina")

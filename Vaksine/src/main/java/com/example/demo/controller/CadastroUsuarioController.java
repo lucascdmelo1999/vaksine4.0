@@ -33,7 +33,7 @@ public class CadastroUsuarioController {
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
 		}
-		redirectAttributes.addFlashAttribute("message", "Success");
+		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 		return "redirect:/cadUsuario";
 		
