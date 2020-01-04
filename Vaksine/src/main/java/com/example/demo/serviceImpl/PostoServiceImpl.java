@@ -5,6 +5,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.dao.PostoDAO;
+import com.example.demo.model.PerfilUsuarioPosto;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
 
@@ -13,6 +14,7 @@ public class PostoServiceImpl implements PostoService{
 	
 	@Autowired
 	PostoDAO postoDAO;
+	
 	
 	@Override
 	public Posto cadastrarPosto(Posto posto){
@@ -29,10 +31,11 @@ public class PostoServiceImpl implements PostoService{
 	public Posto atualizarPosto(Posto posto, Integer id) {
 		try {
 			this.checkValidation(id, posto);
+			return postoDAO.save(posto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		return postoDAO.save(posto);
+		return null;
 	}
 
 	@Override
@@ -44,7 +47,7 @@ public class PostoServiceImpl implements PostoService{
 	
 	//verifica se as senhas não conferem
 	public void checkPassword(Posto posto) throws Exception {
-		if(!(posto.getSenha().equals(posto.getConfirmarSenha()))) {
+		if(!(posto.getPerfilUsuarioPosto().getSenha().equals(posto.getPerfilUsuarioPosto().getSenha2()))) {
 			throw new Exception("Senhas não conferem, favor, inserir senhas iguais");
 		}
 	}
@@ -62,5 +65,15 @@ public class PostoServiceImpl implements PostoService{
 			throw new Exception("Não é possível atualizar código do posto");
 		}
 		
+	}
+	
+	@Override
+	public PerfilUsuarioPosto buscarPerfilUsuarioPosto(String email) {
+		Posto posto = postoDAO.findByEmail(email);
+		if(posto.getPerfilUsuarioPosto() != null) {
+			PerfilUsuarioPosto perfil = posto.getPerfilUsuarioPosto();
+			return perfil;
+		}
+		return null;
 	}
 }

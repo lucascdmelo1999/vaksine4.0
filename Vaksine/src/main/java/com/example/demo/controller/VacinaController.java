@@ -30,7 +30,7 @@ public class VacinaController {
 		return "/vacinacao-deletar";
 	}
 
-	@GetMapping("/vacinalist")
+	@GetMapping("/vacinalist") 
 	public String listarVacina(Vacina vacina, Model model) {
 		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
 		return "/lista-vacina3";

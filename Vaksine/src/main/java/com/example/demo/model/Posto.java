@@ -1,8 +1,10 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -28,11 +30,8 @@ public class Posto {
 	@NotNull
 	private String codigo;
 	
-	@NotBlank(message = "")
-	private String senha;
-	
-	@NotBlank(message = "")
-	private String confirmarSenha;
+	@OneToOne(cascade = {CascadeType.ALL})
+	private PerfilUsuarioPosto perfilUsuarioPosto;
 	
 	public String getCodigo() {
 		return codigo;
@@ -70,20 +69,10 @@ public class Posto {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public String getSenha() {
-		return senha;
+	public PerfilUsuarioPosto getPerfilUsuarioPosto() {
+		return perfilUsuarioPosto;
 	}
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setPerfilUsuarioPosto(PerfilUsuarioPosto perfilUsuarioPosto) {
+		this.perfilUsuarioPosto = perfilUsuarioPosto;
 	}
-	public String getConfirmarSenha() {
-		return confirmarSenha;
-	}
-	public void setConfirmarSenha(String confirmarsenha) {
-		this.confirmarSenha = confirmarsenha;
-	}
-	
-	
-	
-	
 }

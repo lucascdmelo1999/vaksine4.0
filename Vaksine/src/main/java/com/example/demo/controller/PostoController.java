@@ -1,13 +1,17 @@
 package com.example.demo.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.dao.VacinaDAO;
+import com.example.demo.model.PerfilUsuarioPosto;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
 
@@ -16,6 +20,9 @@ public class PostoController {
 	
 	@Inject
 	PostoService postoService;
+	
+	@Autowired
+	VacinaDAO vacinaDAO;
 	
 	@GetMapping("/loginPostoAgente")
 	public String loginPostoAgente(Posto posto) {
@@ -41,6 +48,21 @@ public class PostoController {
 		return "redirect:/cadastroposto";
 	
 	
+	}
+	
+	/**Autenticacao - login para o posto de saude**/
+	@PostMapping("/autenticacaoposto")
+	public String autenticarPosto(PerfilUsuarioPosto perfil, Posto posto, HttpSession session) {
+		
+		perfil = postoService.buscarPerfilUsuarioPosto(posto.getEmail());
+		
+		if(posto!=null) {
+			session.setAttribute("postoAutenticado", perfil);
+			return "redirect:/vacinaform";
+		}
+		
+		
+		return null;
 	}
 
 }
