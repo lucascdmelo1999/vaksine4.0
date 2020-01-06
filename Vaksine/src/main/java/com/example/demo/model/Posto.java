@@ -31,7 +31,7 @@ public class Posto {
 	private String codigo;
 	
 	@OneToOne(cascade = {CascadeType.ALL})
-	private PerfilUsuarioPosto perfilUsuarioPosto;
+	private PerfilSeguranca perfilSeguranca;
 	
 	public String getCodigo() {
 		return codigo;
@@ -69,10 +69,10 @@ public class Posto {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public PerfilUsuarioPosto getPerfilUsuarioPosto() {
-		return perfilUsuarioPosto;
+	public PerfilSeguranca getPerfilSeguranca() {
+		return perfilSeguranca;
 	}
-	public void setPerfilUsuarioPosto(PerfilUsuarioPosto perfilUsuarioPosto) {
-		this.perfilUsuarioPosto = perfilUsuarioPosto;
+	public void setPerfilSeguranca(PerfilSeguranca perfilUsuarioPosto) {
+		this.perfilSeguranca = perfilUsuarioPosto;
 	}
 }

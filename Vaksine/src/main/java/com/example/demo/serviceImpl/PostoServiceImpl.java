@@ -5,7 +5,7 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.dao.PostoDAO;
-import com.example.demo.model.PerfilUsuarioPosto;
+import com.example.demo.model.PerfilSeguranca;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
 
@@ -21,10 +21,17 @@ public class PostoServiceImpl implements PostoService{
 		//verifica se existe alguma excessão
 		try {
 			this.checkPassword(posto);
+			
+			/** setando o login e o codigo do usuario do posto**/
+			posto.getPerfilSeguranca().setLogin(posto.getEmail());
+			posto.getPerfilSeguranca().setCodUsuario("ADMPOSTO");
+			return postoDAO.save(posto);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
+			return null;
 		}
-		return postoDAO.save(posto);
 	}
 	
 	@Override
@@ -47,7 +54,7 @@ public class PostoServiceImpl implements PostoService{
 	
 	//verifica se as senhas não conferem
 	public void checkPassword(Posto posto) throws Exception {
-		if(!(posto.getPerfilUsuarioPosto().getSenha().equals(posto.getPerfilUsuarioPosto().getSenha2()))) {
+		if(!(posto.getPerfilSeguranca().getSenha().equals(posto.getPerfilSeguranca().getSenha2()))) {
 			throw new Exception("Senhas não conferem, favor, inserir senhas iguais");
 		}
 	}
@@ -68,10 +75,10 @@ public class PostoServiceImpl implements PostoService{
 	}
 	
 	@Override
-	public PerfilUsuarioPosto buscarPerfilUsuarioPosto(String email) {
+	public PerfilSeguranca buscarPerfilUsuarioPosto(String email) {
 		Posto posto = postoDAO.findByEmail(email);
-		if(posto.getPerfilUsuarioPosto() != null) {
-			PerfilUsuarioPosto perfil = posto.getPerfilUsuarioPosto();
+		if(posto.getPerfilSeguranca() != null) {
+			PerfilSeguranca perfil = posto.getPerfilSeguranca();
 			return perfil;
 		}
 		return null;
