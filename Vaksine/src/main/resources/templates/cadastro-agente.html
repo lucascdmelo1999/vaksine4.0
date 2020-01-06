@@ -47,8 +47,7 @@
                     <a th:href="@{/paginainicial}">
                     </a>
                 </span>
-                <span class="navbar-caption-wrap"><a class="navbar-caption text-white display-4" th:href="@{/paginainicial}">
-                        Vaksine</a></span>
+                
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -104,11 +103,11 @@
                         </div>
                         <div class="form-group" >
                             <label for="nomeMae" class="form-control-label mbr-fonts-style display-7">CPF</label>
-                            <input type="number"  name="cpf" id="cpf" class="form-control display-7"  th:field="*{cpf}">
+                            <input type="text"  name="cpf" id="cpf" class="form-control display-7"  th:field="*{cpf}">
                         </div>
                         <div  class="form-group">
                             <label for="nomePai" class="form-control-label mbr-fonts-style display-7">RG</label>
-                            <input type="number" name="rg" id="rg" class="form-control display-7"  th:field="*{rg}">
+                            <input type="text" name="rg" id="rg" class="form-control display-7"  th:field="*{rg}">
                         </div>
                         
                         <div class="form-group">
@@ -133,7 +132,7 @@
                         
                         <div class="col-md-12 input-group-btn align-center">
                         
-                        	<input type="submit" class="btn btn-primary btn-form display-4">Cadastrar</input>
+                        	<button type="submit"   class="btn btn-primary btn-form display-4">Cadastrar</button>
                         
                         </div>
                   

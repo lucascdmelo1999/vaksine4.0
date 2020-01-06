@@ -1,6 +1,14 @@
 jQuery(function($){
        $("#cpf").mask("000.000.000-00");
        $("#telefone").mask("(00) 00000-0000");
+       
+       
+});
+jQuery(function($){
+
+    $("#telefonePosto").mask("(00) 00000-0000");
+    $("#rg").mask("00.000.000-0");
+    
 });
    
 
@@ -76,7 +84,7 @@ $(document).ready(function(){
       $(document).ready(function(){
       	  $("#formPosto").validate({
       		   rules: {
-      			 nomedoposto: {
+      			 nomePosto: {
                 	   required:true,
                 	   minlength:6
                 	   
@@ -89,9 +97,10 @@ $(document).ready(function(){
                        minlength: 5
                    },
 
-                  telefone: {
-                   	   required: true,
-                   	   number:true
+                   telefone: {
+	                   	required: true,
+	                   	maxlength: 25,
+	                   	minlength: 5
                    	   
                    },
 
@@ -106,17 +115,17 @@ $(document).ready(function(){
 	                   	minlength: 5
 
                    },
-                   senha: {
+                   "perfilUsuarioPosto.senha": {
 	                   	required: true,
 	                   	maxlength: 25,
 	                   	minlength: 6
 
                    },
-                   confirmarsenha: {
+                   "perfilUsuarioPosto.senha2": {
 	                   	required: true,
 	                   	maxlength: 25,
 	                   	minlength: 6,
-	                   	equalTo: "#senha"
+	                   	equalTo: "perfilUsuarioPosto.senha"
 
 	                }
       		   }
@@ -134,32 +143,37 @@ $(document).ready(function(){
                        maxlength: 40,
                        minlength: 6
                    },
-
+                   
                    cpf: {
-                   	   required: true,                   
-                       minlength: 5
+                   	   required: true
                    },
 
                    rg: {
-                   	   required: true,
-                   	   email: true
+                   	   required: true
                    },
 
                    dataNascimento: {
 	                   	required: true,
-	                   	minlength: 5
+	                   	date:true,
+	                   	minlength: 4
 
                    },
+                   email: {
+	                   	required: true,
+	                   	minlength: 5,
+	                   	email
+
+                  },
                    senha: {
 	                   	required: true,
 	                   	maxlength: 25,
-	                   	minlength: 5
+	                   	minlength: 6
 
                    },
                    confirmarSenha:{
                 	   required: true,
                 	   maxlength: 25,
-	                   minlength: 5,
+	                   minlength: 6,
                 	   equalTo: "#senha"
                    }
       		   }

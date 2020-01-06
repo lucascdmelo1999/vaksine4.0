@@ -15,22 +15,16 @@ public class Agente {
 	@GeneratedValue
 	private Integer matricula;
 	
-	@NotBlank(message="O campo Nome precisa ser preenchido")
 	private String nome;
 	
-	@NotBlank(message="O campo CPF precisa ser preenchido")
 	private String cpf;
 	
-	@NotBlank(message="O campo Rg precisa ser preenchido")
 	private String rg;
 	
-	@NotBlank(message="O campo Email precisa ser preenchido")
 	private String email;
 	
-	@NotNull(message="O campo Data de nascimento precisa ser preenchido")
 	private String dataNascimento;
 	
-	@NotNull(message="O campo Data de nascimento precisa ser preenchido")
 	private String senha;
 
 	private String confirmarSenha;
