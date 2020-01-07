@@ -8,4 +8,5 @@ import com.example.demo.model.Agente;
 @Repository
 public interface AgenteDAO extends JpaRepository<Agente, Integer>{
 
+	Agente findByCpf(String cpf);
 }
