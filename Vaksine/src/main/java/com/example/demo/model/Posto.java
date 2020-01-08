@@ -1,12 +1,8 @@
 package com.example.demo.model;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 @Entity
 public class Posto {
@@ -15,29 +11,25 @@ public class Posto {
 	@GeneratedValue 
 	private Integer id;
 	
-	@NotBlank(message = "")
 	private String nomePosto;
 	
-	@NotBlank(message = "")
 	private String email;
 	
-	@NotBlank(message = "")
 	private String telefone;
 	
-	@NotBlank(message = "")
 	private String endereco;
 	
-	@NotNull
-	private String codigo;
+	private String codigoPosto;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	private PerfilSeguranca perfilSeguranca;
+	private String senha;
 	
-	public String getCodigo() {
-		return codigo;
+	private String codigoUsuario;
+	
+	public String getCodigoPosto() {
+		return codigoPosto;
 	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
+	public void setCodigoPosto(String codigo) {
+		this.codigoPosto = codigo;
 	}
 	public Integer getId() {
 		return id;
@@ -69,10 +61,16 @@ public class Posto {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	public PerfilSeguranca getPerfilSeguranca() {
-		return perfilSeguranca;
+	public String getSenha() {
+		return senha;
 	}
-	public void setPerfilSeguranca(PerfilSeguranca perfilUsuarioPosto) {
-		this.perfilSeguranca = perfilUsuarioPosto;
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+	public String getCodigoUsuario() {
+		return codigoUsuario;
+	}
+	public void setCodigoUsuario(String codigoUsuario) {
+		this.codigoUsuario = codigoUsuario;
 	}
 }
