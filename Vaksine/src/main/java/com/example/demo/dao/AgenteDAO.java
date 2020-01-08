@@ -9,4 +9,6 @@ import com.example.demo.model.Agente;
 public interface AgenteDAO extends JpaRepository<Agente, Integer>{
 
 	Agente findByCpf(String cpf);
+	
+	Agente findByEmail(String email);
 }

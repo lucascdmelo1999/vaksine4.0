@@ -4,5 +4,7 @@ import com.example.demo.model.Agente;
 public interface AgenteService {
 
 	public Agente cadastrarAgente(Agente agente);
+	
+	public boolean salvarAgente(Agente agente);
 
 }
