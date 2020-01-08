@@ -1,9 +1,11 @@
 package com.example.demo.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,15 +36,21 @@ public class AgenteController {
 	}
 	
 	@PostMapping("/cadastroAgente")
-	public String cadastrarAgente(Agente agente,BindingResult result, RedirectAttributes redirectAttributes) {
-		agenteService.cadastrarAgente(agente);
+	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model) {
 		
 		
 		redirectAttributes.addFlashAttribute("message", "Failed");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
 		if (result.hasErrors()) {
-			return "redirect:/cadUsuario";
+			return "redirect:/cadAgente";
 		}
+		boolean retorno = this.agenteService.salvarAgente(agente);
+		if (retorno == false) {
+			redirectAttributes.addFlashAttribute("message", "Já existe um Agente com este email");
+			redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+			return "redirect:/cadAgente";
+		}
+
 		redirectAttributes.addFlashAttribute("message", "Agente cadastrado");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
 		
