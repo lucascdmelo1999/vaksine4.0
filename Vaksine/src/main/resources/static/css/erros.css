@@ -3,6 +3,12 @@
     color: #D8000C;
 	
 }
+textarea[type=text]:focus {
+  background-color: lightblue;
+}
+textarea[type=text] {
+  background-color: #DCDCDC;
+}
 input[type=text]:focus {
   background-color: lightblue;
 }
@@ -33,6 +39,13 @@ input[type=password]:focus {
 input[type=password] {
   background-color: #DCDCDC;
 }
+input[type=number]:focus {
+  background-color: lightblue;
+}
+input[type=number] {
+  background-color: #DCDCDC;
+}
+
 
 ::-webkit-input-placeholder {
    

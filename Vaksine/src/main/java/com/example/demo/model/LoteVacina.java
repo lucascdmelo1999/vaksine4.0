@@ -3,15 +3,15 @@ import java.time.LocalDate;
 
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
-import javax.validation.constraints.NotBlank;
+import javax.persistence.Id;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Embeddable
 public class LoteVacina {
 	
-	@NotBlank(message="Informe a quantidade de vacina")
 	private int quantidade;
+	
 	
 	@GeneratedValue
 	private int numeroLote;

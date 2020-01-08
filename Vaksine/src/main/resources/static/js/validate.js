@@ -7,7 +7,7 @@ jQuery(function($){
 jQuery(function($){
 
     $("#telefonePosto").mask("(00) 00000-0000");
-    $("#rg").mask("00.000.000-0");
+    $("#rg").mask("00.000.000");
     
 });
    
@@ -110,22 +110,22 @@ jQuery(function($){
 
                    },
 
-                   codigo: {
+                   codigoPosto: {
 	                   	required: true,
 	                   	minlength: 5
 
                    },
-                   "perfilUsuarioPosto.senha": {
+                   senha: {
 	                   	required: true,
 	                   	maxlength: 25,
 	                   	minlength: 6
 
                    },
-                   "perfilUsuarioPosto.senha2": {
+                   senha2: {
 	                   	required: true,
 	                   	maxlength: 25,
 	                   	minlength: 6,
-	                   	equalTo: "perfilUsuarioPosto.senha"
+	                   	equalTo: senha
 
 	                }
       		   }
@@ -145,11 +145,14 @@ jQuery(function($){
                    },
                    
                    cpf: {
-                   	   required: true
+                   	   required: true,
+                   	   minlength:14
                    },
 
                    rg: {
-                   	   required: true
+                   	   required: true,
+                   	   minlength:10
+                   	   
                    },
 
                    dataNascimento: {
@@ -170,7 +173,7 @@ jQuery(function($){
 	                   	minlength: 6
 
                    },
-                   confirmarSenha:{
+                   senha2:{
                 	   required: true,
                 	   maxlength: 25,
 	                   minlength: 6,
@@ -182,30 +185,7 @@ jQuery(function($){
       
       //--------------------------------------------------------------------------------------------
       
-          $(document).ready(function(){
-      	  $("#formCadastroVacina").validate({
-      		   rules: {
-                   nome: {
-                   	   required: true,
-                       maxlength: 40,
-                       minlength: 3
-                   },
-
-                   "loteVacina.quantidade": {
-                   	   required: true,                   
-                       minlength: 2
-                   },
-                   "loteVacina.validade":{
-                	   required: true,
-                	   date:true
-                   },
-                   "loteVacina.detalhe":{
-                	   required:true,
-                	   minlength:10
-                   }
-      		   }
-      	   })
-      })
+          
       
       //-------------------------------------------------------------------------------------------------------
       

@@ -25,6 +25,8 @@ public class Posto {
 	
 	private String codigoUsuario;
 	
+	private String senha2;
+	
 	public String getCodigoPosto() {
 		return codigoPosto;
 	}
@@ -73,4 +75,11 @@ public class Posto {
 	public void setCodigoUsuario(String codigoUsuario) {
 		this.codigoUsuario = codigoUsuario;
 	}
+	public String getSenha2() {
+		return senha2;
+	}
+	public void setSenha2(String senha2) {
+		this.senha2 = senha2;
+	}
+	
 }

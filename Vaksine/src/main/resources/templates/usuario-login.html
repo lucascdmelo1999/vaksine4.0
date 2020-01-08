@@ -76,7 +76,8 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
-                <form id="formLoginUsuario" action="cartao-de-vacina.html" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form"><input type="hidden" name="email" data-form-email="true" value="CY+yKvHjZDbYIdU+X5VW4N+UYgUN2bNw3xwMBDLx/+Tn2lbskYxa2wBzn6JiI+oPby+HvnTsx2FFyX+iF6rUEzp8mFHwFiDPaZUANv6eu67TXMONQAEzDuggTyLqhWkK">
+                <div th:text="${mensagem}" th:if="${mensagem != null} "></div>
+                <form id="formLoginUsuario" action="cartao-de-vacina.html" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form" th:object="${usuario}">
                     
                     <div class="dragArea row">
                         <div class="col-md-12  form-group" data-for="name">
