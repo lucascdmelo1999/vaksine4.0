@@ -22,7 +22,8 @@ public class Agente {
 	private String dataNascimento;
 	
 	private String senha;
-	
+	private String senha2;
+
 	private String codigoUsuario;
 
 	public Integer getMatricula() {
@@ -87,5 +88,15 @@ public class Agente {
 
 	public void setCodigoUsuario(String codigoUsuario) {
 		this.codigoUsuario = codigoUsuario;
-	}	
+	}
+
+	public String getSenha2() {
+		return senha2;
+	}
+
+	public void setSenha2(String senha2) {
+		this.senha2 = senha2;
+	}
+	
+	
 }

@@ -9,8 +9,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
   <meta name="description" content="Web Page Builder Description">
-  
-	<br>
   <title>Cadastrar Usuário</title>
 
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
@@ -73,7 +71,7 @@
         <div class="row justify-content-center">
             <div class="title col-12 col-lg-8">
                 <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
-
+					
                     Cadastrar Usuário</h2>
 
                 <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
@@ -204,7 +202,6 @@
   <script>
   $(document).ready(function(){
   	  $("#form").validate({
-  			valid: 'glyphicon glyphicon-ok',
   		   rules: {
                nome: {
                	   required: true,
@@ -260,13 +257,13 @@
             	senha: {
                	required: true,
                	maxlength: 35,
-               	minlength: 5
+               	minlength: 6
 
             	},
                 senha2: {
                    	required: true,
                    	maxlength: 35,
-                   	minlength: 5,
+                   	minlength: 6,
                    	equalTo:"#senha"
 	
                 	}
@@ -274,18 +271,7 @@
   	   })
   })
   </script>
-  <script> 
-  bootstrapValidate('#nome','required:');
-  bootstrapValidate('#nome','max:40:');
-  bootstrapValidate('#nome','min:6:');
-  
-  bootstrapValidate('#nomeMae','required:');
-  bootstrapValidate('#nomeMae','max:40:');
-  bootstrapValidate('#nomeMae','min:6:');
-
-  bootstrapValidate('#email','email:');
-  bootstrapValidate('#email','required:');
-  </script>
+ 
   
   </body>
   

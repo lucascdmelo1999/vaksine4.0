@@ -52,13 +52,11 @@ public class AgenteController {
 	/**Autenticacao - login para o posto de saude**/
 	@PostMapping("/autenticacaoagente")
 	public String autenticarPosto(Agente agente, HttpSession session) {
-		
-		
-		
-//		if(inputperfil.getSenha().equals(perfil.getSenha())) {
-//			session.setAttribute("postoAutenticado", perfil);
-//			return "redirect:/vacinaform";
-//		}
+
+		if(agente.getSenha().equals(agente.getSenha())) {
+			session.setAttribute("postoAutenticado", agente);
+			return "redirect:/vacinaform";
+		}
 			return "";
 	}
 	
