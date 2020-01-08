@@ -12,7 +12,7 @@ jQuery(function($){
 });
    
 
-$(document).ready(function(){
+/*$(document).ready(function(){
       	  $("#form").validate({
       		   rules: {
                    nome: {
@@ -74,7 +74,7 @@ $(document).ready(function(){
                 	}
       		   }
       	   })
-      })
+      })*/
       
       //----------------------------------------------------------------------------------------------
       

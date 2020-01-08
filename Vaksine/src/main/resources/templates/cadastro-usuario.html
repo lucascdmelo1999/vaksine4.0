@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="assets/images/logo2.png" type="image/x-icon">
   <meta name="description" content="Web Page Builder Description">
   
-
+	<br>
   <title>Cadastrar Usuário</title>
 
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
@@ -93,51 +93,55 @@
                     <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
                      
                         <div class="form-group">
-                            <label for="nome" class="form-control-label mbr-fonts-style display-7">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control display-7" th:field="*{nome}">
+                            <label for="nome" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control display-7" th:field="*{nome}">
                         </div>
                         <div class="form-group" >
-                            <label for="nomeMae" class="form-control-label mbr-fonts-style display-7">Nome da Mãe</label>
-                            <input type="text"  name="nomeMae" id="nomeMae" class="form-control display-7"  th:field="*{nomeMae}">
+                            <label for="nomeMae" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text"  name="nomeMae" id="nomeMae" placeholder="Nome da Mãe" class="form-control display-7"  th:field="*{nomeMae}">
                         </div>
                         <div  class="form-enderecogroup">
-                            <label for="nomePai" class="form-control-label mbr-fonts-style display-7">Nome do Pai</label>
-                            <input type="text" name="nomePai" id="nomePai" class="form-control display-7"  th:field="*{nomePai}">
+                            <label for="nomePai" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text" name="nomePai" id="nomePai" placeholder="Nome do Pai" class="form-control display-7"  th:field="*{nomePai}">
                         </div>
-                        
+                        <br>
                         <div class="form-group">
                             <label for="dataNas" class="form-control-label mbr-fonts-style display-7">Data de Nascimento</label>
                             <input type="date" name="dataNas" id="dataNas"  class="form-control display-7" th:field="*{dataNas}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="cpf" class="form-control-label mbr-fonts-style display-7">CPF</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control cpf-mask"  th:field="*{cpf}">
+                            <label for="cpf" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control cpf-mask"  th:field="*{cpf}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="tipoSanguineo" class="form-control-label mbr-fonts-style display-7">Tipo Sanguineo</label>
-                            <input type="text" name="tipoSanguineo" id="tipoSanguineo"  class="form-control display-7" th:field="*{tipoSanguineo}">
+                            <label for="tipoSanguineo" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text" name="tipoSanguineo" id="tipoSanguineo" placeholder="Tipo Sanguineo"  class="form-control display-7" th:field="*{tipoSanguineo}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-control-label mbr-fonts-style display-7">Email</label>
-                            <input type="email" name="email" id="email"  class="form-control display-7" th:field="*{email}">
+                            <label for="email" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="email" name="email" id="email" placeholder="E-mail" class="form-control display-7" th:field="*{email}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="telefone" class="form-control-label mbr-fonts-style display-7">Telefone</label>
-                            <input type="tel" name="telefone" id="telefone"  class="form-control display-7" th:field="*{telefone}">
+                            <label for="telefone" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="tel" name="telefone" id="telefone" placeholder="Telefone"  class="form-control display-7" th:field="*{telefone}">
                         </div>
                         
                          <div class="form-group">
-                            <label for="endereco" class="form-control-label mbr-fonts-style display-7">Endereço</label>
-                            <input type="text" name="endereco" id="endereco"  class="form-control display-7" th:field="*{endereco}">
+                            <label for="endereco" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="text" name="endereco" id="endereco" placeholder="Endereço" class="form-control display-7" th:field="*{endereco}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="senha" class="form-control-label mbr-fonts-style display-7">Senha</label>
-                            <input type="password" name="senha" id="senha"  class="form-control display-7" th:field="*{senha}">
+                            <label for="senha" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="password" name="senha" id="senha" placeholder="Senha"  class="form-control display-7" th:field="*{senha}">
+                        </div>
+                        <div class="form-group">
+                            <label for="senha2" class="form-control-label mbr-fonts-style display-7"></label>
+                            <input type="password" name="senha2" id="senha2" placeholder="confirmar Senha"  class="form-control display-7" th:field="*{senha2}">
                         </div>
                                    
                         
@@ -173,7 +177,7 @@
     </div>
 </section>
 
-
+		<link rel="stylesheet" href="./css/erros.css">
   <script src="assets/web/assets/jquery/jquery.min.js"></script>
   <script src="assets/popper/popper.min.js"></script>
   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
@@ -188,14 +192,100 @@
    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+  <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
     <script type="text/javascript" src="./js/validate.js"></script>
   
 
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+  <script>
+  $(document).ready(function(){
+  	  $("#form").validate({
+  			valid: 'glyphicon glyphicon-ok',
+  		   rules: {
+               nome: {
+               	   required: true,
+                   maxlength: 40,
+                   minlength: 6
+               },
+
+               nomeMae: {
+               	   required: true,
+                   maxlength: 40,
+                   minlength: 6
+               },
+
+               nomePai: {
+               	   required: true,
+               	   maxlength:40,
+               	   minlength: 6
+               },
+
+               dataNas: {
+                   	required: true
+
+               },
+               cpf: {
+                   	required: true
+
+               },
+               tipoSanguineo: {
+                   	required: true,
+                   	maxlength: 5,
+                   	minlength: 2
+
+                },
+                email: {
+	                   	required: true,
+	                   	maxlength: 50,
+	                   	minlength: 5,
+	                   	email:true
+
+                },
+                telefone: {
+	                   	required: true,
+	                   	maxlength: 25,
+	                   	minlength: 5
+
+                },
+                endereco: {
+                   	required: true,
+                   	maxlength: 25,
+                   	minlength: 5
+
+                },
+            	senha: {
+               	required: true,
+               	maxlength: 35,
+               	minlength: 5
+
+            	},
+                senha2: {
+                   	required: true,
+                   	maxlength: 35,
+                   	minlength: 5,
+                   	equalTo:"#senha"
+	
+                	}
+  		   }
+  	   })
+  })
+  </script>
+  <script> 
+  bootstrapValidate('#nome','required:');
+  bootstrapValidate('#nome','max:40:');
+  bootstrapValidate('#nome','min:6:');
   
+  bootstrapValidate('#nomeMae','required:');
+  bootstrapValidate('#nomeMae','max:40:');
+  bootstrapValidate('#nomeMae','min:6:');
+
+  bootstrapValidate('#email','email:');
+  bootstrapValidate('#email','required:');
+  </script>
   
   </body>
   

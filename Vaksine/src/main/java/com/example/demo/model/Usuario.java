@@ -19,6 +19,8 @@ public class Usuario {
 	private String telefone;
 	private String endereco;
 	private String senha;
+	private String senha2;
+
 	
 	public Integer getId() {
 		return id;
@@ -85,6 +87,12 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getSenha2() {
+		return senha2;
+	}
+	public void setSenha2(String senha2) {
+		this.senha2 = senha2;
 	}
 	
 	
