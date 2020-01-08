@@ -33,20 +33,22 @@ public class VacinaController {
 	@GetMapping("/vacinalist") 
 	public String listarVacina(Vacina vacina, Model model) {
 		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
-		return "/lista-vacina3";
+		return "/lista-vacina";
 	}
-
-	@GetMapping("/vacinabuscar")
-	public String buscarvacina(Vacina vacina, Model model) {
-		return "buscarvacina";
-	}
-
+	
+	
+	@GetMapping("/buscandovacina") 
+	public String buscandoVacina(Vacina vacina, Model model) {
+		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
+			return "buscarvacina";
+	}	
+	
 	@PostMapping("/pesquisarvacina")
 	public String pesquisarvacina(Vacina vacina, Model model) {
 										// select nome from vacina where nome LIKE %nome%;
 		List<Vacina> resultado = this.vacinaDAO.findByNomeContainingIgnoreCase(vacina.getNome(), Sort.by("nome"));
 		model.addAttribute("listaVacinas", resultado);
-		return "buscarvacina";
+		return "/buscarvacina";
 	}
 
 	@PostMapping("/vacinaCadastro")

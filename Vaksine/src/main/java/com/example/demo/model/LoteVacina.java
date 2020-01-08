@@ -1,5 +1,5 @@
 package com.example.demo.model;
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Embeddable;
 import javax.persistence.GeneratedValue;
@@ -17,7 +17,7 @@ public class LoteVacina {
 	private int numeroLote;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date validade;
+	private LocalDate validade;
 	
 	private String detalhe;
 	
@@ -33,10 +33,10 @@ public class LoteVacina {
 	public void setNumeroLote(int numeroLote) {
 		this.numeroLote = numeroLote;
 	}
-	public Date getValidade() {
+	public LocalDate getValidade() {
 		return validade;
 	}
-	public void setValidade(Date validade) {
+	public void setValidade(LocalDate validade) {
 		this.validade = validade;
 	}
 	public String getDetalhe() {
