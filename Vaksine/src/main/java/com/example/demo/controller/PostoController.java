@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.VacinaDAO;
-import com.example.demo.model.PerfilSeguranca;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
 
@@ -52,16 +51,12 @@ public class PostoController {
 	
 	/**Autenticacao - login para o posto de saude**/
 	@PostMapping("/autenticacaoposto")
-	public String autenticarPosto(PerfilSeguranca inputperfil, Posto posto, HttpSession session) {
+	public String autenticarPosto(Posto posto, HttpSession session) {
 		
-		PerfilSeguranca perfil = new PerfilSeguranca();
-		
-		perfil = postoService.buscarPerfilUsuarioPosto(posto.getEmail());
-		
-		if(inputperfil.getSenha().equals(perfil.getSenha())) {
-			session.setAttribute("postoAutenticado", perfil);
-			return "redirect:/vacinaform";
-		}
+//		if(inputperfil.getSenha().equals(perfil.getSenha())) {
+//			session.setAttribute("postoAutenticado", perfil);
+//			return "redirect:/vacinaform";
+//		}
 			return "";
 	}
 

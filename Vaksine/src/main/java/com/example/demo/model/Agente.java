@@ -1,14 +1,8 @@
 package com.example.demo.model;
 
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 
 @Entity
 public class Agente {
@@ -27,8 +21,9 @@ public class Agente {
 	
 	private String dataNascimento;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	private PerfilSeguranca perfilSeguranca;
+	private String senha;
+	
+	private String codigoUsuario;
 
 	public Integer getMatricula() {
 		return matricula;
@@ -78,11 +73,19 @@ public class Agente {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public PerfilSeguranca getPerfilSeguranca() {
-		return perfilSeguranca;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setPerfilSeguranca(PerfilSeguranca perfilSeguranca) {
-		this.perfilSeguranca = perfilSeguranca;
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getCodigoUsuario() {
+		return codigoUsuario;
+	}
+
+	public void setCodigoUsuario(String codigoUsuario) {
+		this.codigoUsuario = codigoUsuario;
 	}	
 }
