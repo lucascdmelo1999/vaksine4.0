@@ -1,0 +1,55 @@
+.error {
+   
+    color: #D8000C;
+	
+}
+input[type=text]:focus {
+  background-color: lightblue;
+}
+input[type=text] {
+  background-color: #DCDCDC;
+}
+input[type=email]:focus {
+  background-color: lightblue;
+}
+input[type=email] {
+  background-color: #DCDCDC;
+}
+input[type=tel]:focus {
+  background-color: lightblue;
+}
+input[type=tel] {
+  background-color: #DCDCDC;
+}
+input[type=date]:focus {
+  background-color: lightblue;
+}
+input[type=date] {
+  background-color: #DCDCDC;
+}
+input[type=password]:focus {
+  background-color: lightblue;
+}
+input[type=password] {
+  background-color: #DCDCDC;
+}
+
+::-webkit-input-placeholder {
+   
+   font: 18px ;
+}
+
+:-moz-placeholder {
+  
+   font: 18px ;
+}
+
+::-moz-placeholder {
+  
+   font: 18px ;
+}
+
+:-ms-input-placeholder {  
+  
+   font: 18px ;
+}
