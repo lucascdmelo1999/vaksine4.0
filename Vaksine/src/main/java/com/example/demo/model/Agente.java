@@ -22,6 +22,7 @@ public class Agente {
 	private String dataNascimento;
 	
 	private String senha;
+	
 	private String senha2;
 
 	private String codigoUsuario;
