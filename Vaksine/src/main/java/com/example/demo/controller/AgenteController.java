@@ -37,7 +37,6 @@ public class AgenteController {
 	}
 	
 	
-	
 	@PostMapping("/cadastroAgente")
 	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model,RedirectAttributes ra) {
 		
