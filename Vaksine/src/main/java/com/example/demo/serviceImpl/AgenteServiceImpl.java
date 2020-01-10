@@ -1,5 +1,6 @@
 package com.example.demo.serviceImpl;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,9 +8,9 @@ import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.service.AgenteService;
 
+
 @Service
 public class AgenteServiceImpl implements AgenteService {
-
 	@Autowired
 	private AgenteDAO agenteDAO;
 
@@ -25,12 +26,12 @@ public class AgenteServiceImpl implements AgenteService {
 	
 	Agente agenteComEmailExistente = this.agenteDAO.findByEmail(agente.getEmail());
 	
-	if (agenteComEmailExistente == null) {
-		this.agenteDAO.save(agente);	
-		return true;
-	}
+		if (agenteComEmailExistente == null) {
+			this.agenteDAO.save(agente);	
+			return true;
+		}
 	return false;
 	
-}
-
+	}	
+	
 }

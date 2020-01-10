@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.model.Agente;
 import com.example.demo.service.AgenteService;
 
+
 @Controller
 public class AgenteController {
 	
@@ -35,8 +36,10 @@ public class AgenteController {
 		return "cadastro-agente";
 	}
 	
+	
+	
 	@PostMapping("/cadastroAgente")
-	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model) {
+	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model,RedirectAttributes ra) {
 		
 		
 		redirectAttributes.addFlashAttribute("message", "Failed");
@@ -46,13 +49,13 @@ public class AgenteController {
 		}
 		boolean retorno = this.agenteService.salvarAgente(agente);
 		if (retorno == false) {
-			redirectAttributes.addFlashAttribute("message", "Já existe um Agente com este email");
-			redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+			ra.addFlashAttribute("message", "Já existe um Agente com este email");
+            ra.addFlashAttribute("agente", agente);
 			return "redirect:/cadAgente";
+
 		}
 
-		redirectAttributes.addFlashAttribute("message", "Agente cadastrado");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		ra.addFlashAttribute("message", "Agente cadastrado");
 		
 		return "redirect:/cadAgente";
 	}
