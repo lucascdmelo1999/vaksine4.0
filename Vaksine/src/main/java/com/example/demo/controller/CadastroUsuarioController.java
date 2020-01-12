@@ -37,7 +37,7 @@ public class CadastroUsuarioController {
 	@PostMapping("/cad")
 	public String cadastrar(@Valid Usuario usuario, BindingResult result, RedirectAttributes redirectAttributes,
 			String email) {
-		usuarioDAO.save(usuario);
+
 
 		redirectAttributes.addFlashAttribute("message", "Failed");
 		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
