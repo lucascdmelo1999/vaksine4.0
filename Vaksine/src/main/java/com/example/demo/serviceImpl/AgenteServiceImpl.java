@@ -22,7 +22,6 @@ public class AgenteServiceImpl implements AgenteService {
 
 	}
 	public boolean salvarAgente(Agente agente) {
-	// Verificar a existencia de um agente com o email
 	
 	Agente agenteComEmailExistente = this.agenteDAO.findByEmail(agente.getEmail());
 	

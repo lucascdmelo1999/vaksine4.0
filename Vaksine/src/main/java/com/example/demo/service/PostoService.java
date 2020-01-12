@@ -8,5 +8,7 @@ public interface PostoService {
 	public Posto atualizarPosto(Posto posto, Integer id);
 	
 	public Posto deletarPosto(Integer id);
+	
+	public Posto buscarPostoPorEmail(String email);
 
 }

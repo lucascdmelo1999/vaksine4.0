@@ -27,10 +27,15 @@ public class PostoController {
 	public String loginPostoAgente(Posto posto) {
 		return "posto-agente-login";
 	}
-
+	
 	@GetMapping("/cadastroposto")
 	public String formCadastro(Posto posto) {
 		return "cadastro-posto";
+	}
+	
+	@GetMapping("/admposto")
+	public String admposto() {
+		return"admposto";
 	}
 
 	@PostMapping("/salvarposto")
@@ -49,15 +54,17 @@ public class PostoController {
 	
 	}
 	
-	/**Autenticacao - login para o posto de saude**/
 	@PostMapping("/autenticacaoposto")
-	public String autenticarPosto(Posto posto, HttpSession session) {
-		
-//		if(inputperfil.getSenha().equals(perfil.getSenha())) {
-//			session.setAttribute("postoAutenticado", perfil);
-//			return "redirect:/vacinaform";
-//		}
-			return "";
+	public String autenticarPosto(Posto inputPosto, RedirectAttributes re, HttpSession session) {
+		Posto posto = postoService.buscarPostoPorEmail(inputPosto.getEmail());
+		if(inputPosto.getSenha().equals(posto.getSenha())) {
+			
+			session.setAttribute("usuarioLogado", posto);
+			return "redirect:/admposto";
+		}else {
+			re.addAttribute("mensagem", "Login/senha inválida");
+			return "redirect:/";
+		}
 	}
 
 }

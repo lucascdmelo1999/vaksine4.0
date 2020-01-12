@@ -30,4 +30,25 @@ public class PostoServiceImpl implements PostoService{
 	public Posto deletarPosto(Integer id) {
 		return null;
 	}
+	
+	@Override
+	public Posto buscarPostoPorEmail(String email) {
+		
+		Posto posto = postoDAO.findByEmail(email);
+		try {
+			this.checarDados(posto);
+			return posto;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public void checarDados(Posto posto) throws Exception {
+		
+		if(posto==null) {
+			throw new Exception("Não existe conta com esse login");
+		}
+	}
+	
 }
