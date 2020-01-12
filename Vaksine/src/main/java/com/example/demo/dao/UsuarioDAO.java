@@ -7,5 +7,6 @@ import com.example.demo.model.Usuario;
 
 @Repository
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
-
+	
+	Usuario findByEmail(String email);
 }

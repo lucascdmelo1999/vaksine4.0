@@ -88,7 +88,7 @@
             
                 <!---Formbuilder Form--->
                 <form id="form"  th:action="@{/cad}" th:object="${usuario}" class="mbr-form form-with-styler" method="POST" >
-                    <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
+                  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
                      
                         <div class="form-group">
                             <label for="nome" class="form-control-label mbr-fonts-style display-7"></label>
