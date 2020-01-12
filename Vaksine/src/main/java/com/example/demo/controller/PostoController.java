@@ -66,5 +66,11 @@ public class PostoController {
 			return "redirect:/";
 		}
 	}
+	
+	@PostMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/cadastroposto";
+	}
 
 }
