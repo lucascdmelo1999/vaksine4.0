@@ -3,6 +3,9 @@ package com.example.demo.serviceImpl;
 import java.util.List;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -13,22 +16,58 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
+import com.example.demo.util.Util;
+
+
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
-	public boolean salvarUsuario(Usuario usuario) {
+	//public boolean salvarUsuario(Usuario usuario) {
 		
-		Usuario usuarioComEmailExistente = this.usuarioDAO.findByEmail(usuario.getEmail());
+		//Usuario usuarioComEmailExistente = this.usuarioDAO.findByEmail(usuario.getEmail());
 		
-			if (usuarioComEmailExistente == null) {
-				this.usuarioDAO.save(usuario);	
-				return true;
-			}
-		return false;
+			//if (usuarioComEmailExistente == null) {
+			//	this.usuarioDAO.save(usuario);	
+				//return true;
+			//}
+		//return false;
 		
+		//}
+	
+	
+	public Usuario findUsuarioByEmail(String email) {
+		return usuarioDAO.findByEmailIgnoreCase(email);
+	}
+	
+	public Usuario findUsuarioByCpf(String cpf) {
+		return usuarioDAO.findByCpfIgnoreCase(cpf);
+	}
+	public boolean salvarUsuario(Usuario usuario)throws ServiceException, MessagingException {
+		
+		// Verificar a existencia de um participante com o cpf
+		
+		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
+			throw new ServiceException("Já existe um usuário com este e-mail");
 		}
+		else if (this.findUsuarioByCpf(usuario.getCpf()) != null) {
+			throw new ServiceException("Já existe um usuário com este cpf");
+		}  else {
+				String senhaCriptografada;
+				try {
+					senhaCriptografada = Util.criptografarSenha(usuario.getSenha());
+					usuario.setSenha(senhaCriptografada);
+					this.usuarioDAO.save(usuario);	
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				this.usuarioDAO.save(usuario);
+				return true;
+				}
+	}
+	
+
 
 	@Override
 	public List<Usuario> findAll() {

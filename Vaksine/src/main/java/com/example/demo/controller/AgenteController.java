@@ -48,7 +48,7 @@ public class AgenteController {
 		}
 		boolean retorno = this.agenteService.salvarAgente(agente);
 		if (retorno == false) {
-			ra.addFlashAttribute("message", "Já existe um Agente com este email");
+			ra.addFlashAttribute("message", "Não foi possível criar usuário: " + "Já existe um Agente com este email");
             ra.addFlashAttribute("agente", agente);
 			return "redirect:/cadAgente";
 
