@@ -32,7 +32,7 @@ public class PostoServiceImpl implements PostoService{
 	}
 	
 	@Override
-	public Posto buscarPostoPorEmail(String email) {
+	/*public Posto buscarPostoPorEmail(String email) {
 		
 		Posto posto = postoDAO.findByEmail(email);
 		try {
@@ -42,13 +42,19 @@ public class PostoServiceImpl implements PostoService{
 			e.printStackTrace();
 			return null;
 		}
-	}
+	}*/
 	
 	public void checarDados(Posto posto) throws Exception {
 		
 		if(posto==null) {
 			throw new Exception("Não existe conta com esse login");
 		}
+	}
+
+	@Override
+	public Posto buscarPostoPorEmail(String email) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }

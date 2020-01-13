@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html  >
+<html  xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
   <!-- Site made with Mobirise Website Builder v4.11.4, https://mobirise.com -->
   <meta charset="UTF-8">
@@ -125,11 +126,25 @@
 
    <script type="text/javascript" src="./js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
-    <script type="text/javascript" src="./js/validate.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
+  <script type="text/javascript" src="./js/validate.js"></script>
     
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+    
+    
+     <script th:if="${mensagem}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'success',
+    	  title: 'Cadastrado com sucesso!!',
+    	  showConfirmButton: false,
+    	  timer: 2000
+    	})
+	</script>
+	
+	
   </body>
 </html>

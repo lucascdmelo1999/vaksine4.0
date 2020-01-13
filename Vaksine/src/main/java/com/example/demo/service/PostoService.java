@@ -11,4 +11,6 @@ public interface PostoService {
 	
 	public Posto buscarPostoPorEmail(String email);
 
+	void checarDados(Posto posto) throws Exception;
+
 }

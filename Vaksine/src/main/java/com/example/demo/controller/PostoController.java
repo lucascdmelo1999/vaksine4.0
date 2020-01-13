@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.example.demo.dao.VacinaDAO;
+import com.example.demo.dao.PostoDAO;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
 
@@ -21,7 +21,7 @@ public class PostoController {
 	PostoService postoService;
 	
 	@Autowired
-	VacinaDAO vacinaDAO;
+	private PostoDAO postoDAO;
 	
 	@GetMapping("/loginPostoAgente")
 	public String loginPostoAgente(Posto posto) {
@@ -54,21 +54,35 @@ public class PostoController {
 	
 	}
 	
-	@PostMapping("/autenticacaoposto")
-	public String autenticarPosto(Posto inputPosto, RedirectAttributes re, HttpSession session) {
+	/*@PostMapping("/autenticacaoposto")
+	public String autenticarPosto(Posto inputPosto, RedirectAttributes ra, HttpSession session) {
 		Posto posto = postoService.buscarPostoPorEmail(inputPosto.getEmail());
-		if(inputPosto.getSenha().equals(posto.getSenha())) {
-			
+		if(inputPosto.getSenha().equals(inputPosto.getSenha())) {
+			System.out.println(posto.getEmail());
+			ra.addFlashAttribute("mensagem","logado");
+			session.setAttribute("usuarioLogado", inputPosto);
+			return "redirect:/admposto";
+		}else {
+			ra.addAttribute("mensagem", "Login/senha inválida");
+			return "redirect:/loginPostoAgente";
+		}
+	}*/
+	@PostMapping("/autenticacaoposto")
+	public String efetuarlogin(Posto posto, RedirectAttributes ra, HttpSession session) {
+		posto = this.postoDAO.findByEmailAndSenha(posto.getEmail(),posto.getSenha());
+		if(posto != null) {
+			ra.addFlashAttribute("mensagem","login com sucesso");
 			session.setAttribute("usuarioLogado", posto);
 			return "redirect:/admposto";
 		}else {
-			re.addAttribute("mensagem", "Login/senha inválida");
+			ra.addFlashAttribute("mensagem","erro ao logar");
 			return "redirect:/";
 		}
 	}
 	
-	@PostMapping("/logout")
-	public String logout(HttpSession session) {
+	
+	@GetMapping("/logout")
+	public String logout(HttpSession session, Posto posto) {
 		session.invalidate();
 		return "redirect:/cadastroposto";
 	}

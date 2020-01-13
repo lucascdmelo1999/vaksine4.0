@@ -250,8 +250,27 @@
   <script src="assets/mbr-tabs/mbr-tabs.js"></script>
   <script src="assets/theme/js/script.js"></script>
   
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+    
+    <script th:if="${mensagem == 'logado' && mensagem != null}" type="text/javascript">
+		
+    const Toast = Swal.mixin({
+    	  toast: true,
+    	  position: 'center-end',
+    	  showConfirmButton: false,
+    	  timer: 3000,
+    	  onOpen: (toast) => {
+    	    toast.addEventListener('mouseleave', Swal.resumeTimer)
+    	  }
+    	})
+
+    	Toast.fire({
+    	  icon: 'success',
+    	  title: 'Signed in successfully'
+    	})
+	</script>
   </body>
 </html>

@@ -6,6 +6,7 @@ import com.example.demo.model.Posto;
 
 public interface PostoDAO extends JpaRepository<Posto, Integer> {
 	
-	public Posto findByEmail(String email);
+	public Posto findByEmailAndSenha(String email, String senha);
+	
 
 }
