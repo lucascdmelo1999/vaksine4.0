@@ -200,7 +200,7 @@
     	  timer: 2000
     	})
 	</script>
-	<script th:if="${message == 'Já existe um Agente com este email'}" type="text/javascript">
+	<script th:if="${message == 'Não foi possível criar usuário: Já existe um Agente com este email'}" type="text/javascript">
 			Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',
