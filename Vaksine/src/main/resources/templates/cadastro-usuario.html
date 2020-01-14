@@ -88,7 +88,6 @@
             
                 <!---Formbuilder Form--->
                 <form id="form"  th:action="@{/cad}" th:object="${usuario}" class="mbr-form form-with-styler" method="POST" >
-                  <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
                      
                         <div class="form-group">
                             <label for="nome" class="form-control-label mbr-fonts-style display-7"></label>
@@ -193,12 +192,25 @@
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
   <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js" ></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="./js/validate.js"></script>
   
 
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+  
+     <script th:if="${message != null && message == 'Usuário cadastrado com sucesso!'}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'success',
+    	  title: 'Cadastrado com sucesso!!',
+    	  showConfirmButton: false,
+    	  timer: 3000
+    	})
+	</script>
+  
+  
   <script>
   $(document).ready(function(){
   	  $("#form").validate({

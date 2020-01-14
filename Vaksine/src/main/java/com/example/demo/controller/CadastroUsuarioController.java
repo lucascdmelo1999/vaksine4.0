@@ -42,7 +42,7 @@ public class CadastroUsuarioController {
 	}
 
 	@PostMapping("/cad")
-	public String cadastrar(@Valid Usuario usuario, BindingResult result, RedirectAttributes redirectAttributes, Errors errors, String email){
+	public String cadastrar(@Valid Usuario usuario, BindingResult result, RedirectAttributes redirectAttributes, Errors errors){
 
 
 		redirectAttributes.addFlashAttribute("message", "Failed");
@@ -57,18 +57,19 @@ public class CadastroUsuarioController {
 				redirectAttributes.addFlashAttribute("message", "Usuário cadastrado com sucesso!");
 			} catch (ServiceException | MessagingException e) {
 				redirectAttributes.addFlashAttribute("message", "Não foi possível criar usuário: " + e.getMessage());
+				System.out.println(e.getMessage());
 				redirectAttributes.addFlashAttribute("usuario", usuario);
                  
 				return "redirect:/cadUsuario";
 			}
 		}
-		SimpleMailMessage msg = new SimpleMailMessage();
+		/*SimpleMailMessage msg = new SimpleMailMessage();
 				msg.setTo(email);
 				msg.setSubject("Confirmação de conta");
 				msg.setText("obg");
 
 				javaMailSender.send(msg);
-		redirectAttributes.addFlashAttribute("Usuário cadastrado", true);
+		redirectAttributes.addFlashAttribute("Usuário cadastrado", true);*/
 		return "redirect:/cadUsuario";
 	}
 		
@@ -85,9 +86,11 @@ public class CadastroUsuarioController {
 		try {
 			usuario = this.usuarioService.logarParticipante(usuario.getCpf(), usuario.getSenha());
 			session.setAttribute("usuarioLogado", usuario);
-			System.out.println(usuario);
+			ra.addFlashAttribute("mensagem", "logado");
+			System.out.println(session);
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
+			System.out.println("erro");
 
 			return "redirect:/login";
 		}
@@ -98,8 +101,10 @@ public class CadastroUsuarioController {
 
 		
 	@GetMapping("/deslogar")
-	public String deslogar(HttpSession session) {
+	public String deslogar(Usuario usuario,HttpSession session) {
 		session.invalidate();
+		System.out.println(session);
+
 		return "redirect:/paginainicial";
 	}
 	

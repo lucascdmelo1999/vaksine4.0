@@ -255,13 +255,13 @@
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
     
-    <script th:if="${mensagem == 'logado' && mensagem != null}" type="text/javascript">
+    <script th:if="${mensagem == 'login com sucesso' && mensagem != null}" type="text/javascript">
 		
     const Toast = Swal.mixin({
     	  toast: true,
     	  position: 'center-end',
     	  showConfirmButton: false,
-    	  timer: 3000,
+    	  timer: 4000,
     	  onOpen: (toast) => {
     	    toast.addEventListener('mouseleave', Swal.resumeTimer)
     	  }
@@ -269,7 +269,7 @@
 
     	Toast.fire({
     	  icon: 'success',
-    	  title: 'Signed in successfully'
+    	  title: 'Logado com sucesso!'
     	})
 	</script>
   </body>
