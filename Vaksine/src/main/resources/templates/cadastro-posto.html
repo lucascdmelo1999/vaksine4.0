@@ -83,7 +83,6 @@
             
                 <!---Formbuilder Form--->
                 <form id="formPosto" th:action="@{/salvarposto}" th:object="${posto}" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form">
-                    <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"/>
                     
                     <div class="row">
                         <div hidden="hidden" data-form-alert="" class="alert alert-success col-12">Thanks for filling out the form!</div>
@@ -168,10 +167,22 @@
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="./js/validate.js"></script>
   
   
  <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
     <input name="animation" type="hidden">
+    
+    <script th:if="${message != null && message == 'Posto cadastrado com sucesso'}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'success',
+    	  title: 'Posto cadastrado com sucesso!!',
+    	  showConfirmButton: false,
+    	  timer: 4000
+    	})
+	</script>
+	
   </body>
 </html>

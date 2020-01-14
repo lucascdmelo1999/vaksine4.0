@@ -90,9 +90,9 @@ public class CadastroUsuarioController {
 			System.out.println(session);
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
-			System.out.println("erro");
+			System.out.println(e.getMessage());
 
-			return "redirect:/login";
+			return "redirect:/loginusuario";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);

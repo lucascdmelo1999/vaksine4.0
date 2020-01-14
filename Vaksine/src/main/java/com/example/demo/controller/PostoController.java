@@ -39,15 +39,14 @@ public class PostoController {
 	}
 
 	@PostMapping("/salvarposto")
-	public String cadastrarPosto(Posto posto,BindingResult result, RedirectAttributes redirectAttributes) {
+	public String cadastrarPosto(Posto posto,BindingResult result, RedirectAttributes ra) {
 		
-		redirectAttributes.addFlashAttribute("message", "Failed");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+		
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
 		}
-		redirectAttributes.addFlashAttribute("message", "Posto cadastrado com sucesso");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		ra.addFlashAttribute("message", "Posto cadastrado com sucesso");
+		ra.addFlashAttribute("alertClass", "alert-success");
 		this.postoService.cadastrarPosto(posto);
 		return "redirect:/cadastroposto";
 	
