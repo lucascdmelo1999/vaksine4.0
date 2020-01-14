@@ -76,7 +76,7 @@ public class CadastroUsuarioController {
 		
 		
 	@PostMapping("/participanteLogin")
-	public String participanteLogin(HttpServletRequest request, Usuario usuario, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException{
+	public String usuarioLogin(HttpServletRequest request, Usuario usuario, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		
 		String redirect = "redirect:/paginainicial";
 		if (retorno != null) {
@@ -84,15 +84,15 @@ public class CadastroUsuarioController {
 		}
 
 		try {
-			usuario = this.usuarioService.logarParticipante(usuario.getCpf(), usuario.getSenha());
+			usuario = this.usuarioService.logarUsuario(usuario.getCpf(), usuario.getSenha());
 			session.setAttribute("usuarioLogado", usuario);
 			ra.addFlashAttribute("mensagem", "logado");
 			System.out.println(session);
 		} catch (ServiceException e) {
 			ra.addFlashAttribute("mensagemErro", e.getMessage());
-			System.out.println("erro");
+			System.out.println(e.getMessage());
 
-			return "redirect:/login";
+			return "redirect:/loginusuario";
 		}
 
 		ra.addFlashAttribute("loginEfetuado", true);
