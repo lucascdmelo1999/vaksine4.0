@@ -77,7 +77,7 @@
             <div class="media-container-column col-lg-8" data-form-type="formoid">
                 <!---Formbuilder Form--->
                 <div th:text="${mensagem}" th:if="${mensagem != null} "></div>
-                <form id="formLoginUsuario" action="cartao-de-vacina.html" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form" th:object="${usuario}">
+                <form id="formLoginUsuario" action="/participanteLogin" method="POST" class="mbr-form form-with-styler" data-form-title="Mobirise Form" th:object="${usuario}">
                     
                     <div class="dragArea row">
                         <div class="col-md-12  form-group" data-for="name">

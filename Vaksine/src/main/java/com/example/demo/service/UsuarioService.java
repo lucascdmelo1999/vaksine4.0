@@ -1,5 +1,8 @@
 package com.example.demo.service;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.mail.MessagingException;
 
 import org.hibernate.service.spi.ServiceException;
@@ -12,5 +15,6 @@ public interface UsuarioService extends JpaRepository<Usuario, Integer> {
 	
 	public boolean salvarUsuario(Usuario usuario) throws ServiceException, MessagingException;
 	
+	public Usuario logarParticipante(String cpf, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException;
 	
 }

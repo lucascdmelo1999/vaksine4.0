@@ -10,6 +10,9 @@ import com.example.demo.model.Usuario;
 public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	//Usuario findByEmail(String email);
+
+	@Query("select c from Usuario c where c.cpf = :cpf and c.senha = :senha")	
+	public Usuario participanteLogin(String cpf, String senha);
 	
 	@Query("select c from Usuario c where c.email = :email and c.senha = :senha")
 	public  Usuario UsuarioLogin(String email, String senha);

@@ -1,5 +1,7 @@
 package com.example.demo.serviceImpl;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Optional;
 
@@ -66,6 +68,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 				return true;
 				}
 	}
+	
+	public Usuario logarParticipante(String cpf, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
+		
+		String senhaCriptografada = Util.criptografarSenha(senha);
+		Usuario participante = this.usuarioDAO.participanteLogin(cpf, senhaCriptografada);
+
+		if (participante == null) {
+			throw new ServiceException("Login/senha não encontrados");
+		}
+
+		return participante;
+	}
+
 	
 
 
