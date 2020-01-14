@@ -37,6 +37,11 @@ public class PostoController {
 	public String admposto() {
 		return"admposto";
 	}
+	
+	@GetMapping("/atualizarperfilposto")
+	public String atualizarPerfil(Posto posto) {
+		return "redirect:/link";
+	}
 
 	@PostMapping("/salvarposto")
 	public String cadastrarPosto(Posto posto,BindingResult result, RedirectAttributes redirectAttributes) {

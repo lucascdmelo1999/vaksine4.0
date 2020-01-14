@@ -22,10 +22,10 @@ public class Agente {
 	private String dataNascimento;
 	
 	private String senha;
-	
-	private String senha2;
 
 	private String codigoUsuario;
+	
+	private byte[] foto;
 
 	public Integer getMatricula() {
 		return matricula;
@@ -91,13 +91,12 @@ public class Agente {
 		this.codigoUsuario = codigoUsuario;
 	}
 
-	public String getSenha2() {
-		return senha2;
+	public byte[] getFoto() {
+		return foto;
 	}
 
-	public void setSenha2(String senha2) {
-		this.senha2 = senha2;
+	public void setFoto(byte[] foto) {
+		this.foto = foto;
 	}
-	
 	
 }
