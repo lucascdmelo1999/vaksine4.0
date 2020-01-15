@@ -10,7 +10,9 @@ public interface PostoService {
 	public Posto deletarPosto(Integer id);
 	
 	public Posto buscarPostoPorEmail(String email);
-
+	
+	public Posto atualizarPerfil(Posto posto);
+	
 	void checarDados(Posto posto) throws Exception;
 
 }

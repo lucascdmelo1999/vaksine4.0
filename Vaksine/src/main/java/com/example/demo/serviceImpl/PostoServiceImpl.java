@@ -57,4 +57,11 @@ public class PostoServiceImpl implements PostoService{
 		return null;
 	}
 	
+	@Override
+	public Posto atualizarPerfil(Posto posto) {
+		posto = postoDAO.save(posto);
+		return posto;
+		
+	}
+	
 }
