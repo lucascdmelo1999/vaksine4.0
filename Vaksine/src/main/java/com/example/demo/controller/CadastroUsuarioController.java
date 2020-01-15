@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.model.Agente;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
 
@@ -32,6 +33,11 @@ public class CadastroUsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
+
+	@GetMapping("/ind-usuario")
+	public String agente (Agente agente) {
+		return "/usuario";
+	}
 
 
 	@GetMapping("/cadUsuario")
