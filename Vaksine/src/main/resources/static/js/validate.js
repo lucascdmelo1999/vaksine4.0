@@ -163,8 +163,7 @@ jQuery(function($){
                    },
                    email: {
 	                   	required: true,
-	                   	minlength: 5,
-	                   	email
+	                   	minlength: 5
 
                   },
                    senha: {

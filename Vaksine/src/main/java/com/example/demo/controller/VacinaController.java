@@ -53,14 +53,13 @@ public class VacinaController {
 
 	@PostMapping("/vacinaCadastro")
 	public String cadastrarVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes) {
+		
 		this.vacinaDAO.save(vacina);
-		redirectAttributes.addFlashAttribute("message", "Failed");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+		
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
 		}
-		redirectAttributes.addFlashAttribute("message", "Cadastro realizado com sucesso");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-success");
+		redirectAttributes.addFlashAttribute("message", "vacina cadastrada");
 		
 		return "redirect:/vacinaform";
 	}
