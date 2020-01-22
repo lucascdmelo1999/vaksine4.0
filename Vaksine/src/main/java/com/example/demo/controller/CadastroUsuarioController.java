@@ -118,9 +118,14 @@ private UsuarioDAO usuarioDAO;
 	@GetMapping("/editarPerfil")
 	public String editarPelfil(Model model,Integer id) {
 		
-		model.addAttribute("usuario",usuarioDAO.findByid(id));
+		model.addAttribute("usuario",this.usuarioDAO.findByid(id));
 		
-		return "/cadastro-usuario";
+		return "/atualizar-perfil-usuario";
+	}
+	
+	@GetMapping("/perfilusuario")
+	public String perfilusuario() {
+		return"/perfil-usuario";
 	}
 }
 
