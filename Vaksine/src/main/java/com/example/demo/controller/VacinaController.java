@@ -1,6 +1,10 @@
 package com.example.demo.controller;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -16,6 +20,10 @@ import com.example.demo.model.Vacina;
 
 @Controller
 public class VacinaController {
+	
+	private String data;  
+	Locale locale = new Locale("pt","BR");  
+	GregorianCalendar calendar = new GregorianCalendar();  
 
 	@Autowired
 	private VacinaDAO vacinaDAO;
@@ -45,7 +53,7 @@ public class VacinaController {
 	
 	@PostMapping("/pesquisarvacina")
 	public String pesquisarvacina(Vacina vacina, Model model) {
-										// select nome from vacina where nome LIKE %nome%;
+		// select nome from vacina where nome LIKE %nome%;
 		List<Vacina> resultado = this.vacinaDAO.findByNomeContainingIgnoreCase(vacina.getNome(), Sort.by("nome"));
 		model.addAttribute("listaVacinas", resultado);
 		return "/buscarvacina";
@@ -54,12 +62,19 @@ public class VacinaController {
 	@PostMapping("/vacinaCadastro")
 	public String cadastrarVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes) {
 		
-		this.vacinaDAO.save(vacina);
+		
 		
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
 		}
-		redirectAttributes.addFlashAttribute("message", "vacina cadastrada");
+		
+		//se a data for anterior a data atual a vacina não é cadastrada
+	    if(!vacina.getLoteVacina().getValidade().isBefore(LocalDate.now().plusMonths(1))) {
+			redirectAttributes.addFlashAttribute("message", "vacina cadastrada");
+	    	this.vacinaDAO.save(vacina);
+	    }else {
+			redirectAttributes.addFlashAttribute("message", "dataInvalida");
+	    }
 		
 		return "redirect:/vacinaform";
 	}
