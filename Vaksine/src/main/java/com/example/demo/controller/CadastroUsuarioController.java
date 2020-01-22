@@ -10,7 +10,7 @@ import javax.validation.Valid;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.mail.SimpleMailMessage;
+import org.springframework.data.domain.Sort;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
@@ -33,7 +34,8 @@ public class CadastroUsuarioController {
 	@Autowired
 	private UsuarioService usuarioService;
 
-
+@Autowired
+private UsuarioDAO usuarioDAO;
 	@GetMapping("/ind-usuario")
 	public String agente (Agente agente) {
 		return "/usuario";
@@ -113,7 +115,12 @@ public class CadastroUsuarioController {
 
 		return "redirect:/paginainicial";
 	}
-	
-
+	@GetMapping("/editarPerfil")
+	public String editarPelfil(Model model,Integer id) {
+		
+		model.addAttribute("usuario",usuarioDAO.findByid(id));
+		
+		return "/cadastro-usuario";
 	}
+}
 

@@ -22,4 +22,9 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	@Query("select c from Usuario c where c.cpf = :cpf")
 	public Usuario findByCpfIgnoreCase(String cpf);
+	
+	@Query("select c from Usuario c where c.id = :id")
+	public Usuario findByid(Integer id);
+
+
 }
