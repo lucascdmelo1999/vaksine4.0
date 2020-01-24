@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Usuario;
@@ -82,6 +84,22 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 
 	
+	public Usuario editarPerfil(Usuario usuario,HttpSession session) {
+		Usuario usuarioLogado=(Usuario)session.getAttribute("usuarioLogado");
+		Usuario user = this.usuarioDAO.findByid(usuarioLogado.getId());
+			
+		user.setCpf(usuario.getCpf());
+		user.setDataNas(usuario.getDataNas());
+		user.setEmail(usuario.getEmail());
+		user.setNome(usuario.getNome());
+		user.setNomeMae(usuario.getNome());
+		user.setNomePai(usuario.getNomePai());
+		user.setTipoSanguineo(usuario.getTipoSanguineo());
+		user.setTelefone(usuario.getTelefone());
+		user.setSenha(usuario.getSenha());	
+		
+		return user;
+	}
 
 
 	@Override
