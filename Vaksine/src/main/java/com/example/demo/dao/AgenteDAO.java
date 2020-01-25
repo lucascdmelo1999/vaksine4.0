@@ -11,4 +11,6 @@ public interface AgenteDAO extends JpaRepository<Agente, Integer>{
 	Agente findByCpf(String cpf);
 	
 	Agente findByEmail(String email);
+	Agente findByCpfAndSenha(String cpf, String senha);
+
 }
