@@ -11,7 +11,8 @@
   <meta name="description" content="">
   
   <title>Página inicial</title>
-     <link rel="stylesheet" href="./css/estilo.css">
+   <link rel="stylesheet" href="./css/estilo.css">
+  
   <link rel="stylesheet" href="assets/web/assets/mobirise-icons/mobirise-icons.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap-grid.min.css">
@@ -68,22 +69,20 @@
         </div>
     </nav>
 </section>
-<section class="engine"><a href="https://mobirise.info/b">how to create your own site for free</a></section><section  class="cid-qTkA127IK8 mbr-fullscreen mbr-parallax-background" id="header2-1">
 
+<div >
+
+   <div class="link-boxes">
+  		<a href="#" class="box1" style="background-image:url('https://img.elo7.com.br/product/zoom/1EA0221/feltro-santa-fe-cor-28-azul-turquesa-artesanato.jpg')">
+    		<div class="box-label"></div>
+  		</a>
+    	<a href="#" class="box2" style="background-image:url('https://http2.mlstatic.com/100-folhas-papel-camurca-folha-40x60cm-cor-azul-royal-D_NQ_NP_977621-MLB20826048981_072016-F.jpg')">
+    		<div class="box-label"></div>
+  		</a>
+  		
+	</div>
     
-
-    <div class="mbr-overlay" style="opacity: 0; background-color: rgb(118, 118, 118);"></div>
-
-            <div class="mbr-white">
-                <h3 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1"><em>Aproveite sua vacina online</em></h3>
-                
-                <div id="botao" th:if="${session.usuarioLogado == null}" class="mbr-section-btn"><a class="btn btn-md btn-primary display-6" th:href="@{/cadUsuario}">Cadastre-se</a></div>
-            	<div id="" th:if="${session.usuarioLogado == null}" class="mbr-section-btn"><a class="btn btn-md btn-primary display-6" th:href="@{/cadastroposto}">Cadastrar Posto</a></div>
-            	<div id="" th:if="${session.usuarioLogado != null}" class="mbr-section-btn"><a class="btn btn-md btn-primary display-6" th:href="@{/visualizarCartão}">Visualizar Cartão</a></div>
-            	
-    </div>
-    
-</section>
+</div>
 
 <section once="footers" class="cid-rHL0kRHyt3" id="footer6-12">
 
@@ -117,8 +116,6 @@
   <script src="assets/theme/js/script.js"></script>
   
   
- <div id="scrollToTop" class="scrollToTop mbr-arrow-up"><a style="text-align: center;"><i class="mbr-arrow-up-icon mbr-arrow-up-icon-cm cm-icon cm-icon-smallarrow-up"></i></a></div>
-    <input name="animation" type="hidden">
     
     <script th:if="${mensagem != null && mensagem == 'logado'}" type="text/javascript">
 		
