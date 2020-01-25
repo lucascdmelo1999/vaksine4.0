@@ -29,7 +29,7 @@ public class CartaoVacinaServiceImpl implements VacinaUsuarioService{
 	public VacinaUsuario cadastrarCartao(VacinaUsuario cartao) {
 		
 		/**cadastrando a vacina do usuario**/
-		
+		Optional.ofNullable(cartao).ifPresent(this::checkFields);
 		
 		cartao = vacinaUsuarioDAO.save(cartao);
 		return cartao;
@@ -43,7 +43,8 @@ public class CartaoVacinaServiceImpl implements VacinaUsuarioService{
 		}
 		
 		Optional<VacinaUsuario> vacinaUsuario = vacinaUsuarioDAO.findById(cartao.getId());
-
+		
+		//vacinaUsuario.ifPresent(this::teste);
 		/**verificando se o usuario ja recebeu tem uma dose da vacina**/
 		
 		

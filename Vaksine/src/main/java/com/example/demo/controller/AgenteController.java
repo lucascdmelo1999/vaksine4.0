@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -11,8 +14,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.service.AgenteService;
+import com.example.demo.util.Util;
 
 
 @Controller
@@ -20,6 +25,7 @@ public class AgenteController {
 	
 	@Autowired
 	private AgenteService agenteService;
+	@Autowired AgenteDAO agenteDAO;
 	
 	@GetMapping("/ind-agente")
 	public String agente (Agente agente) {
@@ -58,7 +64,7 @@ public class AgenteController {
 		
 		return "redirect:/cadAgente";
 	}
-	
+
 	/**Autenticacao - login para o posto de saude**/
 	@PostMapping("/autenticacaoagente")
 	public String autenticarPosto(Agente agente, HttpSession session) {
@@ -70,5 +76,23 @@ public class AgenteController {
 			return "";
 	}
 	
+	@PostMapping("/agenteLogin")
+	public String agenteLogin(Agente agente,
+			RedirectAttributes ra,
+			HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		
+		agente = this.agenteDAO.findByCpfAndSenha(agente.getCpf(),Util.criptografarSenha(agente.getSenha()));
+		
+		if (agente != null) {
+			
+			session.setAttribute("usuarioLogado",agente);
+			return "redirect:/home";
+		} else {
+			
+			ra.addFlashAttribute("mensagem", "Login/senha inválidos");
+			return "redirect:/";
+		}
+
 
 }
+	}

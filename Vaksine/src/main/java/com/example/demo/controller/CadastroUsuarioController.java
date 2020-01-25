@@ -10,21 +10,23 @@ import javax.validation.Valid;
 
 import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.model.Usuario;
-import com.example.demo.service.UsuarioService;
+import com.example.demo.serviceImpl.UsuarioServiceImpl;
+
 
 @Controller
 public class CadastroUsuarioController {
@@ -32,7 +34,7 @@ public class CadastroUsuarioController {
 	private JavaMailSender javaMailSender;
 
 	@Autowired
-	private UsuarioService usuarioService;
+	private UsuarioServiceImpl usuarioService;
 
 @Autowired
 private UsuarioDAO usuarioDAO;
@@ -115,12 +117,35 @@ private UsuarioDAO usuarioDAO;
 
 		return "redirect:/paginainicial";
 	}
+	
+	@PostMapping("/perfil/editar")
+	public String editarPefil(@ModelAttribute Usuario usuario,RedirectAttributes ra,HttpSession session) {
+
+		Usuario usuarioSessao = (Usuario) session.getAttribute("usuarioLogado");
+		usuario.setId(usuarioSessao.getId());
+		usuario = this.usuarioService.editarPerfil(usuario,session);
+		this.usuarioService.save(usuario);
+		session.setAttribute("usuarioLogado", usuario);
+		ra.addFlashAttribute("sucesso", "Alteração realizada com sucesso");
+		
+		return"redirect:/editarPerfil";
+	}
+	
 	@GetMapping("/editarPerfil")
-	public String editarPelfil(Model model,Integer id) {
+	public ModelAndView exibirEditarPerfil(HttpSession session,RedirectAttributes ra) {
 		
-		model.addAttribute("usuario",this.usuarioDAO.findByid(id));
+		ModelAndView mv= new ModelAndView("cadastro-usuario");
+		if (session.getAttribute("usuarioLogado")==null) {
+			
+			ra.addFlashAttribute("acessoNegado", true);
+			ra.addFlashAttribute("retorno", "/editarPefil");
+		mv.setViewName("/redirect:/participanteLogin");
+		return mv;
 		
-		return "/atualizar-perfil-usuario";
+		}
+		Usuario usuario=(Usuario) session.getAttribute("usuarioLogado");
+		mv.addObject(usuario);
+		return mv;
 	}
 	
 	@GetMapping("/perfilusuario")

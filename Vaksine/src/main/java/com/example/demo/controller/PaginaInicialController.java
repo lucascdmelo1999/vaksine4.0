@@ -17,6 +17,11 @@ public class PaginaInicialController {
 		return "usuario-login";
 
 	}
+	@GetMapping("/loginADM")
+	public String loginADM() {
+		return "loginADM";
+
+	}
 	
 	@GetMapping("/loginposto")
 	public String loginposto() {
