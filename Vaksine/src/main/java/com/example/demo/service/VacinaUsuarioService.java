@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.model.VacinaUsuario;
+import com.example.demo.model.Vacinacao;
 
 public interface VacinaUsuarioService {
 	
-	public VacinaUsuario cadastrarCartao(VacinaUsuario cartao);
+	public Vacinacao cadastrarCartao(Vacinacao cartao);
 	
 }

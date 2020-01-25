@@ -2,13 +2,18 @@ package com.example.demo.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import org.hibernate.annotations.Cascade;
+
 @Entity
-public class VacinaUsuario {
+public class Vacinacao {
 
 	@Id
 	@GeneratedValue
@@ -23,6 +28,10 @@ public class VacinaUsuario {
 	private LocalDate dataVacinacao;
 	
 	private Integer dose;
+	
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_cartao_vacina")
+	private CartaoVacina cartaoVacina;
 
 	public Integer getId() {
 		return id;
