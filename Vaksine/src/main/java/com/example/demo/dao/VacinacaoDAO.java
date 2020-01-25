@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Vacinacao;
 
 @Repository
-public interface VacinaUsuarioDAO extends JpaRepository<Vacinacao, Integer>{
+public interface VacinacaoDAO extends JpaRepository<Vacinacao, Integer>{
 
 
 }

@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.Vacinacao;
-import com.example.demo.service.VacinaUsuarioService;
+import com.example.demo.service.VacinacaoService;
 
 @Controller
-public class CartaoVacinaController {
+public class VacinacaoController {
 	
 	@Autowired
-	VacinaUsuarioService cartaoVacinaService;
+	VacinacaoService vacinacaoService;
 	
-	@GetMapping("/cartaovacina")
+	@GetMapping("/vacinacao")
 	public String exibirFormCartaoVacina() {
-		return "form-cartao";
+		return "form-vacinacao";
 	}
 	
-	@PostMapping("/cadastrarcartao")
-	public String cadastrarCartaoVacina(Vacinacao cartao) {
-		cartaoVacinaService.cadastrarCartao(cartao);
-		return "cadastro-cartao";
+	@PostMapping("/efetuarvacinacao")
+	public String cadastrarCartaoVacina(Vacinacao vacinacao) {
+		vacinacaoService.efetuarVacinacao(vacinacao);
+		return "cadastro-vacinacao";
 	}
 }
