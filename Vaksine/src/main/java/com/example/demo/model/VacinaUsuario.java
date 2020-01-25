@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
-public class CartaoVacina {
+public class VacinaUsuario {
 
 	@Id
 	@GeneratedValue
@@ -19,10 +19,12 @@ public class CartaoVacina {
 	@OneToOne
 	private Usuario usuario;
 	
-	@OneToMany
-	private List<Vacina> vacina;
+	@OneToOne
+	private Vacina vacina;
 
 	private LocalDate dataVacinacao;
+	
+	private Integer dose;
 
 	public Integer getId() {
 		return id;
@@ -40,11 +42,11 @@ public class CartaoVacina {
 		this.usuario = usuario;
 	}
 
-	public List<Vacina> getVacina() {
+	public Vacina getVacina() {
 		return vacina;
 	}
 
-	public void setVacina(List<Vacina> vacina) {
+	public void setVacina(Vacina vacina) {
 		this.vacina = vacina;
 	}
 
@@ -54,5 +56,13 @@ public class CartaoVacina {
 
 	public void setDataVacinacao(LocalDate dataVacinacao) {
 		this.dataVacinacao = dataVacinacao;
+	}
+
+	public Integer getDose() {
+		return dose;
+	}
+
+	public void setDose(Integer dose) {
+		this.dose = dose;
 	}
 }

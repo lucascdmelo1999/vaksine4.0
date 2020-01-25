@@ -1,29 +1,53 @@
 package com.example.demo.serviceImpl;
 
-import java.util.List;
+import java.util.Optional;
 
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.CartaoVacinaDAO;
-import com.example.demo.model.CartaoVacina;
+import com.example.demo.dao.UsuarioDAO;
+import com.example.demo.dao.VacinaDAO;
+import com.example.demo.dao.VacinaUsuarioDAO;
 import com.example.demo.model.Usuario;
-import com.example.demo.model.Vacina;
-import com.example.demo.service.CartaoVacinaService;
+import com.example.demo.model.VacinaUsuario;
+import com.example.demo.service.VacinaUsuarioService;
 
-public class CartaoVacinaServiceImpl implements CartaoVacinaService{
+@Service
+public class CartaoVacinaServiceImpl implements VacinaUsuarioService{
 
 	@Autowired
-	private CartaoVacinaDAO cartaoVacinaDAO;
+	private VacinaUsuarioDAO vacinaUsuarioDAO;
 	
+	@Autowired
+	private VacinaDAO vacinaDAO;
 	
-	@Override
-	public Usuario buscarUsuarioPorCpf(CartaoVacina cartaoVacina) {
-		return null;
-	}
+	@Autowired
+	private UsuarioDAO usuarioDAO;
 
 	@Override
-	public List<Vacina> listarVacina() {
-		return null;
+	public VacinaUsuario cadastrarCartao(VacinaUsuario cartao) {
+		
+		/**cadastrando a vacina do usuario**/
+		
+		
+		cartao = vacinaUsuarioDAO.save(cartao);
+		return cartao;
 	}
+	
+	public void checkFields(VacinaUsuario cartao) {
+		/**verificando se existe um usuário cadastrado**/
+		Usuario usuario = usuarioDAO.findByCpfIgnoreCase(cartao.getUsuario().getCpf());
+		if(usuario == null) {
+			throw new ServiceException("Não existe nenhum usuário com esse cpf");
+		}
+		
+		Optional<VacinaUsuario> vacinaUsuario = vacinaUsuarioDAO.findById(cartao.getId());
+
+		/**verificando se o usuario ja recebeu tem uma dose da vacina**/
+		
+		
+	}
+	
 
 }
