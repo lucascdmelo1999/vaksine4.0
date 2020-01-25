@@ -35,6 +35,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+	
+	
 
 </head>
 <body>
@@ -124,7 +128,7 @@
 	<section class="cid-qTkA127IK8 mbr-fullscreen " id="header2-1">
 
 		<div>
-			<a href="/editarPerfil" class="waves-effect waves-light btn"><i
+			<a href="/editarPerfil" class="waves-effect waves-light btn "><i
 				class="material-icons left">tag_faces</i>Editar Perfil</a> <br> 
 				<a href="#" class="waves-effect waves-light btn"><i
 				class="material-icons left">visibility</i>Visualizar Cartão</a> <br>
@@ -135,41 +139,8 @@
 
 
 
-		<!--<div class="contatiner col-sm-auto col-md-auto col-md-offset-2">
-			<table class="table table-striped table-bordered table-sm">
-				<thead class="table-success">
-					<tr>
-						<th>Nome</th>
-						<th>Nome da mãe</th>
-						<th>Nome do pai</th>
-						<th>Data De Nascimento</th>
-						<th>Cpf</th>
-						<th>Tipo do Sangue</th>
-						<th>Email</th>
-						<th>Telefone</th>
-						<th>Endereço</th>
-					</tr>
-				</thead>
-				 <tr >
-				<td th:text="${session.usuarioLogado.nome}"></td>
-				<td th:text="${session.usuarioLogado.nomeMae}"></td>
-				<td th:text="${session.usuarioLogado.nomePai}"></td>
-				<td th:text="$session.usuarioLogado.dataNas}"></td>
-				</tr>
-				<td th:text="${perfil.cpf}"></td>
-				<td th:text="${perfil.tipoSanguineo}"></td>
-				<td th:text="${perfil.email}"></td>
-				<td th:text="${perfil.telefone}"></td>
-				<td th:text="${perfil.endereco}"></td>
-			   <td><a th:href="@{/removerUsuario(id=${perfil.id})}">Remover</a></td>
-				
-			</tr>
-			
-		</table>
-		<hr />
-		<a href="/paginainicial" class="btn btn-primary btn-sm active"
-			role="button" aria-pressed="true">Voltar para o inicio</a> 
-		</div>-->
+
+
 </section>
 
 
@@ -195,7 +166,8 @@
 
 	<script src="assets/theme/js/script.js"></script>
 
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      
 
 	<div id="scrollToTop" class="scrollToTop mbr-arrow-up">
 		<a style="text-align: center;"><i
@@ -220,7 +192,13 @@
    icon: 'success',
    title: 'Logado com sucesso!'
   })
+  
+  
+  
+  
 </script>
+
+
 	<section once="footers" class="cid-rHL0kRHyt3" id="footer6-12">
 
 

@@ -91,16 +91,16 @@
                 <form id="form"  th:action="@{/cad}" th:object="${usuario}" class="mbr-form form-with-styler" method="POST" >
                      <input type="hidden" th:field="*{id}">
                         <div class="form-group">
-                            <label for="nome" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text" name="nome" id="nome" placeholder="Nome" class="form-control display-7" th:field="*{nome}">
+                            <label for="nome" class="form-control-label mbr-fonts-style display-7">Nome Completo</label>
+                            <input type="text" name="nome" id="nome" class="form-control display-7" th:field="*{nome}">
                         </div>
                         <div class="form-group" >
-                            <label for="nomeMae" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text"  name="nomeMae" id="nomeMae" placeholder="Nome da Mãe" class="form-control display-7"  th:field="*{nomeMae}">
+                            <label for="nomeMae" class="form-control-label mbr-fonts-style display-7">Nome da Mãe Completo</label>
+                            <input type="text"  name="nomeMae" id="nomeMae" class="form-control display-7"  th:field="*{nomeMae}">
                         </div>
                         <div  class="form-enderecogroup">
-                            <label for="nomePai" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text" name="nomePai" id="nomePai" placeholder="Nome do Pai" class="form-control display-7"  th:field="*{nomePai}">
+                            <label for="nomePai" class="form-control-label mbr-fonts-style display-7">Nome do Pai Completo</label>
+                            <input type="text" name="nomePai" id="nomePai" class="form-control display-7"  th:field="*{nomePai}">
                         </div>
                         <br>
                         <div class="form-group">
@@ -109,37 +109,37 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="cpf" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text" name="cpf" id="cpf" placeholder="CPF" class="form-control cpf-mask"  th:field="*{cpf}">
+                            <label for="cpf" class="form-control-label mbr-fonts-style display-7">CPF</label>
+                            <input type="text" name="cpf" id="cpf"  class="form-control cpf-mask"  th:field="*{cpf}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="tipoSanguineo" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text" name="tipoSanguineo" id="tipoSanguineo" placeholder="Tipo Sanguineo"  class="form-control display-7" th:field="*{tipoSanguineo}">
+                            <label for="tipoSanguineo" class="form-control-label mbr-fonts-style display-7">Tipo do Sangue</label>
+                            <input type="text" name="tipoSanguineo" id="tipoSanguineo" class="form-control display-7" th:field="*{tipoSanguineo}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="email" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="email" name="email" id="email" placeholder="E-mail" class="form-control display-7" th:field="*{email}">
+                            <label for="email" class="form-control-label mbr-fonts-style display-7">E-mail</label>
+                            <input type="email" name="email" id="email" class="form-control display-7" th:field="*{email}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="telefone" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="tel" name="telefone" id="telefone" placeholder="Telefone"  class="form-control display-7" th:field="*{telefone}">
+                            <label for="telefone" class="form-control-label mbr-fonts-style display-7">Telefone</label>
+                            <input type="tel" name="telefone" id="telefone" class="form-control display-7" th:field="*{telefone}">
                         </div>
                         
                          <div class="form-group">
-                            <label for="endereco" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="text" name="endereco" id="endereco" placeholder="Endereço" class="form-control display-7" th:field="*{endereco}">
+                            <label for="endereco" class="form-control-label mbr-fonts-style display-7">Endereço</label>
+                            <input type="text" name="endereco" id="endereco" class="form-control display-7" th:field="*{endereco}">
                         </div>
                         
                         <div class="form-group">
-                            <label for="senha" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="password" name="senha" id="senha" placeholder="Senha"  class="form-control display-7" th:field="*{senha}">
+                            <label for="senha" class="form-control-label mbr-fonts-style display-7">Senha</label>
+                            <input type="password" name="senha" id="senha" class="form-control display-7" th:field="*{senha}">
                         </div>
                         <div class="form-group">
-                            <label for="senha2" class="form-control-label mbr-fonts-style display-7"></label>
-                            <input type="password" name="senha2" id="senha2" placeholder="confirmar Senha"  class="form-control display-7" >
+                            <label for="senha2" class="form-control-label mbr-fonts-style display-7">Confirme a Senha</label>
+                            <input type="password" name="senha2" id="senha2" class="form-control display-7" >
                         </div>
                                    
                         

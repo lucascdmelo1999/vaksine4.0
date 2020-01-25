@@ -38,9 +38,10 @@ public class CadastroUsuarioController {
 
 @Autowired
 private UsuarioDAO usuarioDAO;
+
 	@GetMapping("/ind-usuario")
 	public String agente (Agente agente) {
-		return "/usuario";
+		return "/perfil-usuario";
 	}
 
 
