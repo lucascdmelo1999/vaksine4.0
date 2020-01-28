@@ -1,9 +1,12 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -15,6 +18,10 @@ public class Vacina {
 	
 	@NotBlank(message="Informe o nome da vacina")
 	private String nome;
+	
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_posto")
+	Posto posto;
 	
 	@Embedded
 	private LoteVacina loteVacina;	

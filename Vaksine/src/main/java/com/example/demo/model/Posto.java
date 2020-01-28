@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,8 +30,7 @@ public class Posto {
 	
 	private String codigoUsuario;
 	
-	@OneToMany
-	@Column(name = "lista_vacina",table="posto")
+	@OneToMany(mappedBy="posto", cascade= {CascadeType.ALL})
 	private List<Vacina> vacina;
 	
 	
