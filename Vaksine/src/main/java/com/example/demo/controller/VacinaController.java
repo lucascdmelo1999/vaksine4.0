@@ -1,10 +1,11 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Locale;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.VacinaDAO;
 import com.example.demo.model.Vacina;
+import com.example.demo.service.VacinaService;
 
 @Controller
 public class VacinaController {
@@ -27,7 +29,10 @@ public class VacinaController {
 
 	@Autowired
 	private VacinaDAO vacinaDAO;
-
+	
+	@Autowired
+	VacinaService vacinaService;
+	
 	@GetMapping("/vacinaform")
 	public String exibirForm(Vacina vacina) {
 		return "/cadastro-vacina";
@@ -60,7 +65,7 @@ public class VacinaController {
 	}
 
 	@PostMapping("/vacinaCadastro")
-	public String cadastrarVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes) {
+	public String cadastrarVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes, HttpSession session) {
 		
 		
 		
@@ -71,7 +76,7 @@ public class VacinaController {
 		//se a data for anterior a data atual a vacina não é cadastrada
 	    if(!vacina.getLoteVacina().getValidade().isBefore(LocalDate.now().plusMonths(1))) {
 			redirectAttributes.addFlashAttribute("message", "vacina cadastrada");
-	    	this.vacinaDAO.save(vacina);
+	    	this.vacinaService.cadastrarVacina(session, vacina);
 	    }else {
 			redirectAttributes.addFlashAttribute("message", "dataInvalida");
 	    }
