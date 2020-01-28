@@ -44,7 +44,7 @@ public class VacinaServiceImpl implements VacinaService{
 		
 		try {
 		/**pega o objeto posto logado**/
-		Posto posto = (Posto) session.getAttribute("usuarioLogado");
+		Posto posto = (Posto) session.getAttribute("postoLogado");
 		
 		/**lista que armazena as vacinas cadastradas**/
 		List<Vacina> vacinaList = new ArrayList<>();

@@ -76,7 +76,7 @@ public class PostoController {
 		posto = this.postoDAO.findByEmailAndSenha(posto.getEmail(),posto.getSenha());
 		if(posto != null) {
 			ra.addFlashAttribute("mensagem","login com sucesso");
-			session.setAttribute("usuarioLogado", posto);
+			session.setAttribute("postoLogado", posto);
 			return "redirect:/admposto";
 		}else {
 			ra.addFlashAttribute("mensagem","erro ao logar");

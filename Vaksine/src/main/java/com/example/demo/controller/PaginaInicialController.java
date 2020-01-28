@@ -19,7 +19,7 @@ public class PaginaInicialController {
 	}
 	@GetMapping("/loginADM")
 	public String loginADM() {
-		return "loginADM";
+		return "loginAdm";
 
 	}
 	
