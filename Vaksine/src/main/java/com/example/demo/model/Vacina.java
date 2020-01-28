@@ -44,4 +44,11 @@ public class Vacina {
 	public void setLoteVacina(LoteVacina loteVacina) {
 		this.loteVacina = loteVacina;
 	}
+	
+	public Posto getPosto() {
+		return posto;
+	}
+	public void setPosto(Posto posto) {
+		this.posto = posto;
+	}
 }

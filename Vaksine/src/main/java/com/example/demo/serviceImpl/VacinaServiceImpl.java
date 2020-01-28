@@ -28,8 +28,7 @@ public class VacinaServiceImpl implements VacinaService{
 	public Vacina cadastrarVacina(HttpSession session, Vacina vacina) {
 		
 		this.checkFields(vacina);
-		vacina = vacinaDAO.save(vacina);
-		this.associarVacinaPosto(session, vacina);
+		vacina = this.associarVacinaPosto(session, vacina);
 		return vacina;
 	}
 	
@@ -41,16 +40,29 @@ public class VacinaServiceImpl implements VacinaService{
 		}
 	}
 	
-	public void associarVacinaPosto(HttpSession session, Vacina vacina) {
-		/**pega o objeto psoto logado**/
+	public Vacina associarVacinaPosto(HttpSession session, Vacina vacina) {
+		
+		try {
+		/**pega o objeto posto logado**/
 		Posto posto = (Posto) session.getAttribute("usuarioLogado");
 		
 		/**lista que armazena as vacinas cadastradas**/
 		List<Vacina> vacinaList = new ArrayList<>();
 		vacinaList.add(vacina);
+		
 		/**alterando o objeto posto, adicionando as vacinas**/
 		posto.setVacina(vacinaList);
+		
+		/**associando vacina com posto e posto com vacina**/
+		vacina.setPosto(posto);
+		vacina = vacinaDAO.save(vacina);
 		postoDAO.save(posto);
+		
+		return vacina;
+		
+		}catch (Exception e) {
+			throw new ServiceException("Ocorreu um erro inesperado");
+		}
 		
 	}
 
