@@ -3,10 +3,36 @@
 #footer6-12{
 	margin-top:2.2%;
 }
-#botao{
+@media(max-width:800px){
 	
-    float: left;
-    margin-left:20%;
+	#textoPrincipal{
+	
+	width:80%;
+	heigth:40%;
+	}
+}
+#textoPrincipal{
+	
+	margin-left:10%;
+	width:35%;
+	heigth:50%;
+	
+	  
+}
+#texto1{
+	text-shadow: -3px 3px 0 #36648B;
+	color:#F5F5F5;
+	
+}
+#texto2{
+	text-shadow: -2px 1.5px 0 #36648B;
+	color:#F5F5F5;
+	
+}
+#botao{
+	float:right;
+   
+
 }
 .link-boxes {
 	margin-top: 8%;

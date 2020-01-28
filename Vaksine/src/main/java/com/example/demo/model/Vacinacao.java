@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-import org.hibernate.annotations.Cascade;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Vacinacao {
@@ -25,6 +25,7 @@ public class Vacinacao {
 	@OneToOne
 	private Vacina vacina;
 
+	@DateTimeFormat(pattern="dd/MM/yyyy")	
 	private LocalDate dataVacinacao;
 	
 	private Integer dose;

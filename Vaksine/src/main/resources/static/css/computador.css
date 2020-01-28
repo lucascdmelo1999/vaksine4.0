@@ -1,0 +1,19 @@
+.computadorDiv{
+	 
+    margin-left:25%;
+    margin-top:30%;
+   	
+	
+}
+#computadorimg{
+	width:650px; 
+	height:450px;
+}
+@media(max-width:800px){
+	#computadorimg{
+		
+		
+		visibility:hidden;
+		
+	}
+}
