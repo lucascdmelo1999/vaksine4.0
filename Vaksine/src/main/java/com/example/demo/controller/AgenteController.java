@@ -81,7 +81,7 @@ public class AgenteController {
 			RedirectAttributes ra,
 			HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException {
 		
-		agente = this.agenteDAO.findByCpfAndSenha(agente.getCpf(),Util.criptografarSenha(agente.getSenha()));
+		agente = this.agenteDAO.findByEmailAndSenha(agente.getEmail(),Util.criptografarSenha(agente.getSenha()));
 		
 		if (agente != null) {
 			

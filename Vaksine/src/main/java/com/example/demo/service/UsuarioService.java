@@ -15,6 +15,6 @@ public interface UsuarioService extends JpaRepository<Usuario, Integer> {
 	
 	public boolean salvarUsuario(Usuario usuario) throws ServiceException, MessagingException;
 	
-	public Usuario logarUsuario(String cpf, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException;
+	public Usuario logarUsuario(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException;
 	
 }

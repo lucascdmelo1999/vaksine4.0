@@ -71,14 +71,11 @@ public class UsuarioServiceImpl implements UsuarioService {
 				}
 	}
 	
-	public Usuario logarUsuario(String cpf, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
+	public Usuario logarUsuario(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
 		
 		String senhaCriptografada = Util.criptografarSenha(senha);
-		Usuario participante = this.usuarioDAO.participanteLogin(cpf, senhaCriptografada);
+		Usuario participante = this.usuarioDAO.UsuarioLogin(email, senhaCriptografada);
 
-		if (participante == null) {
-			throw new ServiceException("Login/senha não encontrados");
-		}
 
 		return participante;
 	}

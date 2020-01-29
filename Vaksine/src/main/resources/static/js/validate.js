@@ -217,9 +217,9 @@ jQuery(function($){
       	   $(document).ready(function(){
       	  $("#formLoginUsuario").validate({
       		   rules: {
-      			   cpf: {
+      			   email: {
                    	   	required: true,
-                   	   	minlength:6
+                   	   	email:true
                    },
                    senha:{
                 	   	required:true,
