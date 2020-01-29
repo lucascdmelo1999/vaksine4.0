@@ -29,7 +29,7 @@ public class Posto {
 	
 	private String codigoUsuario;
 	
-	@OneToMany(mappedBy="posto", cascade= {CascadeType.ALL})
+	@OneToMany
 	private List<Vacina> vacina;
 	
 	

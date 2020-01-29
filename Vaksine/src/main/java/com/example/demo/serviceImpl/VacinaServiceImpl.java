@@ -44,24 +44,18 @@ public class VacinaServiceImpl implements VacinaService{
 		
 		try {
 		/**pega o objeto posto logado**/
-		Posto posto = (Posto) session.getAttribute("postoLogado");
-		
-		/**lista que armazena as vacinas cadastradas**/
-		List<Vacina> vacinaList = new ArrayList<>();
-		vacinaList.add(vacina);
-		
-		/**alterando o objeto posto, adicionando as vacinas**/
-		posto.setVacina(vacinaList);
+		Posto posto = (Posto)session.getAttribute("postoLogado");
+		//session.getServletContext();
 		
 		/**associando vacina com posto e posto com vacina**/
 		vacina.setPosto(posto);
 		vacina = vacinaDAO.save(vacina);
-		postoDAO.save(posto);
+		//postoDAO.save(posto);
 		
 		return vacina;
 		
 		}catch (Exception e) {
-			throw new ServiceException("Ocorreu um erro inesperado");
+			throw new ServiceException(e.getMessage());
 		}
 		
 	}

@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -19,8 +20,7 @@ public class Vacina {
 	@NotBlank(message="Informe o nome da vacina")
 	private String nome;
 	
-	@ManyToOne(cascade= CascadeType.ALL)
-	@JoinColumn(name="id_posto")
+	@OneToOne
 	Posto posto;
 	
 	@Embedded

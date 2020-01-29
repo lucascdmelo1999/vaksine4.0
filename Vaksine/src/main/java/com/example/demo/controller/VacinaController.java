@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.VacinaDAO;
+import com.example.demo.model.Posto;
 import com.example.demo.model.Vacina;
 import com.example.demo.service.VacinaService;
 
