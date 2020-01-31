@@ -198,7 +198,7 @@ private UsuarioDAO usuarioDAO;
 	@GetMapping("/editarPerfil")
 	public ModelAndView exibirEditarPerfil(HttpSession session,RedirectAttributes ra) {
 		
-		ModelAndView mv= new ModelAndView("cadastro-usuario");
+		ModelAndView mv= new ModelAndView("editar-perfil");
 		if (session.getAttribute("usuarioLogado")==null) {
 			
 			ra.addFlashAttribute("acessoNegado", true);
