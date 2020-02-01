@@ -4,6 +4,7 @@ import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
@@ -15,7 +16,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Usuario;
@@ -28,7 +28,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
-	//public boolean salvarUsuario(Usuario usuario) {
+	@Autowired
+	private EmailServicelmpl emailService;
+	
 		
 		//Usuario usuarioComEmailExistente = this.usuarioDAO.findByEmail(usuario.getEmail());
 		
@@ -40,6 +42,13 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		//}
 	
+
+	public Usuario verificacaoEmail(String email) {
+		return usuarioDAO.verificacaoEmail(email);
+	}
+	public Usuario findByEmail(String email) {
+		return usuarioDAO.findByEmailIgnoreCase(email);
+	}
 	
 	public Usuario findUsuarioByEmail(String email) {
 		return usuarioDAO.findByEmailIgnoreCase(email);
@@ -48,6 +57,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public Usuario findUsuarioByCpf(String cpf) {
 		return usuarioDAO.findByCpfIgnoreCase(cpf);
 	}
+	
 	public boolean salvarUsuario(Usuario usuario)throws ServiceException, MessagingException {
 		
 		// Verificar a existencia de um participante com o cpf
@@ -58,14 +68,16 @@ public class UsuarioServiceImpl implements UsuarioService {
 		else if (this.findUsuarioByCpf(usuario.getCpf()) != null) {
 			throw new ServiceException("Já existe um usuário com este cpf");
 		}  else {
+				usuario.setToken(UUID.randomUUID().toString());
+				System.out.println(UUID.randomUUID().toString());
 				String senhaCriptografada;
 				try {
 					senhaCriptografada = Util.criptografarSenha(usuario.getSenha());
 					usuario.setSenha(senhaCriptografada);
-					this.usuarioDAO.save(usuario);	
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
+				this.emailService.enviarConfirmacaoDeConta(usuario);
 				this.usuarioDAO.save(usuario);
 				return true;
 				}
@@ -82,7 +94,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	
 	public Usuario editarPerfil(Usuario usuario,HttpSession session) {
-		Usuario usuarioLogado=(Usuario)session.getAttribute("usuario");
+		Usuario usuarioLogado=(Usuario)session.getAttribute("usuarioLogado");
 		Usuario user = this.usuarioDAO.findByid(usuarioLogado.getId());
 			
 		user.setCpf(usuario.getCpf());

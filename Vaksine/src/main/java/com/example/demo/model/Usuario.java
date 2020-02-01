@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -19,7 +20,8 @@ public class Usuario {
 	private String telefone;
 	private String endereco;
 	private String senha;
-
+	private String token;
+	private int ativo=0;
 	
 	public Integer getId() {
 		return id;
@@ -86,6 +88,18 @@ public class Usuario {
 	}
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	public String getToken() {
+		return token;
+	}
+	public void setToken(String token) {
+		this.token = token;
+	}
+	public int getAtivo() {
+		return ativo;
+	}
+	public void setAtivo(int ativo) {
+		this.ativo = 1;
 	}
 
 }

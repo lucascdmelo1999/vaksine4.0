@@ -26,10 +26,10 @@ import com.example.demo.dao.AgenteDAO;
 import com.example.demo.dao.PostoDAO;
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Agente;
+import com.example.demo.model.Email;
 import com.example.demo.model.Posto;
 import com.example.demo.model.Usuario;
-import com.example.demo.serviceImpl.AgenteServiceImpl;
-import com.example.demo.serviceImpl.PostoServiceImpl;
+import com.example.demo.serviceImpl.EmailServicelmpl;
 import com.example.demo.serviceImpl.UsuarioServiceImpl;
 
 
@@ -47,8 +47,11 @@ public class CadastroUsuarioController {
 	@Autowired
 	private AgenteDAO agenteDAO;
 
-@Autowired
-private UsuarioDAO usuarioDAO;
+	@Autowired
+	private EmailServicelmpl emailService;
+
+	@Autowired
+	private UsuarioDAO usuarioDAO;
 
 	@GetMapping("/ind-usuario")
 	public String agente (Agente agente) {
@@ -66,10 +69,6 @@ private UsuarioDAO usuarioDAO;
 	@PostMapping("/cad")
 	public String cadastrar(@Valid Usuario usuario, BindingResult result, RedirectAttributes redirectAttributes, Errors errors){
 
-
-		redirectAttributes.addFlashAttribute("message", "Failed");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
-
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
 		}
@@ -85,16 +84,38 @@ private UsuarioDAO usuarioDAO;
 				return "redirect:/cadUsuario";
 			}
 		}
-		/*SimpleMailMessage msg = new SimpleMailMessage();
-				msg.setTo(email);
-				msg.setSubject("Confirmação de conta");
-				msg.setText("obg");
-
-				javaMailSender.send(msg);
-		redirectAttributes.addFlashAttribute("Usuário cadastrado", true);*/
+		
 		return "redirect:/cadUsuario";
 	}
-		
+	
+	@GetMapping("/ativarConta")
+	public String ativarConta(@RequestParam(name = "token", required = false) String token, RedirectAttributes ra) throws ServiceException, MessagingException {
+
+		if (token == "" || token == null) {
+			ra.addFlashAttribute("alertErro", "Token de ativação inválido");
+			
+			return "redirect:/";
+		}
+
+		Email email = this.emailService.findByToken(token);
+
+//		
+//		if (this.emailService.validarVencimento(email)) {
+			Usuario usuario = this.usuarioService.verificacaoEmail(email.getEmailDestinatario());
+			System.out.println(usuario.getEmail());
+			usuario.setAtivo(1);
+			System.out.println("aqui");
+
+			usuario.setNome(usuario.getNome());
+			this.usuarioDAO.save(usuario);
+//		} else {
+//			ra.addFlashAttribute("alertErro", "Token de ativação vencido, por favor re-envie o email de ativação");
+//			return "redirect:/cadastro/ativar";
+//		}
+
+		ra.addFlashAttribute("alertSucesso", "Conta Ativada com sucesso!");
+		return "redirect:/";
+	}
 		
 		
 	@PostMapping("/participanteLogin")
@@ -115,7 +136,7 @@ private UsuarioDAO usuarioDAO;
 			Agente agente = this.agenteDAO.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
 			
 			
-			if(usuariologin != null) {
+			if(usuariologin != null && usuariologin.getAtivo() == 1) {
 				usuarioativo = true;
 				session.setAttribute("usuario", usuariologin);
 				System.out.println(session+"ususario");
@@ -198,7 +219,7 @@ private UsuarioDAO usuarioDAO;
 	@GetMapping("/editarPerfil")
 	public ModelAndView exibirEditarPerfil(HttpSession session,RedirectAttributes ra) {
 		
-		ModelAndView mv= new ModelAndView("editar-perfil");
+		ModelAndView mv= new ModelAndView("cadastro-usuario");
 		if (session.getAttribute("usuarioLogado")==null) {
 			
 			ra.addFlashAttribute("acessoNegado", true);

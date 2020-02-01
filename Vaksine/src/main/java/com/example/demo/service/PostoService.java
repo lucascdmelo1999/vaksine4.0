@@ -1,6 +1,9 @@
 package com.example.demo.service;
+import org.springframework.stereotype.Repository;
+
 import com.example.demo.model.Posto;
 
+@Repository
 public interface PostoService {
 	
 	public Posto cadastrarPosto(Posto posto);
