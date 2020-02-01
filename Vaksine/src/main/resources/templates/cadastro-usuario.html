@@ -210,6 +210,24 @@
     	  timer: 3000
     	})
 	</script>
+	<script th:if="${message != null && message == 'Não foi possível criar usuário: Já existe um usuário com este e-mail'}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'warning',
+    	  title: 'Ja existe um usuario cadastrado com este email!',
+    	  showConfirmButton: false,
+    	  timer: 3000
+    	})
+	</script>
+	<script th:if="${message != null && message == 'Não foi possível criar usuário: Já existe um usuário com este cpf'}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'warning',
+    	  title: 'Ja existe um usuario cadastrado com este CPF!',
+    	  showConfirmButton: false,
+    	  timer: 3000
+    	})
+	</script>
   
   
   <script>

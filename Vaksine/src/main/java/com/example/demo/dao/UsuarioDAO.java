@@ -21,7 +21,10 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	public Usuario findByEmailIgnoreCase(@Param("email") String email);
 	
 	@Query("select c from Usuario c where c.email = :email")
-	public Usuario verificacaoEmail(@Param("email") String email);
+	public Usuario verificacaoEmail(String email);
+	
+	@Query("select c from Usuario c where c.cpf = :cpf ")
+	public Usuario verificacaoCPF(String cpf);
 	
 	@Query("select c from Usuario c where c.cpf = :cpf and c.cpf <> :cpf")
 	public Usuario findByCpfIgnoreCase(@Param("cpf") String cpf);

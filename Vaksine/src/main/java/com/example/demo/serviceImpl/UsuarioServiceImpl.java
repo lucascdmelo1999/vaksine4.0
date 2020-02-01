@@ -41,7 +41,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 		//return false;
 		
 		//}
-	
+	public Usuario verificacaoCPF(String cpf) {
+		return usuarioDAO.verificacaoCPF(cpf);
+	}
 
 	public Usuario verificacaoEmail(String email) {
 		return usuarioDAO.verificacaoEmail(email);
@@ -62,10 +64,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		// Verificar a existencia de um participante com o cpf
 		
-		if (this.findUsuarioByEmail(usuario.getEmail()) != null) {
+		if (this.verificacaoEmail(usuario.getEmail()) != null) {
 			throw new ServiceException("Já existe um usuário com este e-mail");
 		}
-		else if (this.findUsuarioByCpf(usuario.getCpf()) != null) {
+		else if (this.verificacaoCPF(usuario.getCpf()) != null) {
 			throw new ServiceException("Já existe um usuário com este cpf");
 		}  else {
 				usuario.setToken(UUID.randomUUID().toString());

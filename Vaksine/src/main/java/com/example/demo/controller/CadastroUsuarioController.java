@@ -85,7 +85,7 @@ public class CadastroUsuarioController {
 			}
 		}
 		
-		return "redirect:/cadUsuario";
+		return "redirect:/confirmacaoEmail";
 	}
 	
 	@GetMapping("/ativarConta")
@@ -114,7 +114,7 @@ public class CadastroUsuarioController {
 //		}
 
 		ra.addFlashAttribute("alertSucesso", "Conta Ativada com sucesso!");
-		return "redirect:/";
+		return "redirect:/loginusuario";
 	}
 		
 		

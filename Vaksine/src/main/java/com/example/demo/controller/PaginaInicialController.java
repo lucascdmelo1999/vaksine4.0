@@ -10,7 +10,10 @@ public class PaginaInicialController {
 	public String paginainicial() {
 		return "index";
 	}
-
+	@GetMapping("/confirmacaoEmail")
+	public String confirmacaoEmail() {
+		return "confirmacao-email";
+	}
 	
 	@GetMapping("/loginusuario")
 	public String loginusuario() {

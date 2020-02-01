@@ -3,13 +3,18 @@
 #footer6-12{
 	margin-top:2.2%;
 }
-@media(max-width:800px){
+
+#corTelaConfirmarEmail{
+	background-color:blue;
+	height:400px;
+}
+#textoEmail{
+	color:white;
+	width:60%;
+	height:30%;
+	margin-top:7%;
+	margin-left: 18%;
 	
-	#textoPrincipal{
-	
-	width:80%;
-	heigth:40%;
-	}
 }
 #textoPrincipal{
 	
