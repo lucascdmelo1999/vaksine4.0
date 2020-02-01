@@ -12,5 +12,6 @@ public interface PostoDAO extends JpaRepository<Posto, Integer> {
 	@Query("select c from Posto c where c.email = :email and c.senha = :senha")
 	public Posto logarPosto(String email, String senha);
 	
-	
+	@Query("select c from Posto c where c.email = :email")
+	public Posto verificacaoEmailPosto(String email);
 }

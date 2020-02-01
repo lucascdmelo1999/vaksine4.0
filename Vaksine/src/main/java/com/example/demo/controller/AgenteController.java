@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +27,8 @@ public class AgenteController {
 	
 	@Autowired
 	private AgenteService agenteService;
-	@Autowired AgenteDAO agenteDAO;
+	@Autowired 
+	AgenteDAO agenteDAO;
 	
 	@GetMapping("/ind-agente")
 	public String agente (Agente agente) {
@@ -44,25 +47,24 @@ public class AgenteController {
 	
 	
 	@PostMapping("/cadastroAgente")
-	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model,RedirectAttributes ra) {
+	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model,RedirectAttributes ra) throws ServiceException, MessagingException {
 		
-		
-		redirectAttributes.addFlashAttribute("message", "Failed");
-		redirectAttributes.addFlashAttribute("alertClass", "alert-danger");
+
 		if (result.hasErrors()) {
 			return "redirect:/cadAgente";
 		}
-		boolean retorno = this.agenteService.salvarAgente(agente);
-		if (retorno == false) {
-			ra.addFlashAttribute("message", "Não foi possível criar usuário: " + "Já existe um Agente com este email");
-            ra.addFlashAttribute("agente", agente);
+		try {
+			this.agenteService.cadastrarAgente(agente);
+			redirectAttributes.addFlashAttribute("message", "Agente cadastrado com sucesso!");
 			return "redirect:/cadAgente";
+			
+		} catch (ServiceException | MessagingException e) {
+			System.out.println(e.getMessage());
 
+			return "redirect:/";
 		}
-
-		ra.addFlashAttribute("message", "Agente cadastrado");
 		
-		return "redirect:/cadAgente";
+		
 	}
 
 	/**Autenticacao - login para o posto de saude**/

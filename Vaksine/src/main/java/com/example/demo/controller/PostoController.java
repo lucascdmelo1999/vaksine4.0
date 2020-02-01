@@ -1,8 +1,11 @@
 package com.example.demo.controller;
 
 import javax.inject.Inject;
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -44,17 +47,22 @@ public class PostoController {
 	}
 
 	@PostMapping("/salvarposto")
-	public String cadastrarPosto(Posto posto,BindingResult result, RedirectAttributes ra) {
+	public String cadastrarPosto(@Valid Posto posto,BindingResult result, RedirectAttributes ra) {
 		
 		
 		if (result.hasErrors()) {
 			return "redirect:/cadUsuario";
+		}try {
+			ra.addFlashAttribute("message", "Posto cadastrado com sucesso");
+			ra.addFlashAttribute("alertClass", "alert-success");
+			this.postoService.cadastrarPosto(posto);
+			return "redirect:/cadastroposto";
+		} catch (ServiceException | MessagingException e) {
+			ra.addFlashAttribute("message", "Não foi possível criar posto: " + e.getMessage());
+			return "redirect:/cadastroposto";
+
 		}
-		ra.addFlashAttribute("message", "Posto cadastrado com sucesso");
-		ra.addFlashAttribute("alertClass", "alert-success");
-		this.postoService.cadastrarPosto(posto);
-		return "redirect:/cadastroposto";
-	
+		
 	
 	}
 	

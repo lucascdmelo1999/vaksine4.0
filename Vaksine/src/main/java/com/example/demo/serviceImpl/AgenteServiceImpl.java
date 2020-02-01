@@ -1,12 +1,16 @@
 package com.example.demo.serviceImpl;
 
 
+import javax.mail.MessagingException;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.service.AgenteService;
+import com.example.demo.util.Util;
 
 
 @Service
@@ -14,12 +18,30 @@ public class AgenteServiceImpl implements AgenteService {
 	@Autowired
 	private AgenteDAO agenteDAO;
 
+	public Agente verificacaoEmailAgente(String email) {
+		return agenteDAO.verificacaoEmailAgente(email);
+	}
+	
 	@Override
-	public Agente cadastrarAgente(Agente agente) {
+	public Agente cadastrarAgente(Agente agente) throws ServiceException, MessagingException{
 		/** setando o codigo do usuario do posto **/
-		agente.setCodigoUsuario("ADMAGENTE");
-		return agenteDAO.save(agente);
+		
+		if (this.verificacaoEmailAgente(agente.getEmail()) != null) {
+			throw new ServiceException("Já existe um usuário com este e-mail");
+		}
+		String senhaCriptografada;
 
+		try {
+			senhaCriptografada = Util.criptografarSenha(agente.getSenha());
+			agente.setSenha(senhaCriptografada);
+			agente.setCodigoUsuario("ADMAGENTE");
+			return agenteDAO.save(agente);
+		}catch(Exception e) {
+			
+		}
+		return agente;
+		
+		
 	}
 	public boolean salvarAgente(Agente agente) {
 	

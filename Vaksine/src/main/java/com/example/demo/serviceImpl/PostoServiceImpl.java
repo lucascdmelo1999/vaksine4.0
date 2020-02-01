@@ -1,11 +1,15 @@
 package com.example.demo.serviceImpl;
 
 import javax.inject.Named;
+import javax.mail.MessagingException;
+
+import org.hibernate.service.spi.ServiceException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.dao.PostoDAO;
 import com.example.demo.model.Posto;
 import com.example.demo.service.PostoService;
+import com.example.demo.util.Util;
 
 @Named
 public class PostoServiceImpl implements PostoService{
@@ -13,12 +17,29 @@ public class PostoServiceImpl implements PostoService{
 	@Autowired
 	PostoDAO postoDAO;
 	
+	public Posto verificacaoEmailPosto(String email) {
+		return postoDAO.verificacaoEmailPosto(email);
+	}
 	
 	@Override
-	public Posto cadastrarPosto(Posto posto){	
+	public Posto cadastrarPosto(Posto posto)throws ServiceException, MessagingException {	
 		/** setando o codigo do usuario do posto**/
-		posto.setCodigoUsuario("ADMPOSTO");
-		return postoDAO.save(posto);
+		if (this.verificacaoEmailPosto(posto.getEmail()) != null) {
+			throw new ServiceException("Já existe um usuário com este e-mail");
+		}else {
+			String senhaCriptografada;
+
+			try {
+				senhaCriptografada = Util.criptografarSenha(posto.getSenha());
+				posto.setSenha(senhaCriptografada);
+				posto.setCodigoUsuario("ADMPOSTO");
+				return postoDAO.save(posto);
+			}catch (Exception e){
+				
+			}
+			
+		}
+		return posto;
 	}
 	
 	@Override
