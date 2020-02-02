@@ -8,14 +8,14 @@
 <meta name="generator" content="Mobirise v4.11.4, mobirise.com">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, minimum-scale=1">
-<link rel="shortcut icon" href="assets/images/logo2.png"
+<link rel="shortcut icon" href="assets/images/logo4.png"
 	type="image/x-icon">
 <meta name="description" content="">
 
 
 
 
-<title>Página inicial</title>
+<title>Página Usuario</title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -73,54 +73,30 @@
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4" th:href="@{/quemsomos}"><span
 							class="mbri-play mbr-iconfont mbr-iconfont-btn"></span>Quem somos</a></li>
-
-
-
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4" th:href="@{/contato}"><span
 							class="mbri-tablet-vertical mbr-iconfont mbr-iconfont-btn"></span>Contato</a></li>
+							<li th:if="${session.usuario == null}" class="nav-item"><a
+						class="nav-link link text-white display-4" th:href="@{/loginusuario}"><span
+							class="mbri-user mbr-iconfont mbr-iconfont-btn" ></span>Login</a></li>
 				</ul>
-
-
-
 				<ul class="navbar-nav nav-dropdown nav-right"
 					data-app-modern-menu="true">
 					<li class="nav-item dropdown open"><a
-						th:if="${session.usuarioLogado != null}"
+						th:if="${session.usuario != null}"
 						class="nav-link link text-white dropdown-toggle display-4"
 						th:href="@{/paginainicial}" data-toggle="dropdown-submenu"
 						aria-expanded="true"><span
 							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span> <span
-							th:if="${session.usuarioLogado != null}"
-							th:text="${session.usuarioLogado.nome}"></span></a>
+							th:if="${session.usuario != null}"
+							th:text="${session.usuario.nome}"></span></a>
 					<div class="dropdown-menu">
 							<a class="text-white dropdown-item display-4"
 								th:href="@{/perfilusuario}">Configurações</a><a
 								class="text-white dropdown-item display-4"
 								th:href="@{/deslogar}" aria-expanded="false">Sair</a>
 						</div></li>
-					<li class="nav-item"></li>
-				</ul>
-
-
-
-				<ul th:if="${session.usuarioLogado == null}"
-					class="navbar-nav nav-dropdown nav-right"
-					data-app-modern-menu="true">
-					<li class="nav-item dropdown open"><a
-						class="nav-link link text-white dropdown-toggle display-4"
-						href="page4.html" data-toggle="dropdown-submenu"
-						aria-expanded="true"><span
-							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Login</a>
-					<div class="dropdown-menu">
-							<a class="text-white dropdown-item display-4"
-								href="/loginusuario">Usuario</a><a
-								class="text-white dropdown-item display-4" href="/loginposto"
-								aria-expanded="false">&nbsp;Posto</a>
-						</div></li>
-					<li class="nav-item"></li>
-				</ul>
-
+					
 			</div>
 		</nav>
 	</section>
