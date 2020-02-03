@@ -99,4 +99,9 @@ public class PostoController {
 		return "redirect:/cadastroposto";
 	}
 
+	@GetMapping("/perfilposto")
+	public String perfilposto() {
+		return "perfil-posto";
+	}
+	
 }
