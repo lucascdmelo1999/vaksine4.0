@@ -19,6 +19,11 @@
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+
 <link rel="stylesheet"
 	href="assets/bootstrap/css/bootstrap-grid.min.css">
 <link rel="stylesheet"
@@ -35,10 +40,10 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-	
-	
+
+
+
+
 
 </head>
 <body>
@@ -76,9 +81,10 @@
 					<li class="nav-item"><a
 						class="nav-link link text-white display-4" th:href="@{/contato}"><span
 							class="mbri-tablet-vertical mbr-iconfont mbr-iconfont-btn"></span>Contato</a></li>
-							<li th:if="${session.usuario == null}" class="nav-item"><a
-						class="nav-link link text-white display-4" th:href="@{/loginusuario}"><span
-							class="mbri-user mbr-iconfont mbr-iconfont-btn" ></span>Login</a></li>
+					<li th:if="${session.usuario == null}" class="nav-item"><a
+						class="nav-link link text-white display-4"
+						th:href="@{/loginusuario}"><span
+							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Login</a></li>
 				</ul>
 				<ul class="navbar-nav nav-dropdown nav-right"
 					data-app-modern-menu="true">
@@ -90,13 +96,12 @@
 							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span> <span
 							th:if="${session.usuario != null}"
 							th:text="${session.usuario.nome}"></span></a>
-					<div class="dropdown-menu">
+						<div class="dropdown-menu">
 							<a class="text-white dropdown-item display-4"
 								th:href="@{/perfilusuario}">Configurações</a><a
 								class="text-white dropdown-item display-4"
 								th:href="@{/deslogar}" aria-expanded="false">Sair</a>
 						</div></li>
-					
 			</div>
 		</nav>
 	</section>
@@ -105,19 +110,129 @@
 
 		<div>
 			<a href="/editarPerfil" class="waves-effect waves-light btn "><i
-				class="material-icons left">tag_faces</i>Editar Perfil</a> <br> 
-				<a href="#" class="waves-effect waves-light btn"><i
+				class="material-icons left">tag_faces</i>Editar Perfil</a> <br> <a
+				href="#" class="waves-effect waves-light btn"><i
 				class="material-icons left">visibility</i>Visualizar Cartão</a> <br>
 			<a href="#" class="waves-effect waves-light btn"><i
 				class="material-icons left">file_download</i>Download Cartão</a>
 
 		</div>
 
+		<div class="container">
+			<div class="row">
+
+
+
+				<div class="col-md-7 ">
+
+					<div class="panel panel-default">
+
+						<div class="panel-body">
+
+							<div class="box box-info">
+
+								<div class="box-body">
+
+									<div class="col-sm-6">
+										<h4 style="color: #00b1b1;">
+											<span th:if="${session.usuario != null}"
+												th:text="${session.usuario.nome}"></span>
+										</h4>
+
+									</div>
+									<div class="clearfix"></div>
+									<hr style="margin: 5px 0 5px 0;">
+
+
+									<div class="col-sm-5 col-xs-6 tital ">Nome:</div>
+									<div class="col-sm-7 col-xs-6 ">
+										<span th:text="${session.usuario.nome}"></span>
+									</div>
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+									
+									<div class="col-sm-5 col-xs-6 tital ">Nome do Pai</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.nomePai}"></div>
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">Nome da Mãe:</div>
+									<div class="col-sm-7">
+										<span th:text="${session.usuario.nomeMae}"></span>
+									</div>
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">Data de Nascimento:</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.dataNas}"></div>
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">CPF:</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.cpf}"></div>
+
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">tipo Sanguineo:</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.tipoSanguineo}"></div>
+
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">Email:</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.email}"></div>
+
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital ">Telefone:</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.telefone}"></div>
+
+									<div class="clearfix"></div>
+									<div class="bot-border"></div>
+
+									<div class="col-sm-5 col-xs-6 tital "> Endereco</div>
+									<div class="col-sm-7"><span th:text="${session.usuario.endereco}"></div>
+
+
+									<!-- /.box-body -->
+								</div>
+								<!-- /.box -->
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+				<script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});       
+              </script>
 
 
 
 
-</section>
+
+
+
+
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+	</section>
 
 
 
@@ -142,8 +257,13 @@
 
 	<script src="assets/theme/js/script.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+	<script
+		src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 	<div id="scrollToTop" class="scrollToTop mbr-arrow-up">
 		<a style="text-align: center;"><i

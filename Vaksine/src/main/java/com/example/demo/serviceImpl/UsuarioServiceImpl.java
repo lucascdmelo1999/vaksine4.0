@@ -96,7 +96,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
 	
 	public Usuario editarPerfil(Usuario usuario,HttpSession session) {
-		Usuario usuarioLogado=(Usuario)session.getAttribute("usuarioLogado");
+		Usuario usuarioLogado=(Usuario)session.getAttribute("usuariologin");
 		Usuario user = this.usuarioDAO.findByid(usuarioLogado.getId());
 			
 		user.setCpf(usuario.getCpf());

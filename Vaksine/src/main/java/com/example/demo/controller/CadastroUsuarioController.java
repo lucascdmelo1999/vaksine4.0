@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.AgenteDAO;
@@ -214,11 +215,11 @@ public class CadastroUsuarioController {
 		
 		return"redirect:/editarPerfil";
 	}
-	/*
+	
 	@GetMapping("/editarPerfil")
 	public ModelAndView exibirEditarPerfil(HttpSession session,RedirectAttributes ra) {
 		
-		ModelAndView mv= new ModelAndView("cadastro-usuario");
+		ModelAndView mv= new ModelAndView("editar-perfil");
 		if (session.getAttribute("usuarioLogado")==null) {
 			
 			ra.addFlashAttribute("acessoNegado", true);
@@ -230,12 +231,12 @@ public class CadastroUsuarioController {
 		Usuario usuario=(Usuario) session.getAttribute("usuarioLogado");
 		mv.addObject(usuario);
 		return mv;
-	}*/
+	}
 	
-	@GetMapping("/editarPerfil")
+	/*@GetMapping("/editarPerfil")
 	public String editandoUsuario() {
 		return"/editar-perfil";
-	}
+	}*/
 	
 	@GetMapping("/perfilusuario")
 	public String perfilusuario() {
