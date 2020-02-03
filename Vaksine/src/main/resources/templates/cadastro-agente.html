@@ -181,7 +181,7 @@
   <script type="text/javascript" src="./js/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
   <script type="text/javascript" src="./js/localization/messages_pt_BR.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@9.5.4/dist/sweetalert2.all.min.js"></script>
   <script type="text/javascript" src="./js/validate.js"></script>
 
   
@@ -191,16 +191,17 @@
     
     
     
-     <script th:if="${message != null && message != 'Já existe um Agente com este email'}" type="text/javascript">
+     <script th:if="${mensagem != null && mensagem == 'Agente cadastrado com sucesso!'}" type="text/javascript">
 		
      Swal.fire({
     	  icon: 'success',
     	  title: 'Agente cadastrado com sucesso!!',
     	  showConfirmButton: false,
-    	  timer: 2000
+    	  timer: 3000
     	})
 	</script>
-	<script th:if="${message == 'Não foi possível criar usuário: Já existe um Agente com este email'}" type="text/javascript">
+	
+	<script th:if="${message != null && message != 'Agente cadastrado com sucesso!'}" type="text/javascript">
 			Swal.fire({
 			  icon: 'error',
 			  title: 'Oops...',

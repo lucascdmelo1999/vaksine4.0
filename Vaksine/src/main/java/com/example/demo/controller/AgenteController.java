@@ -47,19 +47,24 @@ public class AgenteController {
 	
 	
 	@PostMapping("/cadastroAgente")
-	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes redirectAttributes, Model model,RedirectAttributes ra) throws ServiceException, MessagingException {
+	public String cadastrarAgente(@Valid Agente agente,BindingResult result, RedirectAttributes ra, Model model) throws ServiceException, MessagingException {
 		
 
 		if (result.hasErrors()) {
+			System.out.println("erro");
+
 			return "redirect:/cadAgente";
 		}
 		try {
 			this.agenteService.cadastrarAgente(agente);
-			redirectAttributes.addFlashAttribute("message", "Agente cadastrado com sucesso!");
+			System.out.println("cadastrado");
+
+			ra.addFlashAttribute("mensagem", "Agente cadastrado com sucesso!");
 			return "redirect:/cadAgente";
 			
 		} catch (ServiceException | MessagingException e) {
 			System.out.println(e.getMessage());
+			System.out.println("exessao");
 
 			return "redirect:/";
 		}

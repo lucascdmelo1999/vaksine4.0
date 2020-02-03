@@ -1,5 +1,8 @@
 package com.example.demo.serviceImpl;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.inject.Named;
 import javax.mail.MessagingException;
 
@@ -8,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.dao.PostoDAO;
 import com.example.demo.model.Posto;
+import com.example.demo.model.Usuario;
 import com.example.demo.service.PostoService;
 import com.example.demo.util.Util;
 
@@ -39,6 +43,14 @@ public class PostoServiceImpl implements PostoService{
 			}
 			
 		}
+		return posto;
+	}
+	//login de posto descriptogranfando senha
+	public Posto logarPosto(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
+		
+		String senhaCriptografada = Util.criptografarSenha(senha);
+		Posto posto = this.postoDAO.logarPosto(email, senhaCriptografada);
+
 		return posto;
 	}
 	

@@ -79,7 +79,7 @@ public class PostoController {
 			return "redirect:/loginPostoAgente";
 		}
 	}*/
-	@PostMapping("/autenticacaoposto")
+	/*@PostMapping("/autenticacaoposto")
 	public String efetuarlogin(Posto posto, RedirectAttributes ra, HttpSession session) {
 		posto = this.postoDAO.findByEmailAndSenha(posto.getEmail(),posto.getSenha());
 		if(posto != null) {
@@ -90,7 +90,7 @@ public class PostoController {
 			ra.addFlashAttribute("mensagem","erro ao logar");
 			return "redirect:/";
 		}
-	}
+	}*/
 	
 	
 	@GetMapping("/logout")

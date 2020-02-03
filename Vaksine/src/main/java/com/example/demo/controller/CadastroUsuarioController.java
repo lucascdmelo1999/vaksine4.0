@@ -29,7 +29,9 @@ import com.example.demo.model.Agente;
 import com.example.demo.model.Email;
 import com.example.demo.model.Posto;
 import com.example.demo.model.Usuario;
+import com.example.demo.serviceImpl.AgenteServiceImpl;
 import com.example.demo.serviceImpl.EmailServicelmpl;
+import com.example.demo.serviceImpl.PostoServiceImpl;
 import com.example.demo.serviceImpl.UsuarioServiceImpl;
 
 
@@ -42,7 +44,14 @@ public class CadastroUsuarioController {
 	private UsuarioServiceImpl usuarioService;
 	
 	@Autowired
+	private AgenteServiceImpl agenteService;
+
+	
+	@Autowired
 	private PostoDAO postoDAO;
+	
+	@Autowired
+	private PostoServiceImpl postoService;
 	
 	@Autowired
 	private AgenteDAO agenteDAO;
@@ -118,7 +127,7 @@ public class CadastroUsuarioController {
 	}
 		
 		
-	@PostMapping("/participanteLogin")
+	@PostMapping("/usuariosLogin")
 	public String usuarioLogin(HttpServletRequest request, Usuario usuario, @RequestParam(name = "retorno", required = false) String retorno, RedirectAttributes ra, HttpSession session) throws NoSuchAlgorithmException, UnsupportedEncodingException{
 		
 		
@@ -132,9 +141,9 @@ public class CadastroUsuarioController {
 			
 			
 			Usuario usuariologin = this.usuarioService.logarUsuario(usuario.getEmail(), usuario.getSenha());
-			Posto posto = this.postoDAO.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
-			Agente agente = this.agenteDAO.findByEmailAndSenha(usuario.getEmail(), usuario.getSenha());
-			
+			Posto posto = this.postoService.logarPosto(usuario.getEmail(), usuario.getSenha());
+			Agente agente = this.agenteService.logarAgente(usuario.getEmail(), usuario.getSenha());
+			System.out.println(agente);
 			
 			if(usuariologin != null && usuariologin.getAtivo() == 1) {
 				usuarioativo = true;
@@ -162,7 +171,7 @@ public class CadastroUsuarioController {
 				ra.addFlashAttribute("agente", "logado");
 				contador ++;
 				System.out.println(session+"agente");
-				tela = "redirect:/admagente";
+				tela = "redirect:/admposto";
 			}
 			
 			

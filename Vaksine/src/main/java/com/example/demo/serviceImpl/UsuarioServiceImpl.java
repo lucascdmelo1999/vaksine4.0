@@ -88,10 +88,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public Usuario logarUsuario(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
 		
 		String senhaCriptografada = Util.criptografarSenha(senha);
-		Usuario participante = this.usuarioDAO.UsuarioLogin(email, senhaCriptografada);
+		Usuario usuario = this.usuarioDAO.UsuarioLogin(email, senhaCriptografada);
 
 
-		return participante;
+		return usuario;
 	}
 
 	

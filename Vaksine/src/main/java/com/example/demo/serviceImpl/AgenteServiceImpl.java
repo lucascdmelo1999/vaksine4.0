@@ -1,6 +1,9 @@
 package com.example.demo.serviceImpl;
 
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.mail.MessagingException;
 
 import org.hibernate.service.spi.ServiceException;
@@ -9,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
+import com.example.demo.model.Posto;
 import com.example.demo.service.AgenteService;
 import com.example.demo.util.Util;
 
@@ -43,6 +47,18 @@ public class AgenteServiceImpl implements AgenteService {
 		
 		
 	}
+	
+	
+	public Agente logarAgente(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	
+		
+		String senhaCriptografada = Util.criptografarSenha(senha);
+		Agente agente = this.agenteDAO.logarAgente(email, senhaCriptografada);
+
+		return agente;
+	}
+	
+	
+	
 	public boolean salvarAgente(Agente agente) {
 	
 	Agente agenteComEmailExistente = this.agenteDAO.findByEmail(agente.getEmail());
