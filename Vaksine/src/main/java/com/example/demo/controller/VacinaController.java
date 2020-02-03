@@ -38,6 +38,11 @@ public class VacinaController {
 	public String exibirForm(Vacina vacina) {
 		return "/cadastro-vacina";
 	}
+	
+	@GetMapping("/editarFormVacina")
+	public String editandoVacina(Vacina vacina) {
+		return "/editar-vacina";
+	}
 
 	@GetMapping("/vacinacaoDeletar")
 	public String vacinacaoDeletar(Vacina vacina) {
@@ -50,12 +55,12 @@ public class VacinaController {
 		return "/lista-vacina";
 	}
 	
-	
+	/*
 	@GetMapping("/buscandovacina") 
 	public String buscandoVacina(Vacina vacina, Model model) {
 		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
 			return "buscarvacina";
-	}	
+	}	*/
 	
 	@PostMapping("/pesquisarvacina")
 	public String pesquisarvacina(Vacina vacina, Model model) {
@@ -71,7 +76,7 @@ public class VacinaController {
 		
 		
 		if (result.hasErrors()) {
-			return "redirect:/cadUsuario";
+			return "redirect:/cadastro-vacina";
 		}
 		
 		//se a data for anterior a data atual a vacina não é cadastrada
@@ -82,17 +87,39 @@ public class VacinaController {
 			redirectAttributes.addFlashAttribute("message", "dataInvalida");
 	    }
 		
-		return "redirect:/vacinaform";
+		return "redirect:/vacinalist";
 	}
+	
+	@PostMapping("/vacinaEditar")
+	public String editVacina(Vacina vacina,BindingResult result, RedirectAttributes redirectAttributes, HttpSession session) {
+		
+		
+		
+		if (result.hasErrors()) {
+			return "redirect:/cadastro-vacina";
+		}
+		
+		//se a data for anterior a data atual a vacina não é cadastrada
+	    if(!vacina.getLoteVacina().getValidade().isBefore(LocalDate.now().plusMonths(1))) {
+			redirectAttributes.addFlashAttribute("messagem", "vacina alterada");
+	    	this.vacinaService.cadastrarVacina(session, vacina);
+	    }else {
+			redirectAttributes.addFlashAttribute("messagem", "dataInvalida");
+	    }
+		
+		return "redirect:/vacinalist";
+	}
+	
 
 	@GetMapping("/editarvacina")
 	public String atualizarVacina(Model model, Integer id) {
 		model.addAttribute("vacina", vacinaDAO.findById(id));
-		return "/cadastro-vacina";
+		return "/editar-vacina";
 	}
 
 	@GetMapping("/deletarvacina")
-	public String deletarVacina(Integer id) {
+	public String deletarVacina(Integer id,Vacina vacina, RedirectAttributes ra) {
+		ra.addFlashAttribute("messagem", "vacina deletada");
 		vacinaDAO.deleteById(id);
 		return "redirect:/vacinalist";
 
