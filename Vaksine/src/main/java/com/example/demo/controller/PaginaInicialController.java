@@ -10,6 +10,10 @@ public class PaginaInicialController {
 	public String paginainicial() {
 		return "index";
 	}
+	@GetMapping("/cartao")
+	public String cartao() {
+		return "cartao-de-vacina";
+	}
 	@GetMapping("/confirmacaoEmail")
 	public String confirmacaoEmail() {
 		return "confirmacao-email";

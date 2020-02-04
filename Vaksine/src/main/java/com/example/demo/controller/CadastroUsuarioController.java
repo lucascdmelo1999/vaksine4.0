@@ -25,10 +25,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.dao.PostoDAO;
 import com.example.demo.dao.UsuarioDAO;
+import com.example.demo.dao.VacinaDAO;
 import com.example.demo.model.Agente;
 import com.example.demo.model.Email;
 import com.example.demo.model.Posto;
 import com.example.demo.model.Usuario;
+import com.example.demo.model.Vacina;
 import com.example.demo.serviceImpl.AgenteServiceImpl;
 import com.example.demo.serviceImpl.EmailServicelmpl;
 import com.example.demo.serviceImpl.PostoServiceImpl;
@@ -61,6 +63,10 @@ public class CadastroUsuarioController {
 
 	@Autowired
 	private UsuarioDAO usuarioDAO;
+	
+	@Autowired
+	private VacinaDAO vacinaDAO;
+
 
 	@GetMapping("/ind-usuario")
 	public String agente (Agente agente) {
@@ -83,6 +89,7 @@ public class CadastroUsuarioController {
 		}
 		else {
 			try {
+				
 				this.usuarioService.salvarUsuario(usuario);
 				redirectAttributes.addFlashAttribute("message", "Usuário cadastrado com sucesso!");
 			} catch (ServiceException | MessagingException e) {
@@ -143,8 +150,6 @@ public class CadastroUsuarioController {
 			Usuario usuariologin = this.usuarioService.logarUsuario(usuario.getEmail(), usuario.getSenha());
 			Posto posto = this.postoService.logarPosto(usuario.getEmail(), usuario.getSenha());
 			Agente agente = this.agenteService.logarAgente(usuario.getEmail(), usuario.getSenha());
-			System.out.println(agente);
-			
 			if(usuariologin != null && usuariologin.getAtivo() == 1) {
 				usuarioativo = true;
 				session.setAttribute("usuario", usuariologin);

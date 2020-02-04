@@ -13,17 +13,17 @@ public class CartaoVacina {
 
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private String id;
 	
 	@OneToMany(mappedBy="cartaoVacina", cascade= {CascadeType.ALL})
 	private List<Vacinacao> vacinacao;
 
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
-		this.id = id;
+	public void setId(String string) {
+		this.id = string;
 	}
 
 	public List<Vacinacao> getVacinacao() {

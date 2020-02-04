@@ -14,5 +14,6 @@ public interface VacinaDAO extends JpaRepository<Vacina, Integer>{
 	List<Vacina> findByNomeContainingIgnoreCase(String nome, Sort sort);
 	
 	Vacina findByNomeIgnoreCase(String nome);
-
+	
+	
 }
