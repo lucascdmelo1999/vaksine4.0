@@ -25,7 +25,7 @@ public class Vacinacao {
 	@OneToOne
 	private Vacina vacina;
 
-	@DateTimeFormat(pattern="dd/MM/yyyy")	
+	@DateTimeFormat(pattern="yyyy-MM-dd")	
 	private LocalDate dataVacinacao;
 	
 	private Integer dose;
@@ -72,5 +72,13 @@ public class Vacinacao {
 
 	public void setDose(Integer dose) {
 		this.dose = dose;
+	}
+	
+	public CartaoVacina getCartaoVacina() {
+		return cartaoVacina;
+	}
+
+	public void setCartaoVacina(CartaoVacina cartaoVacina) {
+		this.cartaoVacina = cartaoVacina;
 	}
 }

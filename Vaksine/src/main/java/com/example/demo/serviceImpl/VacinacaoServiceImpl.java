@@ -29,20 +29,26 @@ public class VacinacaoServiceImpl implements VacinacaoService{
 	public Vacinacao efetuarVacinacao(Vacinacao vacinacao) {
 		
 		/**cadastrando a vacina do usuario**/
-		this.checkFields(vacinacao);
+		Usuario usuario = usuarioDAO.verificacaoCPF(vacinacao.getUsuario().getCpf());
+		
+		this.checkFields(usuario);
+		
+		//setar usuario e cartao
+		vacinacao.setUsuario(usuario);
+		
+		vacinacao.setCartaoVacina(usuario.getCartaoVacina());
 		
 		vacinacao = vacinacaoDAO.save(vacinacao);
 		return vacinacao;
 	}
 	
-	public void checkFields(Vacinacao vacinacao) {
+	public void checkFields(Usuario usuario) {
 		/**verificando se existe um usuário cadastrado**/
-		Usuario usuario = usuarioDAO.findByCpfIgnoreCase(vacinacao.getUsuario().getCpf());
 		if(usuario == null) {
 			throw new ServiceException("Não existe nenhum usuário com esse cpf");
 		}
 		
-		Optional<Vacinacao> findVacinacao = vacinacaoDAO.findById(vacinacao.getId());
+		//Optional<Vacinacao> findVacinacao = vacinacaoDAO.findById(vacinacao.getId());
 		
 		//vacinaUsuario.ifPresent(this::teste);
 		/**verificando se o usuario ja recebeu tem uma dose da vacina**/

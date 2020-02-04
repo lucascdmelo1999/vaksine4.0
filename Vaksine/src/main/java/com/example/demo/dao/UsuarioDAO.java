@@ -24,7 +24,7 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	public Usuario verificacaoEmail(String email);
 	
 	@Query("select c from Usuario c where c.cpf = :cpf ")
-	public Usuario verificacaoCPF(String cpf);
+	public Usuario verificacaoCPF(@Param("cpf") String cpf);
 	
 	@Query("select c from Usuario c where c.cpf = :cpf and c.cpf <> :cpf")
 	public Usuario findByCpfIgnoreCase(@Param("cpf") String cpf);

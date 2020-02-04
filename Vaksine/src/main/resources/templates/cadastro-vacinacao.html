@@ -89,7 +89,7 @@
                     
                         <div class="col-md-12  form-group" data-for="nome">
                             <label for="name-form1-p" class="form-control-label mbr-fonts-style display-7">CPF do Paciente</label>
-                            <input type="text" th:name="nome" data-form-field="Nome" class="form-control" id="nome" th:field="*{usuario.cpf}">
+                            <input type="text" th:name="nome" data-form-field="Nome" class="form-control" id="cpf" th:field="*{usuario.cpf}">
                         </div>
                         
                         
@@ -104,7 +104,7 @@
 						  
                         <div class="col-md-12  form-group" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Data da vacinação</label>
-                            <input type="date" name="loteVacina.validade" required="required" class="form-control display-7" id="loteVacina.validade" th:field="*{dataVacinacao}">
+                            <input type="date" name="" required="required" class="form-control display-7" id="loteVacina.validade" th:field="*{dataVacinacao}">
                         </div>
   
                         
@@ -176,7 +176,7 @@
     <script th:if="${message != null && message == 'vacina cadastrada'}" type="text/javascript">
 		
      Swal.fire({
-    	  icon: 'success',
+    	  icon: 'success',https://www.w3schools.com/sql/sql_where.asp
     	  title: 'Vacina cadastrado com sucesso!!',
     	  showConfirmButton: false,
     	  timer: 3000

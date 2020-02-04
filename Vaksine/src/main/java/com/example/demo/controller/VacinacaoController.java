@@ -34,33 +34,34 @@ public class VacinacaoController {
 		return "cadastro-vacinacao";
 	}
 	
-	@PostMapping("/efetuarvacinacao")
-	public String cadastrarCartaoVacina(Vacinacao vacinacao) {
+	@PostMapping("/vacinacaoCadastro")
+	public String cadastrarVacinacao(Vacinacao vacinacao) {
 		vacinacaoService.efetuarVacinacao(vacinacao);
 		return "cadastro-vacinacao";
 	}
-	@PostMapping("/vacinacaoCadastro")
-	public String vacinacaoCadastro(Vacinacao vacinacao,BindingResult result, RedirectAttributes ra) {
-		
-		
-		
-		if (result.hasErrors()) {
-	    	System.out.println(result);
-			return "redirect:/vacinacao";
-		}
-		
-		
-		//se a data for anterior a data atual a vacina não é cadastrada
-	    if(!vacinacao.getVacina().getLoteVacina().getValidade().isBefore(LocalDate.now())) {
-			ra.addFlashAttribute("message", "usuario Vacinado");
-			this.vacinacaoDAO.save(vacinacao);
-			System.out.println("usuario vacinado");
-	    }else {			
-	    	
-	    	System.out.println("error");
-			ra.addFlashAttribute("message", "dataInvalida");
-	    }
-		
-		return "redirect:/vacina";
-	}
+	
+//	@PostMapping("/vacinacaoCadastro")
+//	public String vacinacaoCadastro(Vacinacao vacinacao,BindingResult result, RedirectAttributes ra) {
+//		
+//		
+//		
+//		if (result.hasErrors()) {
+//	    	System.out.println(result);
+//			return "redirect:/vacinacao";
+//		}
+//		
+//		
+//		//se a data for anterior a data atual a vacina não é cadastrada
+//	    if(!vacinacao.getVacina().getLoteVacina().getValidade().isBefore(LocalDate.now())) {
+//			ra.addFlashAttribute("message", "usuario Vacinado");
+//			this.vacinacaoDAO.save(vacinacao);
+//			System.out.println("usuario vacinado");
+//	    }else {			
+//	    	
+//	    	System.out.println("error");
+//			ra.addFlashAttribute("message", "dataInvalida");
+//	    }
+//		
+//		return "redirect:/vacina";
+//	}
 }
