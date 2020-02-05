@@ -13,8 +13,8 @@ import com.example.demo.model.Vacinacao;
 public interface VacinacaoDAO extends JpaRepository<Vacinacao, Integer>{
 
 	List<Vacinacao> findById(String id);
-
-	@Query("select c from Vacinacao c where c.id = :id_usuario")
+	
+	@Query("select c from Vacinacao c where id_usuario = :id")
 	List<Vacinacao> findByIdUsuario(Integer id);
 
 }
