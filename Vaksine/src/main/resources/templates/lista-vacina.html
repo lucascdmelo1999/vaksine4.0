@@ -31,8 +31,7 @@
 
 <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 </head>
 <body>
@@ -139,10 +138,13 @@
 
 						<div class="col-md-12 input-group-btn align-center">
 							<button type="submit" class="btn btn-primary btn-form display-4">Buscar</button>
-						</div>
+							<br>
 
+						</div>
 					</form>
+
 					<!---Formbuilder Form--->
+
 				</div>
 			</div>
 		</div>
@@ -154,6 +156,7 @@
 
 
 				<div class="col-md-12 display-9">
+
 					<h4>Lista de Vacinas</h4>
 
 
@@ -168,6 +171,9 @@
 							<th>Editar</th>
 
 							<th>Deletar</th>
+							<th><a href="/editarPerfil"
+								class="waves-effect waves-light btn "><i
+									class="material-icons left">add_box</i>Nova Vacina</a></th>
 						</thead>
 						<tbody>
 
@@ -180,12 +186,13 @@
 								<td><a th:href="@{/editarvacina(id=${cont.id})}"
 									class="btn btn-outline-info btn-sm" data-placement="top"
 									data-toggle="tooltip" title="Editar"> <i
-										class="material-icons">edit</i></a> </a></td>
+										class="tiny material-icons">edit</i></a> </a></td>
 								<td><a th:href="@{/deletarvacina(id=${cont.id})}"
 									class="btn btn-outline-danger btn-sm" data-placement="top"
 									data-toggle="tooltip" title="Deletar"> <i
-										class="material-icons">clear</i>
+										class="tiny material-icons">clear</i>
 								</a></td>
+
 							</tr>
 						</tbody>
 
@@ -261,6 +268,7 @@
 		</script>
 		<script th:if="${messagem != null && messagem == 'vacina deletada'}"
 			type="text/javascript">
+			
 			Swal.fire({
 			  title: 'Apagar a Vacina?',
 			  text: "Tem certeza que deseja apagar essa vacina??",
