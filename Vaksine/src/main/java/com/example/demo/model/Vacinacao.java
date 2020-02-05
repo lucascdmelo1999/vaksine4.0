@@ -19,7 +19,8 @@ public class Vacinacao {
 	@GeneratedValue
 	private Integer id;
 	
-	@OneToOne
+	@ManyToOne(cascade= CascadeType.ALL)
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
 	
 	@OneToOne
@@ -29,10 +30,6 @@ public class Vacinacao {
 	private LocalDate dataVacinacao;
 	
 	private Integer dose;
-	
-	@ManyToOne(cascade= CascadeType.ALL)
-	@JoinColumn(name="id_cartao_vacina")
-	private CartaoVacina cartaoVacina;
 
 	public Integer getId() {
 		return id;
@@ -74,11 +71,4 @@ public class Vacinacao {
 		this.dose = dose;
 	}
 	
-	public CartaoVacina getCartaoVacina() {
-		return cartaoVacina;
-	}
-
-	public void setCartaoVacina(CartaoVacina cartaoVacina) {
-		this.cartaoVacina = cartaoVacina;
-	}
 }

@@ -25,11 +25,15 @@ import com.example.demo.util.Util;
 
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
+	
 	@Autowired
 	private UsuarioDAO usuarioDAO;
 	
 	@Autowired
 	private EmailServicelmpl emailService;
+	
+//	@Autowired
+//	private CartaoVacinaDAO cartaoDAO;
 	
 		
 		//Usuario usuarioComEmailExistente = this.usuarioDAO.findByEmail(usuario.getEmail());
@@ -79,7 +83,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
-				this.emailService.enviarConfirmacaoDeConta(usuario);
+				this.emailService.enviarConfirmacaoDeConta(usuario);		
+				//usuario.setCartaoVacina(cartao);
+				
 				this.usuarioDAO.save(usuario);
 				return true;
 				}

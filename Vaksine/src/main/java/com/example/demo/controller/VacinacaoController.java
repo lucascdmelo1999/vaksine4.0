@@ -35,7 +35,8 @@ public class VacinacaoController {
 	}
 	
 	@PostMapping("/vacinacaoCadastro")
-	public String cadastrarVacinacao(Vacinacao vacinacao) {
+	public String cadastrarVacinacao(Vacinacao vacinacao,Model model) {
+		model.addAttribute("listaVacinacoes", vacinacao);
 		vacinacaoService.efetuarVacinacao(vacinacao);
 		return "cadastro-vacinacao";
 	}

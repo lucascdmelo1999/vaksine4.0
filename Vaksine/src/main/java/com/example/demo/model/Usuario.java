@@ -1,11 +1,14 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -26,9 +29,9 @@ public class Usuario {
 	private String token;
 	private int ativo=0;
 	
-	@OneToOne(cascade= CascadeType.ALL)
-	@JoinColumn(name="id_cartao_vacina")
-	private CartaoVacina cartaoVacina;
+	@OneToMany(mappedBy="usuario", cascade= {CascadeType.ALL})
+	private List<Vacinacao> vacinacao;
+	
 	
 	public Integer getId() {
 		return id;
@@ -108,11 +111,11 @@ public class Usuario {
 	public void setAtivo(int ativo) {
 		this.ativo = 1;
 	}
-	public CartaoVacina getCartaoVacina() {
-		return cartaoVacina;
+	public List<Vacinacao> getVacinacao() {
+		return vacinacao;
 	}
-	public void setCartaoVacina(CartaoVacina cartaoVacina) {
-		this.cartaoVacina = cartaoVacina;
+	public void setVacinacao(List<Vacinacao> vacinacao) {
+		this.vacinacao = vacinacao;
 	}
 
 }

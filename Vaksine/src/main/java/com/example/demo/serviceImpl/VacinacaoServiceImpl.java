@@ -41,7 +41,7 @@ public class VacinacaoServiceImpl implements VacinacaoService{
 		//setar usuario e cartao
 		vacinacao.setUsuario(usuario);
 		
-		vacinacao.setCartaoVacina(usuario.getCartaoVacina());
+//		vacinacao.setCartaoVacina(usuario.getCartaoVacina());
 		
 		vacinacao = vacinacaoDAO.save(vacinacao);
 		return vacinacao;
