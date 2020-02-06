@@ -16,5 +16,8 @@ public interface VacinacaoDAO extends JpaRepository<Vacinacao, Integer>{
 	
 	@Query("select c from Vacinacao c where id_usuario = :id")
 	List<Vacinacao> findByIdUsuario(Integer id);
+	
+	@Query("select c from Vacinacao c where id_usuario = :id AND c.dose >=1 OR c.dose <=4 ")
+	List<Vacinacao> listarVacinacoes(Integer id);
 
 }
