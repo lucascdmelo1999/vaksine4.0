@@ -24,8 +24,8 @@ import com.example.demo.model.Usuario;
 @Service
 public class EmailServicelmpl {
 	
-	private final String username = "manosxyzd@gmail.com";
-	private final String password = "s2+646400S";
+	private final String username = "vaksinesuport@gmail.com";
+	private final String password = "vaksineifpe1234";
 	
 	@Autowired
 	private EmailDAO emailRep;
