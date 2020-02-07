@@ -1,5 +1,6 @@
 package com.example.demo.serviceImpl;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,6 +39,11 @@ public class VacinaServiceImpl implements VacinaService{
 		if(vacinaByNome != null) {
 			throw new ServiceException("Já existe uma vacina com esse nome");
 		}
+		
+		//verifica se a data é válida
+	    if(vacina.getLoteVacina().getValidade().isBefore(LocalDate.now().plusMonths(1))) {
+			throw new ServiceException("Data inválida");
+	    }
 	}
 	
 	public Vacina associarVacinaPosto(HttpSession session, Vacina vacina) {

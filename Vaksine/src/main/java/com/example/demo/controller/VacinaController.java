@@ -55,13 +55,6 @@ public class VacinaController {
 		return "/lista-vacina";
 	}
 	
-	/*
-	@GetMapping("/buscandovacina") 
-	public String buscandoVacina(Vacina vacina, Model model) {
-		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
-			return "buscarvacina";
-	}	*/
-	
 	@PostMapping("/pesquisarvacina")
 	public String pesquisarvacina(Vacina vacina, Model model) {
 		// select nome from vacina where nome LIKE %nome%;
@@ -76,16 +69,17 @@ public class VacinaController {
 		
 		
 		if (result.hasErrors()) {
-			return "redirect:/cadastro-vacina";
+			return "redirect:/vacinaform";
 		}
 		
-		//se a data for anterior a data atual a vacina não é cadastrada
-	    if(!vacina.getLoteVacina().getValidade().isBefore(LocalDate.now().plusMonths(1))) {
+		try {
 			redirectAttributes.addFlashAttribute("message", "vacina cadastrada");
 	    	this.vacinaService.cadastrarVacina(session, vacina);
-	    }else {
-			redirectAttributes.addFlashAttribute("message", "dataInvalida");
-	    }
+		}catch (Exception e) {
+			redirectAttributes.addFlashAttribute("message",e.getMessage());
+			System.out.println(e.getMessage());
+			return "redirect:/vacinaform";
+		}
 		
 		return "redirect:/vacinalist";
 	}

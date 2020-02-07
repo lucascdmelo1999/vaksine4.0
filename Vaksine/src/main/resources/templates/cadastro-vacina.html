@@ -176,11 +176,21 @@
     	  timer: 3000
     	})
 	</script>
-	<script th:if="${message != null && message == 'dataInvalida'}" type="text/javascript">
+	<script th:if="${message != null && message == 'Data inválida'}" type="text/javascript">
 		
      Swal.fire({
     	  icon: 'error',
     	  title: 'Data Invalida!!',
+    	  showConfirmButton: false,
+    	  timer: 3000
+    	})
+	</script>
+	
+		<script th:if="${message != null && message == 'Já existe uma vacina com esse nome'}" type="text/javascript">
+		
+     Swal.fire({
+    	  icon: 'error',
+    	  title: 'Já existe uma vacina com esse nome!!',
     	  showConfirmButton: false,
     	  timer: 3000
     	})
