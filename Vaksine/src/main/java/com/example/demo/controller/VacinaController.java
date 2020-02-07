@@ -14,10 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.dao.VacinaDAO;
-import com.example.demo.model.Posto;
 import com.example.demo.model.Vacina;
 import com.example.demo.service.VacinaService;
 
@@ -54,6 +54,7 @@ public class VacinaController {
 		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
 		return "/lista-vacina";
 	}
+	
 	
 	@PostMapping("/pesquisarvacina")
 	public String pesquisarvacina(Vacina vacina, Model model) {
@@ -111,9 +112,10 @@ public class VacinaController {
 		return "/editar-vacina";
 	}
 
-	@GetMapping("/deletarvacina")
-	public String deletarVacina(Integer id,Vacina vacina, RedirectAttributes ra) {
-		ra.addFlashAttribute("messagem", "vacina deletada");
+	@PostMapping("/deletarvacina")
+	public String deletarVacina(Integer id,Vacina vacina, RedirectAttributes ra, String mensagemDelete) {
+		System.out.println("BBBBB: " + id + " | " + mensagemDelete);
+//		ra.addFlashAttribute("messagem", "vacina deletada");
 		vacinaDAO.deleteById(id);
 		return "redirect:/vacinalist";
 
