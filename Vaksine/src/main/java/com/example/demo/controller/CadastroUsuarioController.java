@@ -234,15 +234,15 @@ public class CadastroUsuarioController {
 	public ModelAndView exibirEditarPerfil(HttpSession session,RedirectAttributes ra) {
 		
 		ModelAndView mv= new ModelAndView("editar-perfil");
-		if (session.getAttribute("usuarioLogado")==null) {
+		if (session.getAttribute("usuario")==null) {
 			
 			ra.addFlashAttribute("acessoNegado", true);
 			ra.addFlashAttribute("retorno", "/editarPefil");
-		mv.setViewName("/redirect:/participanteLogin");
+		mv.setViewName("/redirect:/usuariosLogin");
 		return mv;
 		
 		}
-		Usuario usuario=(Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuario=(Usuario) session.getAttribute("usuario");
 		mv.addObject(usuario);
 		return mv;
 	}
