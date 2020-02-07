@@ -98,6 +98,11 @@
                             <input type="number" th:name="loteVacina.quantidade" class="form-control display-7" id="loteVacina.quantidade" th:field="*{loteVacina.quantidade}">
                         </div>
                         
+                          <div class="col-md-12  form-group">
+                            <label class="form-control-label mbr-fonts-style display-7">número/código do lote</label>
+                            <input type="text" th:name="loteVacina.numeroLote" class="form-control display-7" id="loteVacina.numeroLote" th:field="*{loteVacina.numeroLote}">
+                        </div>
+                        
                         <div class="col-md-12  form-group" >
                             <label for="email-form1-p" class="form-control-label mbr-fonts-style display-7">Data de Validade</label>
                             <input type="date" name="loteVacina.validade" required="required" class="form-control display-7" id="loteVacina.validade" th:field="*{loteVacina.validade}">
@@ -173,7 +178,7 @@
     	  icon: 'success',
     	  title: 'Vacina cadastrado com sucesso!!',
     	  showConfirmButton: false,
-    	  timer: 3000
+    	  timer: 4000
     	})
 	</script>
 	<script th:if="${message != null && message == 'Data inválida'}" type="text/javascript">
@@ -182,17 +187,17 @@
     	  icon: 'error',
     	  title: 'Data Invalida!!',
     	  showConfirmButton: false,
-    	  timer: 3000
+    	  timer: 4000
     	})
 	</script>
 	
-		<script th:if="${message != null && message == 'Já existe uma vacina com esse nome'}" type="text/javascript">
+		<script th:if="${message != null && message == 'Já existe um lote com essa vacina'}" type="text/javascript">
 		
      Swal.fire({
     	  icon: 'error',
-    	  title: 'Já existe uma vacina com esse nome!!',
+    	  title: 'Já existe um uma remessa com essa vacina, troque o número do lote',
     	  showConfirmButton: false,
-    	  timer: 3000
+    	  timer: 8000
     	})
 	</script>
     

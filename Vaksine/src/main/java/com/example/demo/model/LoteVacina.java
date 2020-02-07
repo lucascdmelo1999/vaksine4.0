@@ -12,9 +12,7 @@ public class LoteVacina {
 	
 	private int quantidade;
 	
-	
-	@GeneratedValue
-	private int numeroLote;
+	private String numeroLote;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate validade;
@@ -27,10 +25,10 @@ public class LoteVacina {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	public int getNumeroLote() {
+	public String getNumeroLote() {
 		return numeroLote;
 	}
-	public void setNumeroLote(int numeroLote) {
+	public void setNumeroLote(String numeroLote) {
 		this.numeroLote = numeroLote;
 	}
 	public LocalDate getValidade() {

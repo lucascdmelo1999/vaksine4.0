@@ -36,8 +36,9 @@ public class VacinaServiceImpl implements VacinaService{
 	public void checkFields(Vacina vacina) {
 		
 		Vacina vacinaByNome = vacinaDAO.findByNomeIgnoreCase(vacina.getNome());
-		if(vacinaByNome != null) {
-			throw new ServiceException("Já existe uma vacina com esse nome");
+		
+		if(vacinaByNome != null && vacinaByNome.getLoteVacina().getNumeroLote().equals(vacina.getLoteVacina().getNumeroLote())) {
+			throw new ServiceException("Já existe um lote com essa vacina");
 		}
 		
 		//verifica se a data é válida
