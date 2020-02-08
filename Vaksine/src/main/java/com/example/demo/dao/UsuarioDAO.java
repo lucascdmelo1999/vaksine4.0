@@ -31,7 +31,7 @@ public interface UsuarioDAO extends JpaRepository<Usuario, Integer> {
 	
 	@Query("select c from Usuario c where c.id = :id")
 	public Usuario findByid(@Param("id") Integer id);
-	@Query("")
-	public Usuario editarPerfil();
-	
+//	@Query("")
+//	public Usuario editarPerfil();
+//	
 }

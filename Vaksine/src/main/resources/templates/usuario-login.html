@@ -208,5 +208,15 @@
 
 		})
 	</script>
+	
+	<script th:if="${alertSucesso == 'Conta Ativada com sucesso!'}"
+		type="text/javascript">
+		Swal.fire({
+			icon : 'success',
+			title : 'Conta Ativa!',
+			text : 'Sua conta foi ativada!'
+
+		})
+	</script>
 
 </body>
