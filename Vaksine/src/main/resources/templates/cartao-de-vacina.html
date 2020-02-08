@@ -107,7 +107,7 @@
 	
 		<table 
 			style="margin: auto; margin-top: 3%; height: 30%; width: 80%; justify-content: center; text-align: center;"
-			class="table table-bordered table-striped table-dark" th:if="${session.usuario != null}">
+			class="table table-bordered table-striped table-dark" >
 			<thead>
 				<tr>
 					<th scope="col">Vacinas/Doses</th>
@@ -119,36 +119,41 @@
 				</tr>
 			</thead>
 			<tbody>
+				<tr th:if="${listaVacinacoes == null}">
+					<th scope="row" >Hepatite</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
 				<tr th:each="vac:${listaVacinacoes}">
-					<th scope="row">Ebola</th>
+					<th scope="row" ><span th:text="${vac.vacina.nome}"></span></th>
 					<td th:if="${session.usuario != null}">
-					
-						Data: <span th:if="${vac.dose == 1}" th:text="${vac.dataVacinacao}"></span><br>
-						Dose: <span th:if="${vac.dose == 1}" th:text="${vac.dose}"></span><br>
-						Lote: <span th:if="${vac.dose == 1}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
+						Data: <span th:if="${vac.dose == 1 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dataVacinacao}"></span><br>
+						Dose: <span th:if="${vac.dose == 1 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dose}"></span><br>
+						Lote: <span th:if="${vac.dose == 1 && vac.vacina.nome == 'hepatite'}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 						
 						
 						
 					</td>
 					<td th:if="${session.usuario != null}">
 						
-						Data: <span th:if="${vac.dose == 2}" th:text="${vac.dataVacinacao}"></span><br>
+						Data: <span th:if="${vac.dose == 2 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dataVacinacao}"></span><br>
 						Dose: <span th:if="${vac.dose == 2}" th:text="${vac.dose}"></span><br>
 						Lote: <span th:if="${vac.dose == 2}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 						
 					</td>
 					<td th:if="${session.usuario != null}">
 					
-						Data: <span th:if="${vac.dose == 3}" th:text="${vac.dataVacinacao}"></span><br>
-						Dose: <span th:if="${vac.dose == 3}" th:text="${vac.dose}"></span><br>
-						Lote: <span th:if="${vac.dose == 3}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
+						Data: <span th:if="${vac.dose == 3 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dataVacinacao}"></span><br>
+						Dose: <span th:if="${vac.dose == 3 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dose}"></span><br>
+						Lote: <span th:if="${vac.dose == 3 && vac.vacina.nome == 'hepatite'}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 					
 					</td>
 					<td th:if="${session.usuario != null}">
 					
-						Data: <span th:if="${vac.dose == 4}" th:text="${vac.dataVacinacao}"></span><br>
-						Dose: <span th:if="${vac.dose == 4}" th:text="${vac.dose}"></span><br>
-						Lote: <span th:if="${vac.dose == 4}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
+						Data: <span th:if="${vac.dose == 4 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dataVacinacao}"></span><br>
+						Dose: <span th:if="${vac.dose == 4 && vac.vacina.nome == 'hepatite'}" th:text="${vac.dose}"></span><br>
+						Lote: <span th:if="${vac.dose == 4 && vac.vacina.nome == 'hepatite'}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 					
 					</td>
 				</tr>
@@ -158,7 +163,7 @@
 					<th scope="row">Ebola</th>
 					<td th:if="${session.usuario != null}">
 					
-						Data: <span th:if="${vac.dose == 1}" th:text="${vac.dataVacinacao}"></span><br>
+						Data: <span th:if="${vac.dose == 1 && vac.vacina.nome == 'Ebola'}" th:text="${vac.dataVacinacao}"></span><br>
 						Dose: <span th:if="${vac.dose == 1}" th:text="${vac.dose}"></span><br>
 						Lote: <span th:if="${vac.dose == 1}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 						
@@ -186,7 +191,6 @@
 						Lote: <span th:if="${vac.dose == 4}" th:text="${vac.vacina.loteVacina.numeroLote}"></span><br>
 					
 					</td>
-				</tr>
 				</tr>
 				<tr>
 					<th scope="row">Ebola</th>

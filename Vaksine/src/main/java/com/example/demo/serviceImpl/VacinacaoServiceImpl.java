@@ -30,10 +30,11 @@ public class VacinacaoServiceImpl implements VacinacaoService{
 	@Override
 	public Vacinacao efetuarVacinacao(Vacinacao vacinacao) {
 		
-		/**cadastrando a vacina do usuario**/
 		Usuario usuario = usuarioDAO.verificacaoCPF(vacinacao.getUsuario().getCpf());
+		
+		/**cadastrando a vacina do usuario**/
 		Vacina vacina = vacinaDAO.findByNomeIgnoreCase(vacinacao.getVacina().getNome());
-		this.checkFields(usuario);
+		this.checkFields(vacinacao);
 		
 		vacina.getLoteVacina().setQuantidade(vacina.getLoteVacina().getQuantidade() -1);
 		vacina = vacinaDAO.save(vacina);
@@ -47,18 +48,20 @@ public class VacinacaoServiceImpl implements VacinacaoService{
 		return vacinacao;
 	}
 	
-	public void checkFields(Usuario usuario) {
+	public void checkFields(Vacinacao vacinacao) {
+		
+		Usuario usuario = usuarioDAO.verificacaoCPF(vacinacao.getUsuario().getCpf());
 		/**verificando se existe um usuário cadastrado**/
 		if(usuario == null) {
 			throw new ServiceException("Não existe nenhum usuário com esse cpf");
 		}
 		
-		//Optional<Vacinacao> findVacinacao = vacinacaoDAO.findById(vacinacao.getId());
-		
-		//vacinaUsuario.ifPresent(this::teste);
-		/**verificando se o usuario ja recebeu tem uma dose da vacina**/
-		
-		
+//		//Optional<Vacina> findVacina = vacinaDAO.findById(vacinacao.getVacina().getId());
+//		Vacinacao findVacinacao = vacinacaoDAO.find
+//		
+//		if(findvacina.isPresent() && findVacina.get().get) {
+//			throw new ServiceException("Já existe uma vacina, com a mesma dose cadastrada");
+//		}
 	}
 
 	@Override
