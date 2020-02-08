@@ -125,95 +125,112 @@
 
 				<div class="col-md-7 ">
 
-       
 
-<div class="panel panel-default">
-  <div class="panel-heading">  <h4 >Perfil Usuário</h4></div>
-   <div class="panel-body">
+
 					<div class="panel panel-default">
-
-						<div class="panel-body">
-
-							<div class="box box-info">
-
-								<div class="box-body">
-
-									<div class="col-sm-6">
-									
-										<h4 style="color: #00b1b1;">
-										
-											<span th:if="${session.usuario != null}"
-												th:text="${session.usuario.nome}"></span>
-										</h4>
-
-									</div>
-									<div class="clearfix"></div>
-									<hr style="margin: 5px 0 5px 0;">
-
-
-									<div class="col-sm-5 col-xs-6 tital ">Nome:</div>
-									<div class="col-sm-7 col-xs-6 ">
-										<span th:text="${session.usuario.nome}"></span>
-									</div>
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-									
-									<div class="col-sm-5 col-xs-6 tital ">Nome do Pai</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.nomePai}"></div>
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">Nome da Mãe:</div>
-									<div class="col-sm-7">
-										<span th:text="${session.usuario.nomeMae}"></span>
-									</div>
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">Data de Nascimento:</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.dataNas}"></div>
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">CPF:</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.cpf}"></div>
-
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">tipo Sanguineo:</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.tipoSanguineo}"></div>
-
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">Email:</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.email}"></div>
-
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital ">Telefone:</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.telefone}"></div>
-
-									<div class="clearfix"></div>
-									<div class="bot-border"></div>
-
-									<div class="col-sm-5 col-xs-6 tital "> Endereco</div>
-									<div class="col-sm-7"><span th:text="${session.usuario.endereco}"></div>
-
-
-									<!-- /.box-body -->
-								</div>
-								<!-- /.box -->
-
-							</div>
-
-
+						<div class="panel-heading">
+							<h4>Perfil Usuário</h4>
 						</div>
-					</div>
-				</div>
-				<script>
+						<div class="panel-body">
+							<div class="panel panel-default">
+
+								<div class="panel-body">
+
+									<div class="box box-info">
+
+										<div class="box-body">
+
+											<div class="col-sm-6">
+
+												<h4 style="color: #00b1b1;">
+
+													<span th:if="${session.usuario != null}"
+														th:text="${session.usuario.nome}"></span>
+												</h4>
+
+											</div>
+											<div class="clearfix"></div>
+											<hr style="margin: 5px 0 5px 0;">
+
+
+											<div class="col-sm-5 col-xs-6 tital ">Nome:</div>
+											<div class="col-sm-7 col-xs-6 ">
+												<span th:text="${session.usuario.nome}" th:if="${session.usuario != null}"></span>
+											</div>
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Nome do Pai</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.nomePai}" th:if="${session.usuario != null}">
+											</div>
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Nome da Mãe:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.nomeMae}" th:if="${session.usuario != null}"></span>
+											</div>
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Data de
+												Nascimento:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.dataNas}" th:if="${session.usuario != null}">
+											</div>
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">CPF:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.cpf}" th:if="${session.usuario != null}">
+											</div>
+
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">tipo Sanguineo:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.tipoSanguineo}" th:if="${session.usuario != null}">
+											</div>
+
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Email:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.email}" th:if="${session.usuario != null}">
+											</div>
+
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Telefone:</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.telefone}" th:if="${session.usuario != null}">
+											</div>
+
+											<div class="clearfix"></div>
+											<div class="bot-border"></div>
+
+											<div class="col-sm-5 col-xs-6 tital ">Endereco</div>
+											<div class="col-sm-7">
+												<span th:text="${session.usuario.endereco}" th:if="${session.usuario != null}">
+											</div>
+
+
+											<!-- /.box-body -->
+										</div>
+										<!-- /.box -->
+
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<script>
               $(function() {
     $('#profile-image1').on('click', function() {
         $('#profile-image-upload').click();
@@ -229,16 +246,8 @@
 
 
 
-			</div>
-		</div>
-
-
-
-
-
-
-
-
+					</div>
+				</div>
 	</section>
 
 
