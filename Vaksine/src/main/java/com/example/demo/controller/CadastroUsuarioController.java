@@ -30,7 +30,6 @@ import com.example.demo.model.Agente;
 import com.example.demo.model.Email;
 import com.example.demo.model.Posto;
 import com.example.demo.model.Usuario;
-import com.example.demo.model.Vacina;
 import com.example.demo.serviceImpl.AgenteServiceImpl;
 import com.example.demo.serviceImpl.EmailServicelmpl;
 import com.example.demo.serviceImpl.PostoServiceImpl;
@@ -218,16 +217,20 @@ public class CadastroUsuarioController {
 	}
 	
 	@PostMapping("/perfil/editar")
-	public String editarPefil(@ModelAttribute Usuario usuario,RedirectAttributes ra,HttpSession session) {
+	public String editarPefil(@ModelAttribute Usuario usuario,RedirectAttributes ra,HttpSession session, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "redirect:/editalPerfil";
+		}
 
-		Usuario usuarioSessao = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
 		usuario.setId(usuarioSessao.getId());
 		usuario = this.usuarioService.editarPerfil(usuario,session);
 		this.usuarioService.save(usuario);
-		session.setAttribute("usuarioLogado", usuario);
+		session.setAttribute("usuario", usuario);
 		ra.addFlashAttribute("sucesso", "Alteração realizada com sucesso");
 		
-		return"redirect:/editarPerfil";
+		return"redirect:/perfilusuario";
 	}
 	
 	@GetMapping("/editarPerfil")
