@@ -30,7 +30,6 @@ import com.example.demo.model.Agente;
 import com.example.demo.model.Email;
 import com.example.demo.model.Posto;
 import com.example.demo.model.Usuario;
-import com.example.demo.model.Vacina;
 import com.example.demo.serviceImpl.AgenteServiceImpl;
 import com.example.demo.serviceImpl.EmailServicelmpl;
 import com.example.demo.serviceImpl.PostoServiceImpl;
