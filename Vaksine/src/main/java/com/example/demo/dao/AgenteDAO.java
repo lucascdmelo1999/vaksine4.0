@@ -12,10 +12,11 @@ public interface AgenteDAO extends JpaRepository<Agente, Integer>{
 
 	Agente findByCpf(String cpf);
 	
-	@Query("select c from Posto c where c.email = :email")
-	public Agente verificacaoEmailAgente(String email);
+	@Query("select c from Agente c where c.email = :email")
+	public Agente verificacaoEmailAgente(@Param("email") String email);
 	
 	Agente findByEmail(String email);
+	
 	Agente findByEmailAndSenha(String email, String senha);
 	
 	@Query("select c from Agente c where c.email = :email and c.senha = :senha")
