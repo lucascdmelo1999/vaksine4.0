@@ -106,14 +106,12 @@ public class UsuarioServiceImpl implements UsuarioService {
 			
 		user.setCpf(usuario.getCpf());
 		user.setDataNas(usuario.getDataNas());
-		user.setEmail(usuario.getEmail());
 		user.setNome(usuario.getNome());
 		user.setNomeMae(usuario.getNome());
 		user.setNomePai(usuario.getNomePai());
 		user.setTipoSanguineo(usuario.getTipoSanguineo());
 		user.setTelefone(usuario.getTelefone());
-		user.setSenha(usuario.getSenha());	
-		
+		usuarioDAO.save(user);
 		return user;
 	}
 

@@ -217,16 +217,19 @@ public class CadastroUsuarioController {
 	}
 	
 	@PostMapping("/perfil/editar")
-	public String editarPefil(@ModelAttribute Usuario usuario,RedirectAttributes ra,HttpSession session) {
+	public String editarPefil(@ModelAttribute Usuario usuario,RedirectAttributes ra,HttpSession session, BindingResult result) {
+		
+		if (result.hasErrors()) {
+			return "redirect:/editalPerfil";
+		}
 
-		Usuario usuarioSessao = (Usuario) session.getAttribute("usuarioLogado");
+		Usuario usuarioSessao = (Usuario) session.getAttribute("usuario");
 		usuario.setId(usuarioSessao.getId());
 		usuario = this.usuarioService.editarPerfil(usuario,session);
-		this.usuarioService.save(usuario);
-		session.setAttribute("usuarioLogado", usuario);
+		session.setAttribute("usuario", usuario);
 		ra.addFlashAttribute("sucesso", "Alteração realizada com sucesso");
 		
-		return"redirect:/editarPerfil";
+		return"redirect:/perfilusuario";
 	}
 	
 	@GetMapping("/editarPerfil")
@@ -241,15 +244,18 @@ public class CadastroUsuarioController {
 		return mv;
 		
 		}
-		Usuario usuario=(Usuario) session.getAttribute("usuario");
-		mv.addObject(usuario);
-		return mv;
+			Object usuario;
+			Usuario usuario1=(Usuario) session.getAttribute("usuario");
+		
+			mv.addObject(usuario1);
+			return mv;
+	
+		
 	}
 	
-	/*@GetMapping("/editarPerfil")
-	public String editandoUsuario() {
-		return"/editar-perfil";
-	}*/
+	
+	
+	
 	
 	@GetMapping("/perfilusuario")
 	public String perfilusuario() {

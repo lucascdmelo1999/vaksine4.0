@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.dao.UsuarioDAO;
+import com.example.demo.dao.VacinaDAO;
 import com.example.demo.dao.VacinacaoDAO;
+import com.example.demo.dto.VacinacaoDTO;
 import com.example.demo.model.Usuario;
 import com.example.demo.model.Vacinacao;
 
@@ -23,6 +25,9 @@ public class PaginaInicialController {
 	@Autowired
 	UsuarioDAO usuarioDAO;
 
+	@Autowired
+	VacinaDAO vacinaDAO;
+	
 	@GetMapping("/paginainicial")
 	public String paginainicial() {
 		return "index";
@@ -30,9 +35,11 @@ public class PaginaInicialController {
 
 	@GetMapping("/cartao")
 	public String cartao(Vacinacao vacinacao, Model model, HttpSession session) {
+		
 
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		List<Vacinacao> resultado = this.vacinacaoDAO.listarVacinacoes(usuario.getId());
+		List <Vacinacao> resultado = (List<Vacinacao>)(Object) this.vacinaDAO.findVacinaWithFilter1(usuario.getId()); 
+		//List<Vacinacao> resultado = this.vacinacaoDAO.listarVacinacoes(usuario.getId());
 //		for (Vacinacao s: resultado) {
 //			System.out.println(s);
 //		}

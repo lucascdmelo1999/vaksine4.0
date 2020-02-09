@@ -51,7 +51,9 @@ public class VacinaController {
 
 	@GetMapping("/vacinalist") 
 	public String listarVacina(Vacina vacina, Model model) {
-		model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
+		if(vacina != null) {
+			model.addAttribute("listaVacinas", this.vacinaDAO.findAll(Sort.by("id")));
+		}
 		return "/lista-vacina";
 	}
 	
@@ -111,13 +113,18 @@ public class VacinaController {
 		return "/editar-vacina";
 	}
 
-	@GetMapping("/deletarvacina")
-	public String deletarVacina(Integer id,Vacina vacina, RedirectAttributes ra) {
-		ra.addFlashAttribute("messagem", "vacina deletada");
-		vacinaDAO.deleteById(id);
+	@PostMapping("/deletarvacina")
+	public String deletarVacina(Integer id, RedirectAttributes ra, boolean mensagemDelete) {
+		
+		System.out.println("BBBBB: " + id + " | " + mensagemDelete);
+		if(mensagemDelete) {
+			vacinaDAO.deleteById(id);
+		}
+//		
 		return "redirect:/vacinalist";
 
 	}
+
 
 	/*
 	 * @GetMapping("/listarvacinas") public String listarVacinas(Model model) {
