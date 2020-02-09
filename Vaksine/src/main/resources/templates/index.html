@@ -64,13 +64,18 @@
 
 				<ul class="navbar-nav nav-dropdown nav-right"
 					data-app-modern-menu="true">
-					<li class="nav-item"><a
+					<li th:if="${session.postoLogado == null && session.agentelogado == null}"
+						class="nav-item"><a
 						class="nav-link link text-white display-4" th:href="@{/quemsomos}"><span
 							class="mbri-play mbr-iconfont mbr-iconfont-btn"></span>Quem somos</a></li>
-					<li class="nav-item"><a
+							
+					<li th:if="${session.postoLogado == null && session.agentelogado == null}"
+						class="nav-item"><a
 						class="nav-link link text-white display-4" th:href="@{/contato}"><span
 							class="mbri-tablet-vertical mbr-iconfont mbr-iconfont-btn"></span>Contato</a></li>
-					<li th:if="${session.usuario == null}" class="nav-item"><a
+					<li
+						th:if="${session.usuario == null && session.postoLogado == null && session.agentelogado == null}"
+						class="nav-item"><a
 						class="nav-link link text-white display-4"
 						th:href="@{/loginusuario}"><span
 							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span>Login</a></li>
@@ -91,6 +96,37 @@
 								class="text-white dropdown-item display-4"
 								th:href="@{/deslogar}" aria-expanded="false">Sair</a>
 						</div></li>
+
+					<li class="nav-item dropdown open"><a
+						th:if="${session.postoLogado != null}"
+						class="nav-link link text-white dropdown-toggle display-4"
+						th:href="@{/paginainicial}" data-toggle="dropdown-submenu"
+						aria-expanded="true"><span
+							class="mbri-user mbr-iconfont mbr-iconfont-btn"></span> <span
+							th:if="${session.postoLogado != null}"
+							th:text="${session.postoLogado.nomePosto}"></span></a>
+						<div class="dropdown-menu">
+							<a class="text-white dropdown-item display-4"
+								th:href="@{/admposto}">Configurações</a><a
+								class="text-white dropdown-item display-4"
+								th:href="@{/deslogar}" aria-expanded="false">Sair</a>
+						</div></li>
+					<ul class="navbar-nav nav-dropdown nav-right"
+						data-app-modern-menu="true">
+						<li class="nav-item dropdown open"><a
+							th:if="${session.agentelogado != null}"
+							class="nav-link link text-white dropdown-toggle display-4"
+							th:href="@{/paginainicial}" data-toggle="dropdown-submenu"
+							aria-expanded="true"><span
+								class="mbri-user mbr-iconfont mbr-iconfont-btn"></span> <span
+								th:if="${session.agentelogado != null}"
+								th:text="${session.agentelogado.nome}"></span></a>
+							<div class="dropdown-menu">
+								<a class="text-white dropdown-item display-4"
+									th:href="@{/perfilagente}">Configurações</a><a
+									class="text-white dropdown-item display-4"
+									th:href="@{/deslogar}" aria-expanded="false">Sair</a>
+							</div></li></ul></ul>
 			</div>
 		</nav>
 	</section>
@@ -117,15 +153,35 @@
 			<h3 id="texto2" class="text-sm-left ">
 				<small>Você não irá mais perde seu cartão de vacina!<small>
 			</h3>
-			<div id="botao" th:if="${session.usuario == null}"
+			<div id="botao"
+				th:if="${session.usuario == null && session.postoLogado == null && session.agentelogado == null}"
 				class="mbr-section-btn">
 				<a class="btn btn-md btn-primary display-6" th:href="@{/cadUsuario}">Cadastre-se</a>
 			</div>
-			<div id="botao" th:if="${session.usuario == null}"
+			
+			<div id="botao"
+				th:if="${session.postoLogado}"
+				class="mbr-section-btn">
+				<a class="btn btn-md btn-primary display-6" th:href="@{/cadAgente}">Cadastrar Agente</a>
+			</div>
+			
+			<div id="botao"
+				th:if="${session.postoLogado}"
+				class="mbr-section-btn">
+				<a class="btn btn-md btn-primary display-6" th:href="@{/vacinacao}">Aplicar Vacina</a>
+			</div>
+			
+			
+			
+			
+		<!--	<div id="botao"
+				th:if="${session.usuario == null && session.postoLogado == null && session.agentelogado != null}"
 				class="mbr-section-btn">
 				<a class="btn btn-md btn-primary display-6"
 					th:href="@{/cadastroposto}">Cadastrar Posto</a>
-			</div>
+			</div> -->
+			
+			
 			<div id="" th:if="${session.usuario != null}" class="mbr-section-btn">
 				<a class="btn btn-md btn-primary display-6" th:href="@{/cartao}">Visualizar
 					Cartão</a>
