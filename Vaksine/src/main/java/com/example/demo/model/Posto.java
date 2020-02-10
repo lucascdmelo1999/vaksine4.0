@@ -29,6 +29,16 @@ public class Posto {
 	
 	private String codigoUsuario;
 	
+	private Funcao funcao;
+	
+	public Funcao getFuncao() {
+		return funcao;
+	}
+
+	public void setFuncao(Funcao funcao) {
+		this.funcao = funcao;
+	}
+
 	@OneToMany
 	private List<Vacina> vacina;
 	

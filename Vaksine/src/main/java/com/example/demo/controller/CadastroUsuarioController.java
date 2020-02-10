@@ -254,9 +254,6 @@ public class CadastroUsuarioController {
 	}
 	
 	
-	
-	
-	
 	@GetMapping("/perfilusuario")
 	public String perfilusuario() {
 		return"/perfil-usuario";

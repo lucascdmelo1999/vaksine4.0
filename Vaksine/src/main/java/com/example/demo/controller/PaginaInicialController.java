@@ -27,19 +27,25 @@ public class PaginaInicialController {
 
 	@Autowired
 	VacinaDAO vacinaDAO;
-	
+
 	@GetMapping("/paginainicial")
 	public String paginainicial() {
 		return "index";
 	}
 
+	@GetMapping("/naoencontrada")
+	public String naoencontrada() {
+
+		return "naoencontrado";
+	}
+
 	@GetMapping("/cartao")
 	public String cartao(Vacinacao vacinacao, Model model, HttpSession session) {
-		
 
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		List <Vacinacao> resultado = (List<Vacinacao>)(Object) this.vacinaDAO.findVacinaWithFilter1(usuario.getId()); 
-		//List<Vacinacao> resultado = this.vacinacaoDAO.listarVacinacoes(usuario.getId());
+		List<Vacinacao> resultado = (List<Vacinacao>) (Object) this.vacinaDAO.findVacinaWithFilter1(usuario.getId());
+		// List<Vacinacao> resultado =
+		// this.vacinacaoDAO.listarVacinacoes(usuario.getId());
 //		for (Vacinacao s: resultado) {
 //			System.out.println(s);
 //		}

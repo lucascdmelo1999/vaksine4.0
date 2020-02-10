@@ -18,6 +18,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.UsuarioDAO;
+import com.example.demo.model.Funcao;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
 import com.example.demo.util.Util;
@@ -85,7 +86,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 				}
 				this.emailService.enviarConfirmacaoDeConta(usuario);		
 				//usuario.setCartaoVacina(cartao);
-				
+				usuario.setFuncao(Funcao.Usuario);
 				this.usuarioDAO.save(usuario);
 				return true;
 				}

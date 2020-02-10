@@ -28,7 +28,14 @@ public class Usuario {
 	private String senha;
 	private String token;
 	private int ativo=0;
+	private Funcao funcao;
 	
+	public Funcao getFuncao() {
+		return funcao;
+	}
+	public void setFuncao(Funcao funcao) {
+		this.funcao = funcao;
+	}
 	@OneToMany(mappedBy="usuario", cascade= {CascadeType.ALL})
 	private List<Vacinacao> vacinacao;
 	
