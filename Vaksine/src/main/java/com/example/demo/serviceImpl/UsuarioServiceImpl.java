@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.dao.UsuarioDAO;
+import com.example.demo.model.Funcao;
 import com.example.demo.model.Usuario;
 import com.example.demo.service.UsuarioService;
 import com.example.demo.util.Util;
@@ -85,7 +86,8 @@ public class UsuarioServiceImpl implements UsuarioService {
 					// TODO: handle exception
 				}
 				this.emailService.enviarConfirmacaoDeConta(usuario);		
-				
+				//usuario.setCartaoVacina(cartao);
+				usuario.setFuncao(Funcao.Usuario);
 				this.usuarioDAO.save(usuario);
 				return true;
 	}

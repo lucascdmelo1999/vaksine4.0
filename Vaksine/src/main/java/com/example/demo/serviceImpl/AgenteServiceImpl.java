@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.AgenteDAO;
 import com.example.demo.model.Agente;
+import com.example.demo.model.Funcao;
 import com.example.demo.model.Posto;
 import com.example.demo.service.AgenteService;
 import com.example.demo.util.Util;
@@ -39,6 +40,7 @@ public class AgenteServiceImpl implements AgenteService {
 			senhaCriptografada = Util.criptografarSenha(agente.getSenha());
 			agente.setSenha(senhaCriptografada);
 			agente.setCodigoUsuario("ADMAGENTE");
+			agente.setFuncao(Funcao.Agente);
 			return agenteDAO.save(agente);
 		}catch(Exception e) {
 			

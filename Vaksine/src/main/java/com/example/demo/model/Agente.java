@@ -26,6 +26,16 @@ public class Agente {
 	private String codigoUsuario;
 	
 	private byte[] foto;
+	
+	private Funcao funcao;
+
+	public Funcao getFuncao() {
+		return funcao;
+	}
+
+	public void setFuncao(Funcao funcao) {
+		this.funcao = funcao;
+	}
 
 	public Integer getMatricula() {
 		return matricula;
