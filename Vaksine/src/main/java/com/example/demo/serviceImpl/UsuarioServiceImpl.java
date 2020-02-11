@@ -17,6 +17,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.dao.AgenteDAO;
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.model.Funcao;
 import com.example.demo.model.Usuario;
@@ -72,9 +73,9 @@ public class UsuarioServiceImpl implements UsuarioService {
 		if (this.verificacaoEmail(usuario.getEmail()) != null) {
 			throw new ServiceException("Já existe um usuário com este e-mail");
 		}
-		else if (this.verificacaoCPF(usuario.getCpf()) != null) {
+		if (this.verificacaoCPF(usuario.getCpf()) != null) {
 			throw new ServiceException("Já existe um usuário com este cpf");
-		}  else {
+		}
 				usuario.setToken(UUID.randomUUID().toString());
 				System.out.println(UUID.randomUUID().toString());
 				String senhaCriptografada;
@@ -89,7 +90,6 @@ public class UsuarioServiceImpl implements UsuarioService {
 				usuario.setFuncao(Funcao.Usuario);
 				this.usuarioDAO.save(usuario);
 				return true;
-				}
 	}
 	
 	public Usuario logarUsuario(String email, String senha) throws ServiceException, NoSuchAlgorithmException, UnsupportedEncodingException {	

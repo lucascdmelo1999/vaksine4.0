@@ -20,7 +20,7 @@ public class Acesso implements HandlerInterceptor {
 
 	private static final String RECURSOS_Login = "/usuariosLogin";
 
-	private static final String[] RECURSOS_User = {"/ativarConta", "/perfil/editar","/editarPerfil","/perfilusuario"};
+	private static final String[] RECURSOS_User = {"/ativarConta", "/perfil/editar","/editarPerfil","/perfilusuario","/cartao"};
 
 	private static final String[] RECURSOS_Agente = { "/vacinaform", "/cadastroposto", "/editarFormVacina",
 			"/vacinacaoDeletar", "/vacinalist", "/pesquisarvacina", "vacinaCadastro", "/vacinaEditar", "/editarvacina",
