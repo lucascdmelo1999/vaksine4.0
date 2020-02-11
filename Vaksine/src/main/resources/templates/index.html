@@ -146,9 +146,7 @@
 			<h1 id="texto1" class="text-sm-left  mbr-fonts-style display-1">
 				<span>Seu cartão de vacina em suas mãos.</span>
 			</h1>
-			<h1 id="texto1" class="text-sm-left  mbr-fonts-style display-1">
-				<span th:if="${session.usuarioLogado != null}">AAAAAAAAAA</span>
-			</h1>
+			
 
 			<h3 id="texto2" class="text-sm-left ">
 				<small>Você não irá mais perde seu cartão de vacina!<small>
@@ -156,7 +154,7 @@
 			<div id="botao"
 				th:if="${session.usuario == null && session.postoLogado == null && session.agentelogado == null}"
 				class="mbr-section-btn">
-				<a class="btn btn-md btn-primary display-6" th:href="@{/cadUsuario}">Cadastre-se</a>
+				<a class="text-sm-left btn btn-md btn-primary display-6" th:href="@{/cadUsuario}">Cadastre-se</a>
 			</div>
 			
 			<div id="botao"
@@ -189,7 +187,7 @@
 
 		</div>
 		<div class="computadorDiv">
-			<img id="computadorimg" src="./assets/images/computador.png">
+			<img id="computadorimg" src="./assets/images/computadordefi.png">
 		</div>
 	</section>
 
