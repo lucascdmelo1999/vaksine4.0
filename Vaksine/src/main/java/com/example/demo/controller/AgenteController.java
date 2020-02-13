@@ -106,5 +106,11 @@ public class AgenteController {
 	public String perfilagente() {
 		return "perfil-agente";
 	}
+	
+	@GetMapping("/admagente")
+	public String admagente() {
+		return "admagente";
+	}
+	
 
 }
