@@ -111,15 +111,15 @@
 	<section class="engine"></section>
 	<section class="cid-qTkA127IK8 mbr-fullscreen " id="header2-1">
 
-		<div>
+		<!-- <div>
 			<a href="/editarPosto" class="waves-effect waves-light btn "><i
 				class="material-icons left">tag_faces</i>Editar Perfil</a> <br> <!-- <a
 				href="#" class="waves-effect waves-light btn"><i
 				class="material-icons left">visibility</i>Visualizar Cartão</a> <br>
 			<a href="#" class="waves-effect waves-light btn"><i
-				class="material-icons left">file_download</i>Download Cartão</a> -->
+				class="material-icons left">file_download</i>Download Cartão</a> 
 
-		</div>
+		</div> -->
 
 		<div class="container">
 			<div class="row">
@@ -129,7 +129,9 @@
 				<div class="col-md-7 ">
 
 <div class="panel panel-default">
-  <div class="panel-heading">  <h4 >Perfil Posto</h4></div>
+  <div class="panel-heading">  
+  <h4 >Perfil Posto</h4>
+  </div>
    <div class="panel-body">
 					<div class="panel panel-default">
 
@@ -152,30 +154,30 @@
 
 									<div class="col-sm-5 col-xs-6 tital ">Nome do posto:</div>
 									<div class="col-sm-7 col-xs-6 ">
-										<span th:text="${session.postoLogado.nomePosto}"></span>
+										<span th:if="${session.postoLogado != null}" th:text="${session.postoLogado.nomePosto}"></span>
 									</div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 									
 									<div class="col-sm-5 col-xs-6 tital ">Email:</div>
-									<div class="col-sm-7"><span th:text="${session.postoLogado.email}"></span></div>
+									<div class="col-sm-7"><span th:if="${session.postoLogado != null}" th:text="${session.postoLogado.email}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">Telefone:</div>
 									<div class="col-sm-7">
-										<span th:text="${session.postoLogado.telefone}"></span>
+										<span th:if="${session.postoLogado != null}" th:text="${session.postoLogado.telefone}"></span>
 									</div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">Endereco:</div>
-									<div class="col-sm-7"><span th:text="${session.postoLogado.endereco}"></span></div>
+									<div class="col-sm-7"><span th:if="${session.postoLogado != null}" th:text="${session.postoLogado.endereco}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">Codigo do Posto:</div>
-									<div class="col-sm-7"><span th:text="${session.postoLogado.codigoPosto}"></span></div>
+									<div class="col-sm-7"><span th:if="${session.postoLogado != null}" th:text="${session.postoLogado.codigoPosto}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
@@ -16,7 +16,7 @@
 
 
 
-<title>Perfil Agente<title>
+<title>Perfil Agente</title>
 <link rel="stylesheet"
 	href="assets/web/assets/mobirise-icons/mobirise-icons.css">
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
@@ -109,15 +109,15 @@
 	<section class="engine"></section>
 	<section class="cid-qTkA127IK8 mbr-fullscreen " id="header2-1">
 
-		<div>
+		<!-- <div>
 			<a href="/editarAgente" class="waves-effect waves-light btn "><i
 				class="material-icons left">tag_faces</i>Editar Perfil</a> <br> <!-- <a
 				href="#" class="waves-effect waves-light btn"><i
 				class="material-icons left">visibility</i>Visualizar Cartão</a> <br>
 			<a href="#" class="waves-effect waves-light btn"><i
-				class="material-icons left">file_download</i>Download Cartão</a> -->
+				class="material-icons left">file_download</i>Download Cartão</a>
 
-		</div>
+		</div> -->
 
 		<div class="container">
 			<div class="row">
@@ -150,35 +150,35 @@
 
 									<div class="col-sm-5 col-xs-6 tital ">Matricula:</div>
 									<div class="col-sm-7 col-xs-6 ">
-										<span th:text="${session.agentelogado.matricula}"></span>
+										<span th:if="${session.agentelogado != null}" th:text="${session.agentelogado.matricula}"></span>
 									</div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 									
 									<div class="col-sm-5 col-xs-6 tital ">Nome</div>
-									<div class="col-sm-7"><span th:text="${session.agentelogado.nome}"></div>
+									<div class="col-sm-7"><span th:if="${session.agentelogado != null}" th:text="${session.agentelogado.nome}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">CPF:</div>
 									<div class="col-sm-7">
-										<span th:text="${session.agentelogado.cpf}"></span>
+										<span  th:if="${session.agentelogado != null}" th:text="${session.agentelogado.cpf}"></span>
 									</div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">RG:</div>
-									<div class="col-sm-7"><span th:text="${session.agentelogado.rg}"></div>
+									<div class="col-sm-7"><span  th:if="${session.agentelogado != null}" th:text="${session.agentelogado.rg}"> </span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
 									<div class="col-sm-5 col-xs-6 tital ">Email:</div>
-									<div class="col-sm-7"><span th:text="${session.agentelogado.email}"></div>
+									<div class="col-sm-7"><span th:if="${session.agentelogado != null}" th:text="${session.agentelogado.email}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 									
 									<div class="col-sm-5 col-xs-6 tital ">Data do Nascimento:</div>
-									<div class="col-sm-7"><span th:text="${session.agentelogado.dataNascimento}"></div>
+									<div class="col-sm-7"><span th:if="${session.agentelogado != null}" th:text="${session.agentelogado.dataNascimento}"></span></div>
 									<div class="clearfix"></div>
 									<div class="bot-border"></div>
 
@@ -206,7 +206,8 @@
 
 
 
-
+</div>
+</div>
 
 
 
