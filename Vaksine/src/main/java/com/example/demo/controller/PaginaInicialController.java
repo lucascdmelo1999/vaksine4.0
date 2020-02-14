@@ -43,9 +43,8 @@ public class PaginaInicialController {
 	public String cartao(Vacinacao vacinacao, Model model, HttpSession session) {
 
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		List<Vacinacao> resultado = (List<Vacinacao>) (Object) this.vacinaDAO.findVacinaWithFilter1(usuario.getId());
-		// List<Vacinacao> resultado =
-		// this.vacinacaoDAO.listarVacinacoes(usuario.getId());
+		//List<Vacinacao> resultado = (List<Vacinacao>) (Object) this.vacinaDAO.findVacinaWithFilter1(usuario.getId());
+		 List<Vacinacao> resultado = this.vacinacaoDAO.listarVacinacoes(usuario.getId());
 //		for (Vacinacao s: resultado) {
 //			System.out.println(s);
 //		}

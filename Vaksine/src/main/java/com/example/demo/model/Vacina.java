@@ -16,8 +16,6 @@ public class Vacina {
 	@Id
 	@GeneratedValue
 	private Integer id;
-	
-	@NotBlank(message="Informe o nome da vacina")
 	private String nome;
 	
 	@OneToOne
