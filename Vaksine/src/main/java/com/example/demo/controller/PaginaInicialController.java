@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.demo.dao.UsuarioDAO;
 import com.example.demo.dao.VacinaDAO;
 import com.example.demo.dao.VacinacaoDAO;
-import com.example.demo.dto.VacinacaoDTO;
 import com.example.demo.model.Usuario;
 import com.example.demo.model.Vacinacao;
 
